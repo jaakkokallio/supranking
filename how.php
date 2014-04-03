@@ -24,7 +24,7 @@
     <p>Vinnaren av Svenska SUP Race Serien utses baserat på flest antal totalpoäng vid säsongens slut (efter finalen).</p>
     <br />
     <h3 id="rub-why-license">Varför behöver jag tävlingslicens?</h3>
-    <p>Enligt Svenska Kanotförbundets tävlingsbestämmelser ska alla kanotister och Stå-upp paddlare inneha licens från och med 1 januari det kalenderår man fyller 17 Âr.</p>
+    <p>Enligt Svenska Kanotförbundets tävlingsbestämmelser ska alla kanotister och Stå-upp paddlare inneha licens från och med 1 januari det kalenderår man fyller 17 år.</p>
     <p>Varje licenstagare är genom licensen olycksfallsförsäkrad i Folksam. Licensförsäkringen gäller under tävlingar och träningar samt vid resa till och från dessa.</p>
     <br />
     <h3 id="rub-how-license">Hur skaffar jag tävlingslicens?</h3>
