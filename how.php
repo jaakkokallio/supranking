@@ -64,7 +64,7 @@
     <h3 id="rub-how-points">Hur mycket poäng kan jag egentligen få?</h3>
     <p>Din rankingpoäng beräknas utifrån dina 6 bästa prestationer under säsongen för respektive disciplin (sprint och distans).
     </p>
-    <p>Det optimala är alltså att man deltar på minst 6 deltävlingar och kör bÂde distans och sprint. Skulle man inte prestera på topp på dessa 6 event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
+    <p>Det optimala är alltså att man deltar på minst 6 deltävlingar och kör både distans och sprint. Skulle man inte prestera på topp på dessa 6 event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
     </p>
 
 <!--    <p><em>Exempel:</em></p>
