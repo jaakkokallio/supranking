@@ -62,9 +62,9 @@ section.sidebar {float:right !important;}
 aside {clear:both !important;}
 
 footer {clear:both; height:4em; text-align:center}
-footer p {margin:0 auto; color:white; }
+footer p {margin:0 auto; color:white; text-shadow: 0 2px 2px #000000; }
 footer a {
-    text-shadow:none;
+    text-shadow: 0 2px 2px #000000;
     color:#f0f0f0;
 }
 footer a:hover {
@@ -313,6 +313,7 @@ div.DTFC_LeftFootWrapper table {
     text-shadow:none;
     color:#f0f0f0;
     font-weight:normal;
+	text-shadow: 0 2px 2px #000000;
 }
 .navbar .nav > li > a:hover {
     color:white;
@@ -322,12 +323,13 @@ div.DTFC_LeftFootWrapper table {
     box-shadow:none;
     color:#252525;
     background:none;
+	text-shadow: none;
 }
 @media (max-width: 460px) {
     header#top-header {height:auto;}
      #topLogo a {display:none;}
 
-#topLogo-mini a {display:block;}
+	#topLogo-mini a {display:block;}
 }
 @media (max-width: 767px) {
     header#top-header {margin-left:-1em;}
@@ -348,6 +350,7 @@ div.DTFC_LeftFootWrapper table {
 
     .navbar .nav > li > a {
         color:#0088CC;
+		text-shadow: none;
     }
     .navbar .nav > li > a:hover {
         color:#252525;
