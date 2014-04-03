@@ -5,7 +5,7 @@
 	define("DATABASE_DATABASE",	"supranking");
 
 	define("ADMIN_USERNAME", "admin");
-	define("ADMIN_PASSWORD", "d033e22ae348aeb5660fc2140aec35850c4da997");
+	define("ADMIN_PASSWORD", "505e98d9f877a2fdbd16f4b956a0b922885d8477");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 6);
 ?>
