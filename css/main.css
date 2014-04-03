@@ -1,0 +1,369 @@
+/* 
+    Document   : main
+    Created on : 2013-maj-02, 09:34:27
+    Author     : Jacob
+    Description:
+        Basic css
+*/
+
+
+root { 
+    display: block;
+}
+
+img {
+    border:1px solid #f3f3f3;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 2px 2px 2px #888;
+    -webkit-box-shadow: 2px 2px 2px #888;
+    box-shadow: 2px 2px 2px #888;
+}
+.container {margin:0 auto;}
+.header-wrapper { padding-left:19px;}
+header#top-header {height:200px;}
+#topLogo a {
+    display:block;
+    width:292px;
+    height:177px;
+    background:url(../images/ssrs-logo.png);
+    color:transparent;
+
+}
+
+#topLogo-mini a {
+    display:none;
+    width:200px;
+    height:120px;
+    background:url(../images/ssrs-logo-mini.png);
+    color:transparent;
+    margin:0 auto;
+
+}
+
+.ranking-list-container {
+    float:left;
+}
+#information {padding:3em;}
+header.rl-menu {
+    padding:1em 0;
+    clear:both;
+}
+
+.well {
+    -moz-box-shadow: 2px 2px 2px #333;
+    -webkit-box-shadow: 2px 2px 2px #333;
+    box-shadow: 2px 2px 2px #333;
+    border: none;
+}
+
+#genderMale, #genderFemale {display:none;}
+section.sidebar {float:right !important;}
+aside {clear:both !important;}
+
+footer {clear:both; height:4em; text-align:center}
+footer p {margin:0 auto; color:white; }
+footer a {
+    text-shadow:none;
+    color:#f0f0f0;
+}
+footer a:hover {
+    color:white;
+}
+
+.nowrap {
+	white-space: nowrap !important;
+}
+
+.align_right {
+	text-align: right !important;
+}
+
+/* Datatables */
+
+div.dataTables_length label {
+    margin-top:2px;
+    float: left;
+    text-align: left;
+}
+
+div.dataTables_length select {
+    width: 75px;
+    margin-top:-2px;
+}
+
+div.dataTables_filter label {
+    float: right;
+}
+
+div.dataTables_info {
+    padding-top: 8px;
+}
+
+div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+
+table.table {
+    clear: both;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+table.table thead .sorting { background: url('../images/sort_both.png') no-repeat center right; }
+table.table thead .sorting_asc { background: url('../images/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('../images/sort_desc.png') no-repeat center right; }
+
+table.table thead .sorting_asc_disabled { background: url('../images/sort_asc_disabled.png') no-repeat center right; }
+table.table thead .sorting_desc_disabled { background: url('../images/sort_desc_disabled.png') no-repeat center right; }
+
+table.dataTable th:active {
+    outline: none;
+}
+
+table.table thead th span {color:#999; font-size:.8em; font-weight:normal;}
+
+table.ranking-list tbody tr td, table.ranking-list tbody tr th, table.result-list tbody tr td {
+	cursor: pointer;
+}
+
+.table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+    background-color: #e9edf5;
+}
+
+/* Competitor details */
+
+.competitor-details .modal-body table:last-child {
+	margin-bottom: 45px !important;
+}
+
+.competitor-details .modal-footer h4, .competitor-details .modal-footer p {
+	line-height: 24px;
+}
+
+.competitor-details .modal-footer h4 {
+	width: 80px;
+	text-align: left;
+	float: left;
+	margin: 5px 0 5px 0;
+}
+
+.competitor-details .modal-footer p {
+	width: 120px;
+	margin: 5px 0 5px 30px;
+	float: right;
+}
+
+.competitor-details .modal-footer p {
+	font-size: 14px;
+}
+
+.competitor-details .modal-footer p span.badge {
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0 0 0 5px;
+	padding: 4px 8px 4px 8px;
+}
+
+.competitor-details .points_not_added_to_sum {
+	text-decoration: line-through;
+	font-style: italic;
+	color: #999999;
+}
+
+/* Scrolling */
+div.dataTables_scrollHead table {
+    margin-bottom: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+div.dataTables_scrollHead table thead tr:last-child th:first-child,
+div.dataTables_scrollHead table thead tr:last-child td:first-child {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+div.dataTables_scrollBody table {
+    border-top: none;
+    margin-bottom: 0 !important;
+}
+
+div.dataTables_scrollBody tbody tr:first-child th,
+div.dataTables_scrollBody tbody tr:first-child td {
+    border-top: none;
+}
+
+div.dataTables_scrollFoot table {
+    border-top: none;
+}
+
+/*
+ * TableTools styles
+*/
+.table tbody tr.active td,
+.table tbody tr.active th {
+    background-color: #08C;
+    color: white;
+}
+
+.table tbody tr.active:hover td,
+.table tbody tr.active:hover th {
+    background-color: #0075b0 !important;
+}
+
+.table-striped tbody tr.active:nth-child(odd) td,
+.table-striped tbody tr.active:nth-child(odd) th {
+    background-color: #017ebc;
+}
+
+table.DTTT_selectable tbody tr {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+div.DTTT .btn {
+    color: #333 !important;
+    font-size: 12px;
+}
+
+div.DTTT .btn:hover {
+    text-decoration: none !important;
+}
+
+
+ul.DTTT_dropdown.dropdown-menu a {
+    color: #333 !important; /* needed only when demo_page.css is included */
+}
+
+ul.DTTT_dropdown.dropdown-menu li:hover a {
+    background-color: #0088cc;
+    color: white !important;
+}
+
+/* TableTools information display */
+div.DTTT_print_info.modal {
+    height: 150px;
+    margin-top: -75px;
+    text-align: center;
+}
+
+div.DTTT_print_info h6 {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 28px;
+    margin: 1em;
+}
+
+div.DTTT_print_info p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+
+/*
+ * FixedColumns styles
+*/
+div.DTFC_LeftHeadWrapper table,
+div.DTFC_LeftFootWrapper table,
+table.DTFC_Cloned tr.even {
+    background-color: white;
+}
+
+div.DTFC_LeftHeadWrapper table {
+    margin-bottom: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+div.DTFC_LeftHeadWrapper table thead tr:last-child th:first-child,
+div.DTFC_LeftHeadWrapper table thead tr:last-child td:first-child {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+div.DTFC_LeftBodyWrapper table {
+    border-top: none;
+    margin-bottom: 0 !important;
+}
+
+div.DTFC_LeftBodyWrapper tbody tr:first-child th,
+div.DTFC_LeftBodyWrapper tbody tr:first-child td {
+    border-top: none;
+}
+
+div.DTFC_LeftFootWrapper table {
+    border-top: none;
+}
+
+/* Navigation */
+.navbar .nav > li > a {
+    text-shadow:none;
+    color:#f0f0f0;
+    font-weight:normal;
+}
+.navbar .nav > li > a:hover {
+    color:white;
+    text-decoration:underline;
+}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    box-shadow:none;
+    color:#252525;
+    background:none;
+}
+@media (max-width: 460px) {
+    header#top-header {height:auto;}
+     #topLogo a {display:none;}
+
+#topLogo-mini a {display:block;}
+}
+@media (max-width: 767px) {
+    header#top-header {margin-left:-1em;}
+    #topLogo a {margin:0 auto;}
+
+    #ranking-list-container {padding-top:3em;}
+    .navbar {
+        float: none !important;
+        position:relative;
+        top:30px;
+    }
+    .navbar .nav.pull-right {
+        float: none;
+        height: 30px;
+        margin: 0 auto;
+        width: 295px;
+    }
+
+    .navbar .nav > li > a {
+        color:#0088CC;
+    }
+    .navbar .nav > li > a:hover {
+        color:#252525;
+    }
+    .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+        color:black;
+    }
+
+}
+
+/* Admin */
+
+.admin-modal form {
+	margin: 0 !important;
+}
+
+.datepicker {
+	z-index: 9999;
+}
