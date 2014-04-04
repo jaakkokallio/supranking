@@ -9,6 +9,8 @@
 					Tävlingsinformationen kunde inte sparas!
 				<?php } else if ($_GET["error"] == "create-competition") { ?>
 					Tävlingen kunde inte sparas!
+				<?php } else if ($_GET["error"] == "update-competitor") { ?>
+					Deltagarinformationen kunde inte sparas!
 				<?php } ?>
 			</div>
 		<?php } ?>
@@ -19,6 +21,8 @@
 					Tävlingsinformationen sparades!
 				<?php } else if ($_GET["success"] == "create-competition") { ?>
 					Tävlingen sparades!
+				<?php } else if ($_GET["success"] == "update-competitor") { ?>
+					Deltagarinformationen sparades!
 				<?php } ?>
 			</div>
 		<?php } ?>
@@ -133,6 +137,7 @@
                         <th class="sorting">Efternamn</th>
                         <th class="sorting">Kön</th>
                         <th class="sorting">Land</th>
+						<th></th>
                     </tr>
                 </thead>
        			<tbody>
@@ -143,12 +148,61 @@
 							<td><?php echo $competitor->last_name; ?></td>
 			        		<td><?php echo readable_gender($competitor->gender); ?></td>
 							<td><?php echo $competitor->country; ?></td>
+							<td class="align_right">
+			        			<div class="btn-group">
+							    	<a href="#edit-competitor-modal-<?php echo $competitor->id; ?>" role="button" class="btn" data-toggle="modal">Redigera</a>
+							    	<a href="#" role="button" class="btn show-results" data-competitor-id="<?php echo $competitor->id; ?>">Resultat</a>
+							    </div>
+			        		</td>
 						</tr>
+						
+						<!-- Edit competitor modal -->
+						<div class="modal hide fade admin-modal" id="edit-competitor-modal-<?php echo $competitor->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-dialog">
+								<form action="competitor-update.php" method="post">
+									<input type="hidden" name="id" value="<?php echo $competitor->id; ?>" />
+									<div class="modal-content competitor-details">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h2 class="modal-title">Redigera deltagarinformation</h2>
+										</div>
+										<div class="modal-body">
+											<div>
+												<input type="text" name="first_name" placeholder="Förnamn" class="span10" value="<?php echo $competitor->first_name; ?>" />
+											</div>
+											<div>
+												<input type="text" name="last_name" placeholder="Efternamn" class="span10" value="<?php echo $competitor->last_name; ?>" />
+											</div>
+											<div>
+												<label for="gender_male_<?php echo $competitor->id ?>" class="radio"><input type="radio" name="gender" id="gender_male_<?php echo $competitor->id ?>" value="male"<?php if ($competitor->gender == "male") { ?> checked="checked"<?php } ?> /> Man</label>
+												<label for="gender_female_<?php echo $competitor->id ?>" class="radio"><input type="radio" name="gender" id="gender_female_<?php echo $competitor->id ?>" value="female"<?php if ($competitor->gender == "female") { ?> checked="checked"<?php } ?> /> Kvinna</label>
+											</div>
+											<div>
+												<select name="country">
+													<?php foreach (countries() as $code => $country) { ?>
+														<option value="<?php echo $code; ?>"<?php if ($competitor->country == $code) { ?> selected="selected"<?php } ?>><?php echo $country; ?></option>
+													<?php } ?>
+												</select>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Spara</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
 					<?php } ?>
 				</tbody>
 			</table>
 		<?php } ?>
 	</section>
+	
+	<!-- Competitor modal -->
+	<div class="modal fade" id="competitor-modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+	</div>
+	
 <?php } else { ?>
 	<div class="span-12">
 	<section id="login" class="span6 well">

@@ -54,6 +54,7 @@ $(document).ready(function() {
         "aaSorting": [[ 0, "asc" ]],
         "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
         "sPaginationType": "bootstrap",
+		"aoColumnDefs": [ { 'bSortable': false, 'aTargets': [ 5 ] } ],
         fnDrawCallback: function(){
             var wrapper = this.parent();
             var rowsPerPage = this.fnSettings()._iDisplayLength;
@@ -126,6 +127,14 @@ $(document).ready(function() {
 	
 	$('.ranking-list tr td, .result-list tr td').click(function() {
 		$.get("competitor.php?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
+			$("#competitor-modal").html(data); 
+			$("#competitor-modal").modal(); 		
+		});
+	});
+	
+	$('.admin-competitors-list .show-results').click(function(e) {
+		e.preventDefault();
+		$.get("competitor.php?competitor_id="+$(this).data("competitor-id"), function(data) {
 			$("#competitor-modal").html(data); 
 			$("#competitor-modal").modal(); 		
 		});

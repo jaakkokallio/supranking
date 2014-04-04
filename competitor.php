@@ -10,7 +10,7 @@
 	<div class="modal-content competitor-details">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h2 class="modal-title"><?php echo $competitor->first_name ?> <?php echo $competitor->last_name ?> <?php if ($competitor->country != "SE") echo " <em>(".$competitor->country.")</em>"; ?></h2>
+			<h2 class="modal-title"><?php echo $competitor->first_name ?> <?php echo $competitor->last_name ?> <?php if ($competitor->country != "SWE") echo " <em>(".$competitor->country.")</em>"; ?></h2>
 		</div>
 		<div class="modal-body">
 			<?php if (sizeof($results->distance_results) > 0) { ?>
@@ -62,7 +62,7 @@
 				</table>
 			<?php } ?>
 		</div>
-		<?php if ($competitor->country == "SE") { ?>	
+		<?php if ($competitor->country == "SWE") { ?>	
 			<div class="modal-footer">
 				<div class="clearfix">
 					<h4>Poäng</h4>

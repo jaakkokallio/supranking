@@ -26,7 +26,7 @@
 	            	<?php while ($r = mysql_fetch_object($distance_results)) { ?>
 						<tr data-competitor-id="<?php echo $r->competitor_id; ?>">
 							<td><?php echo $r->placing; ?></td>
-							<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SE") echo " <em>(".$r->country.")</em>"; ?></td>
+							<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 							<td><?php echo readable_class($r->class); ?></td>
 							<td class="align_right"><?php echo readable_time($r->time); ?></td>
 						</tr>
@@ -48,7 +48,7 @@
 	            	<?php while ($r = mysql_fetch_object($sprint_results)) { ?>
 						<tr data-competitor-id="<?php echo $r->competitor_id; ?>">
 							<td><?php echo $r->placing; ?></td>
-							<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SE") echo " <em>(".$r->country.")</em>"; ?></td>
+							<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 							<td class="align_right"><?php echo readable_time($r->time); ?></td>
 						</tr>
 					<? } ?>

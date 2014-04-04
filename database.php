@@ -95,6 +95,15 @@
 		return mysql_query($query);
 	}
 	
+	function update_competitor($id, $first_name, $last_name, $gender, $country) {
+		if (isset($id) && isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $id != "" && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
+			$query = "UPDATE competitors SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', country = '$country' WHERE id = $id;";
+			mysql_query($query);
+			return true;
+		}
+		return false;
+	}
+	
 	function get_results_by_competition($competition_id, $discipline) {
 		$query = "SELECT results.*, competitors.* FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competition_id = $competition_id AND discipline = '$discipline' ORDER BY placing ASC";
 		return mysql_query($query);

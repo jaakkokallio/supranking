@@ -114,7 +114,7 @@
 		$ranking = array();
 		$competitors = competitors($gender);
 		$results = results_by_competitors($competitors);
-		foreach ($competitors as $competitor) if ($competitor->country == "SE") {
+		foreach ($competitors as $competitor) if ($competitor->country == "SWE") {
 			$r = new StdClass();
 			$r->distance_points = competitor_points_sum($results, $competitor, "distance");
 			$r->sprint_points = competitor_points_sum($results, $competitor, "sprint");	
@@ -165,7 +165,7 @@
 	function readable_gender($gender) {
 		if ($gender == "male") {
 		    return "Man";
-		} elseif ($class == "female") {
+		} elseif ($gender == "female") {
 			return "Kvinna'";
 		}
 	}
@@ -211,7 +211,7 @@
 	
 	function adjusted_placing($result, $results) {
 		$placing = $result->placing;
-		foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->country != "SE" || ($r->class == "14" && $result->class == "126"))) {
+		foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->country != "SWE" || ($r->class == "14" && $result->class == "126"))) {
 			$placing--;
 		}
 		return $placing;
@@ -231,6 +231,10 @@
 		$number_of_competitions = 0;
 		foreach ($results as $result) if ($result->competitor_id == $competitor->id && $result->discipline == $discipline) $number_of_competitions++;
 		return $number_of_competitions;
+	}
+
+	function countries() {
+		return unserialize(COUNTRIES);
 	}
 
 ?>
