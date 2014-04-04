@@ -1,17 +1,25 @@
 <?php include("header.php"); ?>
 
 <?php if (is_logged_in()) { ?>
-	<section id="admin" class="span12 well">
-		<?php if (isset($_GET["error"]) && $_GET["error"] == "update-competition") { ?>
+	<section class="span12 well">
+		<?php if (isset($_GET["error"])) { ?>
 			<div class="alert alert-error">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				Tävlingsinformationen kunde inte sparas!
+				<?php if ($_GET["error"] == "update-competition") { ?>
+					Tävlingsinformationen kunde inte sparas!
+				<?php } else if ($_GET["error"] == "create-competition") { ?>
+					Tävlingen kunde inte sparas!
+				<?php } ?>
 			</div>
 		<?php } ?>
-		<?php if (isset($_GET["success"]) && $_GET["success"] == "update-competition") { ?>
+		<?php if (isset($_GET["success"])) { ?>
 			<div class="alert alert-success">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				Tävlingsinformationen sparades!
+				<?php if ($_GET["success"] == "update-competition") { ?>
+					Tävlingsinformationen sparades!
+				<?php } else if ($_GET["success"] == "create-competition") { ?>
+					Tävlingen sparades!
+				<?php } ?>
 			</div>
 		<?php } ?>
 		<h2>Tävlingar</h2>
@@ -35,7 +43,7 @@
 						<!-- Edit competition modal -->
 						<div class="modal hide fade admin-modal" id="edit-competition-modal-<?php echo $competition->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 							<div class="modal-dialog">
-								<form action="update-competition.php" method="post">
+								<form action="competition-update.php" method="post">
 									<input type="hidden" name="id" value="<?php echo $competition->id; ?>" />
 									<div class="modal-content competitor-details">
 										<div class="modal-header">
@@ -55,6 +63,11 @@
 											  <span class="add-on"><i class="icon-calendar"></i></span>
 											</div>
 											<div>
+												<label for="status_1_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_1_<?php echo $competition->id ?>" value="1"<?php if ($competition->status == 1) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i></label>
+												<label for="status_2_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_2_<?php echo $competition->id ?>" value="2"<?php if ($competition->status == 2) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i></label>
+												<label for="status_3_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_3_<?php echo $competition->id ?>" value="3"<?php if ($competition->status == 3) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></label>
+											</div>
+											<div>
 												<textarea name="description" rows="10" placeholder="Beskrivning" class="span10"><?php echo $competition->description; ?></textarea>
 											</div>
 										</div>
@@ -67,6 +80,72 @@
 						</div>
 					<?php } ?>
 		    	</tbody>
+			</table>
+		<?php } ?>
+        <a href="#new-competition-modal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Lägg till tävling</a>
+		<!-- New competition modal -->
+		<div class="modal hide fade admin-modal" id="new-competition-modal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<form action="competition-create.php" method="post">
+					<div class="modal-content competitor-details">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h2 class="modal-title">Lägg till tävling</h2>
+						</div>
+						<div class="modal-body">
+							<div>
+								<input type="text" name="name" placeholder="Namn" class="span10" />
+							</div>
+							<div class="input-append date" data-date="<?php echo date("Y-m-d"); ?>" data-date-format="yyyy-mm-dd">
+							  <input tabindex="1" class="span10" size="16" type="text" name="start_date" value="<?php echo date("Y-m-d"); ?>" placeholder="Startdatum" />
+							  <span class="add-on"><i class="icon-calendar"></i></span>
+							</div>
+							<div class="input-append date" data-date="<?php echo date("Y-m-d"); ?>" data-date-format="yyyy-mm-dd">
+							  <input tabindex="1" class="span10" size="16" type="text" name="end_date" value="<?php echo date("Y-m-d"); ?>" placeholder="Slutdatum" />
+							  <span class="add-on"><i class="icon-calendar"></i></span>
+							</div>
+							<div>
+								<label for="status_1" class="radio"><input type="radio" name="status" id="status_1" value="1" /> <i class="icon-star"></i></label>
+								<label for="status_2" class="radio"><input type="radio" name="status" id="status_2" value="2" checked="checked" /> <i class="icon-star"></i><i class="icon-star"></i></label>
+								<label for="status_3" class="radio"><input type="radio" name="status" id="status_3" value="3" /> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></label>
+							</div>
+							<div>
+								<textarea name="description" rows="10" placeholder="Beskrivning" class="span10"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Spara</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="span12 well">
+		<h2>Deltagare</h2>
+		<?php $competitors = get_competitors(); ?>
+		<?php if ($competitors && mysql_num_rows($competitors) > 0) { ?>
+			<table class="table table-striped table-bordered admin-competitors-list">
+                <thead>
+                    <tr>
+                        <th class="sorting">ID</th>
+                        <th class="sorting">Förnamn</th>
+                        <th class="sorting">Efternamn</th>
+                        <th class="sorting">Kön</th>
+                        <th class="sorting">Land</th>
+                    </tr>
+                </thead>
+       			<tbody>
+					<?php while ($competitor = mysql_fetch_object($competitors)) { ?>
+						<tr>
+							<td><?php echo $competitor->id; ?></td>
+							<td><?php echo $competitor->first_name; ?></td>
+							<td><?php echo $competitor->last_name; ?></td>
+			        		<td><?php echo readable_gender($competitor->gender); ?></td>
+							<td><?php echo $competitor->country; ?></td>
+						</tr>
+					<?php } ?>
+				</tbody>
 			</table>
 		<?php } ?>
 	</section>

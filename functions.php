@@ -162,6 +162,14 @@
 		}
 	}
 	
+	function readable_gender($gender) {
+		if ($gender == "male") {
+		    return "Man";
+		} elseif ($class == "female") {
+			return "Kvinna'";
+		}
+	}
+	
 	
 	function readable_time($time) {
 		return ($time > 0 ? gmdate("H:i:s", $time) : "–");
