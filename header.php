@@ -42,18 +42,18 @@
             <div class="row-fluid">
                 <div class="header-wrapper span12">
                 <header id="top-header" class="span6">
-                    <h1 id="topLogo"><a href="index.php" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
-                    <h1 id="topLogo-mini"><a href="index.php" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
+                    <h1 id="topLogo"><a href="/" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
+                    <h1 id="topLogo-mini"><a href="/" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
                 </header>
 				<div class="navbar navbar-static-top span5 pull-right">
 				    <ul class="nav pull-right">
-				        <li<?php if (page() == "index") { ?> class="active"<?php } ?>><a href="index.php">Ranking</a></li>				
+				        <li<?php if (page() == "index") { ?> class="active"<?php } ?>><a href="/">Ranking</a></li>				
 				        <?php if (is_logged_in()) { ?>
-							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="admin.php">Administrera</a></li>
-							<li><a href="logout.php">Logga ut</a></li>
+							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="/admin">Administrera</a></li>
+							<li><a href="logout">Logga ut</a></li>
 						<?php } else { ?>
-							<li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="how.php">Så fungerar det</a></li>				       
-							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="admin.php">Logga in</a></li>
+							<li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="/how">Så fungerar det</a></li>				       
+							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="/admin">Logga in</a></li>
 						<?php } ?>	
 				    </ul>
 				</div>
