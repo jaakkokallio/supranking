@@ -2,11 +2,11 @@
 	include("functions.php");
 	if (is_logged_in()) {
 		if (update_competition($_POST["id"], $_POST["name"], $_POST["start_date"], $_POST["end_date"], $_POST["status"], $_POST["description"])) {
-			header("Location: admin.php?success=update-competition");
+			header("Location: /admin?success=update-competition");
 		} else {
-			header("Location: admin.php?error=update-competition");
+			header("Location: /admin?error=update-competition");
 		}
 	} else {
-		header("Location: admin.php?error=login");
+		header("Location: /admin?error=login");
 	}
 ?>

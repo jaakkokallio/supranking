@@ -5,7 +5,7 @@
 	setlocale(LC_ALL, 'sv_SE');
 		
 	function environment() {
-		if ($_SERVER["SERVER_NAME"] == "localhost") { return "dev"; }
+		if ($_SERVER["SERVER_NAME"] == "supranking.dev") { return "dev"; }
 		return "prod";
 	}
 

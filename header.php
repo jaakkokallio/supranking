@@ -19,9 +19,9 @@
         <meta property="og:description"
               content="Svenska SUP Race Serien - Sveriges bästa Stå-upp paddlare."/>
 
-        <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-        <link rel="stylesheet" href="css/main.css" type="text/css" />
-        <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+        <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="/css/datepicker.css" type="text/css" />
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -31,11 +31,11 @@
 
 	<link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/><![endif]-->
         <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/bootstrap.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jquery.dataTables.js"></script>
-        <script src="js/DT_bootstrap.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/bootstrap.js"></script>
+		<script src="/js/bootstrap-datepicker.js"></script>
+        <script src="/js/jquery.dataTables.js"></script>
+        <script src="/js/DT_bootstrap.js"></script>
     </head>
     <body id="index" class="home">
         <div class="container">

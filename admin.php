@@ -33,7 +33,7 @@
        			<tbody>
 					<?php while ($competition = mysql_fetch_object($competitions)) { ?>
 						<tr>
-							<td><a href="competition.php?id=<?php echo $competition->id; ?>"><?php echo $competition->name; ?></a></td>
+							<td><a href="/competition/<?php echo $competition->id; ?>"><?php echo $competition->name; ?></a></td>
 			        		<td><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></td>
 			            	<td class="nowrap"><?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></td>
 			        		<td class="align_right">
@@ -47,7 +47,7 @@
 						<!-- Edit competition modal -->
 						<div class="modal hide fade admin-modal" id="edit-competition-modal-<?php echo $competition->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 							<div class="modal-dialog">
-								<form action="competition-update.php" method="post">
+								<form action="/competition-update" method="post">
 									<input type="hidden" name="id" value="<?php echo $competition->id; ?>" />
 									<div class="modal-content competitor-details">
 										<div class="modal-header">
@@ -90,7 +90,7 @@
 		<!-- New competition modal -->
 		<div class="modal hide fade admin-modal" id="new-competition-modal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
-				<form action="competition-create.php" method="post">
+				<form action="/competition-create" method="post">
 					<div class="modal-content competitor-details">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -159,7 +159,7 @@
 						<!-- Edit competitor modal -->
 						<div class="modal hide fade admin-modal" id="edit-competitor-modal-<?php echo $competitor->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 							<div class="modal-dialog">
-								<form action="competitor-update.php" method="post">
+								<form action="/competitor-update" method="post">
 									<input type="hidden" name="id" value="<?php echo $competitor->id; ?>" />
 									<div class="modal-content competitor-details">
 										<div class="modal-header">
@@ -212,7 +212,7 @@
 				Fel användarnamn eller lösenord!
 			</div>
 		<?php } ?>
-		<form class="form-login" action="login.php" method="post">
+		<form class="form-login" action="/login" method="post">
 	    	<h2 class="form-login-heading">Logga in</h2>		
 	        <input type="text" name="username" class="input-block-level" placeholder="Username">
 	        <input type="password" name="password" class="input-block-level" placeholder="Password">
