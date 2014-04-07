@@ -95,6 +95,6 @@
     <p>Som ni ser i exemplet ovan så kommer Ove på 4e plats och får poäng därefter, inte på 2:a plats i 14'-klassen.</p>
     <br /><br />
     <h3 id="rub-questions">Frågor?</h3>
-    <p>Skicka ett mejl till erik[at]tehler.se</p>
+    <p>Du kan ställa frågor på <a href="https://www.facebook.com/supkommitten" target="_blank">Svenska SUP-kommitténs facebooksida</p>.
 </section>
     <?php include("footer.php"); ?>
