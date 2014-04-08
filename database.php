@@ -9,6 +9,7 @@
 		`start_date` date NOT NULL default '0000-00-00',
 		`end_date` date NOT NULL default '0000-00-00',
 		`name` VARCHAR(255) NOT NULL,
+		`urlname` VARCHAR(255) NOT NULL,
 		`description` TEXT NOT NULL,
 		`status` bigint NOT NULL default '0',
 		PRIMARY KEY (`id`)
@@ -54,18 +55,18 @@
 		return mysql_query($query);
 	}
 	
-	function update_competition($id, $name, $start_date, $end_date, $status, $description) {
-		if (isset($id) && isset($name) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $id != "" && $name != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
-			$query = "UPDATE competitions SET name = '$name', start_date = '$start_date', end_date = '$end_date', status = $status, description = '$description' WHERE id = $id;";
+	function update_competition($id, $name, $urlname, $start_date, $end_date, $status, $description) {
+		if (isset($id) && isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $id != "" && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
+			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', status = $status, description = '$description' WHERE id = $id;";
 			mysql_query($query);
 			return true;
 		}
 		return false;
 	}
 	
-	function create_competition($name, $start_date, $end_date, $status, $description) {
-		if (isset($name) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $name != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
-			$query = "INSERT INTO competitions (name, start_date, end_date, status, description) VALUES ('$name', '$start_date', '$end_date', $status, '$description');";
+	function create_competition($name, $urlname, $start_date, $end_date, $status, $description) {
+		if (isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
+			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $status, '$description');";
 			mysql_query($query);
 			return true;
 		}
@@ -75,6 +76,16 @@
 	
 	function get_competition_by_id($id) {
 		$query = "SELECT * FROM competitions WHERE id = $id LIMIT 1;";
+		$result = mysql_query($query);
+		return mysql_fetch_object($result);
+	}
+	
+	function get_competition_by_id_or_urlname($id) {
+		if (is_numeric($id)) {
+			$query = "SELECT * FROM competitions WHERE id = $id LIMIT 1;";
+		} else {
+			$query = "SELECT * FROM competitions WHERE urlname = '$id' LIMIT 1;";
+		}
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}

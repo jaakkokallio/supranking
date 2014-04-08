@@ -8,7 +8,7 @@
 					<?php while ($competition = mysql_fetch_object($upcoming_competitions)) { ?>
 						<tr>
 		                    <td><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></td>
-		                    <td><a href="/competition/<?php echo $competition->id; ?>"><?php echo $competition->name; ?></a></td>
+		                    <td><a href="/competition/<?php echo $competition->urlname; ?>"><?php echo $competition->name; ?></a></td>
 		                    <td class="nowrap"><?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></td>
 		                </tr>
 					<?php } ?>
@@ -25,7 +25,7 @@
 					<?php while ($competition = mysql_fetch_object($previous_competitions)) { ?>
 						<tr>
 		                    <td><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></td>
-		                    <td><a href="/competition/<?php echo $competition->id; ?>"><?php echo $competition->name; ?></a></td>
+		                    <td><a href="/competition/<?php echo $competition->urlname; ?>"><?php echo $competition->name; ?></a></td>
 		                    <td class="nowrap"><?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></td>
 		                </tr>
 					<?php } ?>

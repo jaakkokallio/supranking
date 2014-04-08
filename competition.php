@@ -2,7 +2,7 @@
 
 <section id="competition" class="span7 well">
 	
-	<?php $competition = get_competition_by_id($_GET["id"]); ?>
+	<?php $competition = get_competition_by_id_or_urlname($_GET["id"]); ?>
 
 	<h2><?php echo $competition->name; ?> <?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></h2>
 	<p class="lead"><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></p>

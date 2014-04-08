@@ -126,7 +126,7 @@ $(document).ready(function() {
 	// Show competitor details
 	
 	$('.ranking-list tr td, .result-list tr td').click(function() {
-		$.get("competitor.php?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
+		$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
 			$("#competitor-modal").html(data); 
 			$("#competitor-modal").modal(); 		
 		});
@@ -134,7 +134,7 @@ $(document).ready(function() {
 	
 	$('.admin-competitors-list .show-results').click(function(e) {
 		e.preventDefault();
-		$.get("competitor.php?competitor_id="+$(this).data("competitor-id"), function(data) {
+		$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
 			$("#competitor-modal").html(data); 
 			$("#competitor-modal").modal(); 		
 		});

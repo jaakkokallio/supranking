@@ -33,7 +33,7 @@
        			<tbody>
 					<?php while ($competition = mysql_fetch_object($competitions)) { ?>
 						<tr>
-							<td><a href="/competition/<?php echo $competition->id; ?>"><?php echo $competition->name; ?></a></td>
+							<td><a href="/competition/<?php echo $competition->urlname; ?>"><?php echo $competition->name; ?></a></td>
 			        		<td><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></td>
 			            	<td class="nowrap"><?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></td>
 			        		<td class="align_right">
@@ -57,6 +57,9 @@
 										<div class="modal-body">
 											<div>
 												<input type="text" name="name" placeholder="Namn" class="span10" value="<?php echo $competition->name; ?>" />
+											</div>
+											<div>
+												<input type="text" name="urlname" placeholder="Namn i URL" class="span10" value="<?php echo $competition->urlname; ?>" />
 											</div>
 											<div class="input-append date" data-date="<?php echo substr($competition->start_date,0,10); ?>" data-date-format="yyyy-mm-dd">
 											  <input tabindex="1" class="span10" size="16" type="text" name="start_date" value="<?php echo substr($competition->start_date,0,10); ?>" placeholder="Startdatum" />
