@@ -143,5 +143,22 @@ $(document).ready(function() {
 	// Admin
 	
 	$('.date').datepicker();
+	
+	// Results update table
+	
+	if ($('.results-table').length > 0) {
+	
+		var data = [
+		            ["Placering", "Deltagare", "Klass", "Tid"],
+		            ["", "", "", ""]
+		        ], resultsTable = $(".results-table");
+
+		resultsTable.handsontable({
+		    data: data,
+		    colHeaders: true,
+		    search: true
+		});
+	
+	}
 
 });

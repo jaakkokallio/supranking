@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="/css/main.css" type="text/css" />
         <link rel="stylesheet" href="/css/datepicker.css" type="text/css" />
+        <link rel="stylesheet" href="/css/jquery.handsontable.full.css" type="text/css" />
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -30,12 +31,13 @@
         <!--[if lt IE 7]>
 
 	<link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/><![endif]-->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="/js/jquery.js"></script>
         <script src="/js/main.js"></script>
         <script src="/js/bootstrap.js"></script>
 		<script src="/js/bootstrap-datepicker.js"></script>
         <script src="/js/jquery.dataTables.js"></script>
         <script src="/js/DT_bootstrap.js"></script>
+        <script src="/js/jquery.handsontable.full.js"></script>
     </head>
     <body id="index" class="home">
         <div class="container">

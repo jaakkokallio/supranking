@@ -6,7 +6,6 @@
         Basic css
 */
 
-
 root { 
     display: block;
 }
@@ -19,7 +18,7 @@ img {
     -webkit-box-shadow: 2px 2px 2px #888;
     box-shadow: 2px 2px 2px #888;
 }
-.container {margin:0 auto;}
+.container {margin:0 auto; padding-bottom: 25px;}
 .header-wrapper { padding-left:19px;}
 header#top-header {height:200px;}
 #topLogo a {
@@ -365,6 +364,11 @@ div.DTFC_LeftFootWrapper table {
 
 .admin-modal form {
 	margin: 0 !important;
+}
+
+.results-modal {
+	width: 950px;
+    margin-left: -475px;
 }
 
 .datepicker {

@@ -115,8 +115,8 @@
 		return false;
 	}
 	
-	function get_results_by_competition($competition_id, $discipline) {
-		$query = "SELECT results.*, competitors.* FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competition_id = $competition_id AND discipline = '$discipline' ORDER BY placing ASC";
+	function get_results_by_competition($competition_id, $gender, $discipline) {
+		$query = "SELECT results.*, competitors.* FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	

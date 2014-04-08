@@ -39,7 +39,7 @@
 			        		<td class="align_right">
 			        			<div class="btn-group">
 							    	<a href="#edit-competition-modal-<?php echo $competition->id; ?>" role="button" class="btn" data-toggle="modal">Redigera</a>
-							    	<a href="#" role="button" class="btn">Rapportera</a>
+							    	<a href="#results-competition-modal-<?php echo $competition->id; ?>" role="button" class="btn" data-toggle="modal">Resultat</a>
 							    </div>
 			        		</td>
 						</tr>
@@ -77,6 +77,27 @@
 											<div>
 												<textarea name="description" rows="10" placeholder="Beskrivning" class="span10"><?php echo $competition->description; ?></textarea>
 											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Spara</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+						<!-- Results competition modal -->
+						<div class="modal hide fade admin-modal results-modal" id="results-competition-modal-<?php echo $competition->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-dialog">
+								<form action="/results-update" method="post">
+									<input type="hidden" name="competition_id" value="<?php echo $competition->id; ?>" />
+									<div class="modal-content competitor-details">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h2 class="modal-title">Resultat</h2>
+										</div>
+										<div class="modal-body">
+											<div class="results-table"></div>
 										</div>
 										<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Spara</button>
@@ -147,14 +168,13 @@
 					<?php while ($competitor = mysql_fetch_object($competitors)) { ?>
 						<tr>
 							<td><?php echo $competitor->id; ?></td>
-							<td><?php echo $competitor->first_name; ?></td>
-							<td><?php echo $competitor->last_name; ?></td>
+							<td><a href="#" class="show-results" data-competitor-id="<?php echo $competitor->id; ?>"><?php echo $competitor->first_name; ?></a></td>
+							<td><a href="#" class="show-results" data-competitor-id="<?php echo $competitor->id; ?>"><?php echo $competitor->last_name; ?></a></td>
 			        		<td><?php echo readable_gender($competitor->gender); ?></td>
 							<td><?php echo $competitor->country; ?></td>
 							<td class="align_right">
 			        			<div class="btn-group">
 							    	<a href="#edit-competitor-modal-<?php echo $competitor->id; ?>" role="button" class="btn" data-toggle="modal">Redigera</a>
-							    	<a href="#" role="button" class="btn show-results" data-competitor-id="<?php echo $competitor->id; ?>">Resultat</a>
 							    </div>
 			        		</td>
 						</tr>
