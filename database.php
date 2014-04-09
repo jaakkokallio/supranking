@@ -118,7 +118,8 @@
 		$successes = array();
 		$errors = array();
 		foreach ($competitors as $competitor) {
-			if (create_competitor($competitor["first_name"], $competitor["last_name"], $competitor["gender"], $competitor["country"])) {
+			if ($competitor_id = create_competitor($competitor["first_name"], $competitor["last_name"], $competitor["gender"], $competitor["country"])) {
+				$competitor["competitor_id"] = $competitor_id;
 				array_push($successes, $competitor);
 			} else {
 				array_push($errors, $competitor);
@@ -131,7 +132,7 @@
 		if (isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
 			$query = "INSERT INTO competitors (first_name, last_name, gender, country) VALUES ('$first_name', '$last_name', '$gender', '$country');";
 			mysql_query($query);
-			return true;
+			return mysql_insert_id();
 		}
 		return false;
 	}

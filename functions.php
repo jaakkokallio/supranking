@@ -52,10 +52,27 @@
 			while ($competitor = mysql_fetch_object($competitors)) { 
 				$name = $competitor->first_name." ".$competitor->last_name;
 				if ($competitor->country != "SWE") { $name .= " (".$competitor->country.")"; }
-				array_push($competitor_names, $name); 
+				array_push($competitor_names, array("competitor_id" => $competitor->id, "competitor" => $name)); 
 			}
 		}
 		return $competitor_names;
+	}
+	
+	function results_for_spreadsheet($competition_id, $gender, $discipline) {				
+		$results_for_spreadsheet = array();
+		$results = get_results_by_competition($competition_id, $gender, $discipline);
+		if ($results && mysql_num_rows($results) > 0) {
+			while ($result = mysql_fetch_object($results)) {
+				$r = new StdClass();
+				$r->competitor_id = $result->competitor_id;
+				$r->competitor = $result->first_name." ".$result->last_name;
+				if ($result->class) { $r->class = readable_class($result->class); }
+				$r->time = str_replace("–", "", readable_time($result->time));
+				
+				array_push($results_for_spreadsheet, $r);
+			}
+		}
+		return json_encode($results_for_spreadsheet);
 	}
 	
 	function results_by_competitors($competitors) {		
