@@ -73,7 +73,6 @@
 		return false;
 	}
 	
-	
 	function get_competition_by_id($id) {
 		$query = "SELECT * FROM competitions WHERE id = $id LIMIT 1;";
 		$result = mysql_query($query);
@@ -109,6 +108,28 @@
 	function update_competitor($id, $first_name, $last_name, $gender, $country) {
 		if (isset($id) && isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $id != "" && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
 			$query = "UPDATE competitors SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', country = '$country' WHERE id = $id;";
+			mysql_query($query);
+			return true;
+		}
+		return false;
+	}
+	
+	function create_competitors($competitors) {
+		$successes = array();
+		$errors = array();
+		foreach ($competitors as $competitor) {
+			if (create_competitor($competitor["first_name"], $competitor["last_name"], $competitor["gender"], $competitor["country"])) {
+				array_push($successes, $competitor);
+			} else {
+				array_push($errors, $competitor);
+			}
+		}
+		return array("successes" => $successes, "errors" => $errors);
+	}
+	
+	function create_competitor($first_name, $last_name, $gender, $country) {
+		if (isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
+			$query = "INSERT INTO competitors (first_name, last_name, gender, country) VALUES ('$first_name', '$last_name', '$gender', '$country');";
 			mysql_query($query);
 			return true;
 		}

@@ -143,22 +143,83 @@ $(document).ready(function() {
 	// Admin
 	
 	$('.date').datepicker();
-	
-	// Results update table
-	
-	if ($('.results-table').length > 0) {
-	
-		var data = [
-		            ["Placering", "Deltagare", "Klass", "Tid"],
-		            ["", "", "", ""]
-		        ], resultsTable = $(".results-table");
 
-		resultsTable.handsontable({
-		    data: data,
-		    colHeaders: true,
-		    search: true
-		});
-	
-	}
+	// Create competitor
 
+	$("body").on("click", "form#create-competitors a.submit-form", function(e) {
+		e.preventDefault();
+		$.post("/competitor-create", $("form#create-competitors").serialize(), function(data) {
+			if (data.competitors.successes.length > 0) {
+				var spreadsheet = $("#"+data.competitors.successes[0].gender+"-"+data.discipline+"-spreadsheet").handsontable('getInstance');
+				$.each(data.competitors.successes, function(i, c) {
+					var name = c.first_name+" "+c.last_name;
+					window.competitors[c.gender].push(name);
+					spreadsheet.setDataAtCell(c.row, 0, name);
+				});
+			}
+			if (data.competitors.errors.length > 0) {
+				addCompetitors(data.discipline, data.competitors.errors[0].gender, $.map(data.competitors.errors, function(c) { return {row: c.row, competitor: c.first_name+" "+c.last_name}; }), {error: true});
+			} else {
+				$("#new-competitor-modal").modal("hide");
+			}
+		}, "json");
+	});
+	
 });
+
+// Results spreadsheet
+
+var addCompetitors = function(discipline, gender, competitorChanges, options) {
+	$.get("/competitor-new", {discipline: discipline, gender: gender, competitor_changes: competitorChanges, error: options.error}, function(data) {
+		$("#new-competitor-modal").html(data); 		
+		$("#new-competitor-modal").modal(); 		
+	});
+};
+
+var timeValidator = function(value, callback) {
+	setTimeout(function(){
+    	if (!value || value.length == 0 || /^([0-9][0-9]):([0-5][0-9]):([0-5][0-9])$/.test(value)) {
+      		callback(true);
+    	} else {
+      		callback(false);
+    	}
+  	}, 100);
+};
+
+var autocompleteCompetitors = function(gender, query, process) {
+	process($.grep(window.competitors[gender], function(c) { return c.indexOf(query) == 0; }));
+};
+
+$.fn.spreadsheet = function(discipline, gender) {
+	var data = [];
+	if (discipline == "distance") {
+		var colHeaders = ["Deltagare", "Klass", "Tid"];
+		var colWidths = [400, 100, 100];
+		var columns = [{data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
+				  	   {data: "class", type: 'dropdown', source: ["12'6\"", "14'"]}, 
+				       {data: "time", validator: timeValidator}];
+	} else {
+		var colHeaders = ["Deltagare", "Tid"];
+		var colWidths = [400, 100];
+		var columns = [{data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
+				  	   {data: "time", validator: timeValidator}];
+	}
+	this.handsontable({
+		data: data, 
+		fillHandle: "vertical",
+		colHeaders: colHeaders, 
+		rowHeaders: true, 
+		minSpareRows: 1,
+		pasteMode: "shift_down",
+		colWidths: colWidths, 
+		columns: columns,
+		afterChange: function(changes, source) {
+			if (source && (source == "edit" || source == "spliceCol") && changes && changes.length > 0) {
+				competitorChanges = $.grep(changes, function(c) { return c[1] == "competitor" && c[3] && c[3].length > 0 && $.inArray(c[3], window.competitors[gender]) == -1; });				
+				if (competitorChanges.length > 0) {
+					addCompetitors(discipline, gender, $.map(competitorChanges, function(c) { return {row: c[0], competitor: c[3]}; }), {});					
+				}
+			}
+		}
+	});
+};

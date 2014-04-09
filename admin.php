@@ -39,7 +39,7 @@
 			        		<td class="align_right">
 			        			<div class="btn-group">
 							    	<a href="#edit-competition-modal-<?php echo $competition->id; ?>" role="button" class="btn" data-toggle="modal">Redigera</a>
-							    	<a href="#results-competition-modal-<?php echo $competition->id; ?>" role="button" class="btn" data-toggle="modal">Resultat</a>
+							    	<a href="/competition-results/<?php echo $competition->id; ?>" role="button" class="btn">Resultat</a>
 							    </div>
 			        		</td>
 						</tr>
@@ -77,27 +77,6 @@
 											<div>
 												<textarea name="description" rows="10" placeholder="Beskrivning" class="span10"><?php echo $competition->description; ?></textarea>
 											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-primary">Spara</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						
-						<!-- Results competition modal -->
-						<div class="modal hide fade admin-modal results-modal" id="results-competition-modal-<?php echo $competition->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
-							<div class="modal-dialog">
-								<form action="/results-update" method="post">
-									<input type="hidden" name="competition_id" value="<?php echo $competition->id; ?>" />
-									<div class="modal-content competitor-details">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h2 class="modal-title">Resultat</h2>
-										</div>
-										<div class="modal-body">
-											<div class="results-table"></div>
 										</div>
 										<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Spara</button>
@@ -227,22 +206,7 @@
 	</div>
 	
 <?php } else { ?>
-	<div class="span-12">
-	<section id="login" class="span6 well">
-		<?php if (isset($_GET["error"]) && $_GET["error"] == "login") { ?>
-			<div class="alert alert-error">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				Fel användarnamn eller lösenord!
-			</div>
-		<?php } ?>
-		<form class="form-login" action="/login" method="post">
-	    	<h2 class="form-login-heading">Logga in</h2>		
-	        <input type="text" name="username" class="input-block-level" placeholder="Username">
-	        <input type="password" name="password" class="input-block-level" placeholder="Password">
-	        <button class="btn btn-large btn-primary" type="submit">Logga in</button>
-	    </form>
-	</section>
-	</div>
+	<?php include("login-form.php"); ?>
 <?php } ?>
 
 <?php include("footer.php"); ?>

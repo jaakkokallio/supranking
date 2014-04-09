@@ -366,11 +366,14 @@ div.DTFC_LeftFootWrapper table {
 	margin: 0 !important;
 }
 
-.results-modal {
-	width: 950px;
-    margin-left: -475px;
-}
-
 .datepicker {
 	z-index: 9999;
+}
+
+.results-spreadsheets .results-spreadsheet {
+	margin: 0 0 40px 0;
+}
+
+.new-competitor-modal .new-competitor {
+	margin: 0 0 20px 0;
 }

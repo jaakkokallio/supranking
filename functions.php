@@ -45,6 +45,19 @@
 		return $competitors_by_gender;
 	}
 	
+	function competitor_names($gender) {
+		$competitor_names = array();
+		$competitors = get_competitors_by_gender($gender);
+		if ($competitors && mysql_num_rows($competitors) > 0) {
+			while ($competitor = mysql_fetch_object($competitors)) { 
+				$name = $competitor->first_name." ".$competitor->last_name;
+				if ($competitor->country != "SWE") { $name .= " (".$competitor->country.")"; }
+				array_push($competitor_names, $name); 
+			}
+		}
+		return $competitor_names;
+	}
+	
 	function results_by_competitors($competitors) {		
 		$results_by_competitors = array();
 		$results = get_results_by_competitors(array_map(function($competitor) { return $competitor->id; }, $competitors));
@@ -166,7 +179,7 @@
 		if ($gender == "male") {
 		    return "Man";
 		} elseif ($gender == "female") {
-			return "Kvinna'";
+			return "Kvinna";
 		}
 	}
 	
