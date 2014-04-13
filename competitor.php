@@ -21,7 +21,7 @@
 							<th>Tävling</th>
 							<th>Klass</th>
 							<th class="align_right">Tid</th>
-							<th class="align_right nowrap">Placering <span>(to | ju)</span></th>
+							<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="to: placering totalt, ju: placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
 							<th class="align_right">Poäng</th>
 						</tr>
 					</thead>
@@ -45,7 +45,7 @@
 						<tr>
 							<th>Tävling</th>
 							<th class="align_right">Tid</th>
-							<th class="align_right nowrap">Placering <span>(to | ju)</span></th>
+							<th class="align_right nowrap"><span class="placing" data-toggle="tooltip" data-placement="top" data-content="to: placering totalt, ju: placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
 							<th class="align_right">Poäng</th>
 						</tr>
 					</thead>

@@ -78,6 +78,11 @@ footer a:hover {
 	text-align: right !important;
 }
 
+.popover {
+	z-index: 9999;
+	font-weight: normal;
+}
+
 /* Datatables */
 
 div.dataTables_length label {
@@ -130,7 +135,7 @@ table.dataTable th:active {
     outline: none;
 }
 
-table.table thead th span {color:#999; font-size:.8em; font-weight:normal;}
+table.table thead th small {color:#999; font-size:.8em; font-weight:normal;}
 
 table.ranking-list tbody tr td, table.ranking-list tbody tr th, table.result-list tbody tr td {
 	cursor: pointer;

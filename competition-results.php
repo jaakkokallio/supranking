@@ -13,7 +13,7 @@
 		$male_sprint_results = results_for_spreadsheet($competition->id, "male", "sprint");
 	?>
 	
-	<section class="span8 well">
+	<section class="span12 well">
 		<h1>Administrera resultat</h1>
 		<h2><?php echo $competition->name; ?> <?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></h2>
 		<p class="lead"><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></p>
@@ -29,7 +29,7 @@
 			<div class="results-spreadsheet" id="male-sprint-spreadsheet"></div>
 		</div>
 		
-		<a href="#" role="button" class="btn btn-primary save-results" data-competition-id="<?php echo $competition->id; ?>">Spara</a>
+		<a href="#" role="button" class="btn btn-primary btn-large large save-results" data-competition-id="<?php echo $competition->id; ?>">Spara</a>
 	</section>
 	
 	<script type="text/javascript">

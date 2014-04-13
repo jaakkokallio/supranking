@@ -24,7 +24,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Antal tävlingar <span>( di | sp )</span></th>
+                            <th class="sorting nowrap">Tävlingar <span>(distans | sprint)</span></th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Antal tävlingar</th>
+                            <th class="sorting nowrap">Tävlingar</th>
                             <th class="sorting">Klass</th>
                             <th class="sorting">Poäng</th>
                         </tr>
@@ -78,7 +78,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Antal tävlingar</th>
+                            <th class="sorting nowrap">Tävlingar</th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -115,7 +115,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting">Antal tävlingar</th>
+                            <th class="sorting">Tävlingar</th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -141,7 +141,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting">Antal tävlingar</th>
+                            <th class="sorting">Tävlingar</th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -167,7 +167,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting">Antal tävlingar</th>
+                            <th class="sorting">Tävlingar</th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
