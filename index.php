@@ -24,7 +24,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar <span>(distans | sprint)</span></th>
+                            <th class="sorting nowrap">Tävlingar <small>(distans | sprint)</small></th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
