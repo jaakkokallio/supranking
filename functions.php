@@ -66,6 +66,7 @@
 				$r = new StdClass();
 				$r->competitor_id = $result->competitor_id;
 				$r->competitor = $result->first_name." ".$result->last_name;
+				if ($result->country != "SWE") { $r->competitor .= " (".$result->country.")"; }
 				if ($result->class) { $r->class = readable_class($result->class); }
 				$r->time = str_replace("–", "", readable_time($result->time));
 				
@@ -73,6 +74,17 @@
 			}
 		}
 		return json_encode($results_for_spreadsheet);
+	}
+	
+	function result_ids_by_competition($competition_id) {
+		$result_ids = array();
+		$results = get_all_results_by_competition($competition_id);
+		if ($results && mysql_num_rows($results) > 0) {
+			while ($result = mysql_fetch_object($results)) {
+				array_push($result_ids, $result->id); 
+			}
+		}
+		return $result_ids;
 	}
 	
 	function results_by_competitors($competitors) {		
@@ -144,7 +156,7 @@
 		$ranking = array();
 		$competitors = competitors($gender);
 		$results = results_by_competitors($competitors);
-		foreach ($competitors as $competitor) if ($competitor->country == "SWE") {
+		foreach ($competitors as $competitor) {
 			$r = new StdClass();
 			$r->distance_points = competitor_points_sum($results, $competitor, "distance");
 			$r->sprint_points = competitor_points_sum($results, $competitor, "sprint");	
@@ -205,6 +217,22 @@
 		return ($time > 0 ? gmdate("H:i:s", $time) : "–");
 	}
 	
+	function class_for_database($class) {
+		if ($class == "12'6\"") {
+		    return "126";
+		} elseif ($class == "14'") {
+			return "14";
+		}
+		return "";
+	}
+	
+	function time_for_database($time) {
+		if ($time != "") {
+			return strtotime("1970-01-01 ".$time."GMT");
+		}
+		return 0;
+	}
+	
 	function readable_date_range($start_date, $end_date) {
 		if ((date("mYd", $start_date) == date("mYd", $end_date))) {
 			return strtolower(strftime("%e %b", $end_date));
@@ -241,7 +269,7 @@
 	
 	function adjusted_placing($result, $results) {
 		$placing = $result->placing;
-		foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->country != "SWE" || ($r->class == "14" && $result->class == "126"))) {
+		foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->class == "14" && $result->class == "126")) {
 			$placing--;
 		}
 		return $placing;

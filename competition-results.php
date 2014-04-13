@@ -29,7 +29,7 @@
 			<div class="results-spreadsheet" id="male-sprint-spreadsheet"></div>
 		</div>
 		
-		<a href="#" role="button" class="btn btn-primary save-results">Spara</a>
+		<a href="#" role="button" class="btn btn-primary save-results" data-competition-id="<?php echo $competition->id; ?>">Spara</a>
 	</section>
 	
 	<script type="text/javascript">

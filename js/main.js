@@ -125,14 +125,14 @@ $(document).ready(function() {
 
 	// Show competitor details
 	
-	$('.ranking-list tr td, .result-list tr td').click(function() {
+	$("body").on("click", ".ranking-list tr td, .result-list tr td", function() {
 		$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
 			$("#competitor-modal").html(data); 
 			$("#competitor-modal").modal(); 		
 		});
 	});
 	
-	$('.admin-competitors-list .show-results').click(function(e) {
+	$("body").on("click", ".admin-competitors-list .show-results", function(e) {
 		e.preventDefault();
 		$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
 			$("#competitor-modal").html(data); 
@@ -168,10 +168,23 @@ $(document).ready(function() {
 	
 	$(".save-results").click(function(e) {
 		e.preventDefault();
-		$("#female-distance-spreadsheet").handsontable('getInstance').getData();
-		$("#female-sprint-spreadsheet").handsontable('getInstance').getData();
-		$("#male-distance-spreadsheet").handsontable('getInstance').getData();
-		$("#male-sprint-spreadsheet").handsontable('getInstance').getData();
+		var femaleDistanceResults = $.grep($("#female-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
+		var femaleSprintResults = $.grep($("#female-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
+		var maleDistanceResults = $.grep($("#male-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
+		var maleSprintResults = $.grep($("#male-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
+	
+		var results = {
+			female: {distance: femaleDistanceResults, sprint: femaleSprintResults}, 
+			male: {distance: maleDistanceResults, sprint: maleSprintResults}
+		};
+		
+		$.post("/competition-results-update", {competition_id: $(this).data("competition-id"), results: results}, function(data) {
+			if (data.errors.length > 0) {
+				$(".results-spreadsheets").append("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.errors.length+" fel uppstod!</div>");
+			} else {
+				$(".results-spreadsheets").append("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.created_results.length+" resultat sparades!</div>");
+			}
+		}, "json");
 	});
 	
 });
@@ -202,18 +215,18 @@ var autocompleteCompetitors = function(gender, query, process) {
 
 $.fn.spreadsheet = function(discipline, gender, results) {
 	if (discipline == "distance") {
-		var data = $.map(results, function(r) { return {competitior_id: r.competitor_id, competitor: r.competitor, class: r.class, time: r.time}; });
+		var data = $.map(results, function(r) { return {competitor_id: r.competitor_id, competitor: r.competitor, class: r.class, time: r.time}; });
 		var colHeaders = ["ID", "Deltagare", "Klass", "Tid"];
 		var colWidths = [50, 400, 100, 100];
-		var columns = [{data: "competitior_id", readOnly: true},
+		var columns = [{data: "competitor_id", readOnly: true},
 					   {data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
 				  	   {data: "class", type: 'dropdown', source: ["12'6\"", "14'"]}, 
 				       {data: "time", validator: timeValidator}];
 	} else {
-		var data = $.map(results, function(r) { return {competitior_id: r.competitor_id, competitor: r.competitor, time: r.time}; });
+		var data = $.map(results, function(r) { return {competitor_id: r.competitor_id, competitor: r.competitor, time: r.time}; });
 		var colHeaders = ["ID", "Deltagare", "Tid"];
 		var colWidths = [50, 400, 100];
-		var columns = [{data: "competitior_id", readOnly: true},
+		var columns = [{data: "competitor_id", readOnly: true},
 					   {data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
 				  	   {data: "time", validator: timeValidator}];
 	}
@@ -230,8 +243,10 @@ $.fn.spreadsheet = function(discipline, gender, results) {
 		afterChange: function(changes, source) {
 			if (changes && changes.length > 0) {
 				$.each(changes, function(i, c) {
-					if (!table.handsontable('getDataAtCell', c[0], 2) || table.handsontable('getDataAtCell', c[0], 2) == "") {
+					if (table.handsontable('countCols') == 4 && table.handsontable('getDataAtCell', c[0], 1) && table.handsontable('getDataAtCell', c[0], 1).length > 0 && (!table.handsontable('getDataAtCell', c[0], 2) || table.handsontable('getDataAtCell', c[0], 2) == "")) {
 						table.handsontable('setDataAtCell', c[0], 2, "12'6\"");
+					} else if (c[1] == "competitor" && !c[3] && c[3].length == 0) {
+						table.handsontable('setDataAtCell', c[0], 0, null);
 					}
 				});
 				if (source && (source == "edit" || source == "spliceCol")) {

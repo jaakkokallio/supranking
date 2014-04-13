@@ -137,14 +137,71 @@
 		return false;
 	}
 	
+	function create_result($competition_id, $competitor_id, $discipline, $class, $placing, $time) {
+		if (isset($competition_id) && isset($competitor_id) && isset($discipline) && isset($placing) && $competition_id != "" && $competitor_id != "" && $discipline != "" && $placing != "") {
+			$query = "INSERT INTO results (competition_id, competitor_id, discipline, class, placing, time) VALUES ($competition_id, $competitor_id, '$discipline', '".class_for_database($class)."', $placing, ".time_for_database($time).");";
+			mysql_query($query);
+			return mysql_insert_id();
+		}
+		return false;
+	}
+	
+	function update_result($id, $competitor_id, $class, $time) {
+		if (isset($id) && isset($competitor_id) && $id != "" && $competitor_id != "") {
+			$query = "UPDATE results SET competitor_id = $competitor_id, class = '".class_for_database($class)."', time = ".time_for_database($time)." WHERE id = $id;";
+			mysql_query($query);
+			return $id;
+		}
+		return false;
+	}
+	
+	function get_all_results_by_competition($competition_id) {
+		$query = "SELECT results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id ORDER BY placing ASC";
+		return mysql_query($query);
+	}
+	
 	function get_results_by_competition($competition_id, $gender, $discipline) {
-		$query = "SELECT results.*, competitors.* FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
+		$query = "SELECT results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	
 	function get_results_by_competitors($competitor_ids) {
 		$query = "SELECT results.*, competitions.status, competitions.name, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
 		return mysql_query($query);
+	}
+	
+	function delete_results($result_ids) {
+		$query = "DELETE FROM results WHERE id IN (".join(",", $result_ids).");";
+		mysql_query($query);
+	}
+	
+	function update_results($competition_id, $results) {
+		$created_results = array();
+		$errors = array();
+		
+		$existing_result_ids = result_ids_by_competition($competition_id);
+		
+		foreach (array("female", "male") as $gender) if (isset($results[$gender])) foreach (array("distance", "sprint") as $discipline) if (isset($results[$gender][$discipline])) foreach ($results[$gender][$discipline] as $i => $result) {
+			$placing = $i+1;
+			$competitor_id = $result["competitor_id"];
+			$class = (isset($result["class"])) ? $result["class"] : "";
+			$time = $result["time"];
+			if ($created_id = create_result($competition_id, $competitor_id, $discipline, $class, $placing, $time)) {
+				array_push($created_results, $created_id);
+			} else {
+				array_push($errors, array("competitor_id" => $competitor_id, "discipline" => $discipline, "gender" => $gender, "class" => $class, "time" => $time, "placing" => $placing));
+			}
+		}
+		
+		if (sizeof($created_results) > 0) {
+			if (sizeof($errors) > 0) {
+				delete_results($created_results);
+			} else {
+				delete_results($existing_result_ids);
+			}
+		}
+		
+		return array("created_results" => $created_results, "errors" => $errors);
 	}
 	
 	function close_database_connection($connection) {
