@@ -52,7 +52,7 @@
 				        <li<?php if (page() == "index") { ?> class="active"<?php } ?>><a href="/">Ranking</a></li>				
 				        <?php if (is_logged_in()) { ?>
 							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="/admin">Administrera</a></li>
-							<li><a href="logout">Logga ut</a></li>
+							<li><a href="/logout">Logga ut</a></li>
 						<?php } else { ?>
 							<li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="/how">Så fungerar det</a></li>				       
 							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="/admin">Logga in</a></li>
