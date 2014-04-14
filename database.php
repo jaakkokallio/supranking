@@ -4,6 +4,14 @@
 	mysql_set_charset('utf8');
 	
 	function install() {
+		$query = "CREATE TABLE `users` (
+		`id` INT NOT NULL AUTO_INCREMENT ,
+		`name` VARCHAR(255) NOT NULL,
+		`email` VARCHAR(255) NOT NULL,
+		`password` TEXT NOT NULL,
+		`superadmin` TINYINT(1) NOT NULL default '0',
+		PRIMARY KEY (`id`)
+		);";
 		$query = "CREATE TABLE `competitions` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`start_date` date NOT NULL default '0000-00-00',
@@ -12,6 +20,7 @@
 		`urlname` VARCHAR(255) NOT NULL,
 		`description` TEXT NOT NULL,
 		`status` bigint NOT NULL default '0',
+		`admin_id` bigint,
 		PRIMARY KEY (`id`)
 		);";
 		$result = mysql_query($query);
@@ -39,6 +48,18 @@
 		$result = mysql_query($query);
 		echo $query . "<br />";
 	}	
+	
+	function get_user_by_id($id) {
+		$query = "SELECT * FROM users WHERE id = $id LIMIT 1;";
+		$result = mysql_query($query);
+		return mysql_fetch_object($result);
+	}
+	
+	function get_user_by_email($email) {
+		$query = "SELECT * FROM users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
+		$result = mysql_query($query);
+		return mysql_fetch_object($result);
+	}
 	
 	function get_competitions() {
 		$query = "SELECT * FROM competitions ORDER BY start_date ASC;";

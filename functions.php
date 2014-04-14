@@ -18,12 +18,27 @@
 
 
 	function is_logged_in() {
-		return isset($_SESSION["logged_in"]);
+		return isset($_SESSION["user_id"]);
+	}
+	
+	function current_user() {
+		if (is_logged_in()) {
+			return get_user_by_id($_SESSION["user_id"]);
+		}
+		return false;
+	}
+	
+	function is_superadmin() {
+		if (is_logged_in()) {
+			return current_user()->superadmin == 1;
+		}
+		return false;
 	}
 
-	function login($username, $password) {
-		if ($username == ADMIN_USERNAME && sha1($password) == ADMIN_PASSWORD) {
-			$_SESSION["logged_in"] = true;
+	function login($email, $password) {
+		$user = get_user_by_email($email);
+		if ($user && $user->password == sha1($password)) {
+			$_SESSION["user_id"] = true;
 			return true;		
 		} else {
 			return false;
@@ -31,7 +46,7 @@
 	}
 
 	function logout() {
-		if (isset($_SESSION["logged_in"])) { unset($_SESSION["logged_in"]); }
+		if (isset($_SESSION["user_id"])) { unset($_SESSION["user_id"]); }
 	}
 	
 	function competitors($gender) {
