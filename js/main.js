@@ -129,7 +129,7 @@ $(document).ready(function() {
 		if ($(this).parent("tr").data("competitor-id")) {
 			$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
-				$(".placing").popover({trigger: "hover"});
+				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal();		
 			});
 		}	
@@ -140,7 +140,7 @@ $(document).ready(function() {
 		if ($(this).data("competitor-id")) {
 			$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
-				$(".placing").popover({trigger: "hover"});
+				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal(); 		
 			});
 		}
