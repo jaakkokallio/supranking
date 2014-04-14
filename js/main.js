@@ -126,20 +126,24 @@ $(document).ready(function() {
 	// Show competitor details
 	
 	$("body").on("click", ".ranking-list tr td, .result-list tr td", function() {
-		$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
-			$("#competitor-modal").html(data);
-			$(".placing").popover({trigger: "hover"});
-			$("#competitor-modal").modal();		
-		});
+		if ($(this).parent("tr").data("competitor-id")) {
+			$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
+				$("#competitor-modal").html(data);
+				$(".placing").popover({trigger: "hover"});
+				$("#competitor-modal").modal();		
+			});
+		}	
 	});
 	
 	$("body").on("click", ".admin-competitors-list .show-results", function(e) {
 		e.preventDefault();
-		$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
-			$("#competitor-modal").html(data);
-			$(".placing").popover({trigger: "hover"});
-			$("#competitor-modal").modal(); 		
-		});
+		if ($(this).data("competitor-id")) {
+			$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
+				$("#competitor-modal").html(data);
+				$(".placing").popover({trigger: "hover"});
+				$("#competitor-modal").modal(); 		
+			});
+		}
 	});
 		
 	// Admin
