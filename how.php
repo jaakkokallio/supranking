@@ -12,6 +12,7 @@
         <li><a href="#rub-how-points-given">Hur fördelas poängen efter en tävling?</a></li>
         <li><a href="#rub-how-points">Hur mycket poäng kan jag egentligen få?</a></li>
         <li><a href="#rub-rule-of-126">Har man en fördel att köra 14' istället för 12'6 i distanstävlingar?</a></li>
+        <li><a href="#rub-rules">Fullständiga tävlingsregler</a></li>
         <li><a href="#rub-questions">Frågor?</a></li>
 
     </ul>
@@ -66,24 +67,7 @@
     </p>
     <p>Det optimala är alltså att man deltar på minst 6 deltävlingar och kör både distans och sprint. Skulle man inte prestera på topp på dessa 6 event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
     </p>
-
-<!--    <p><em>Exempel:</em></p>
-
-    <p>Pelle har samlat ihop fˆljande po‰ng utifrÂn tre t‰vlingar d‰r han deltagit i bÂde sprint och distans.</p>
-
-    <img src="images/table5-example-points.png" alt="table 5 - po‰ngfˆrdelning" />
-    <br /><br />
-
-    <p>Fˆr distans har han d‰rfˆr en po‰ng pÂ 534 (1600/3=534). Vi delar med tre eftersom vi alltid visar en totalpo‰ng utifrÂn genomsnittet av de tre b‰sta resultaten.
-    </p>
-    <p>Fˆr sprint har han en po‰ng pÂ 517 (1550/3=517)</p>
-
-    <p>S‰g att Pelle nu skulle delta i ‰nnu en t‰vling med en po‰ngpott pÂ 1000p, d‰r han hamnar pÂ tredje plats (70 % av vinstpotten) = 700p.
-    </p>
-    <p>Detta inneb‰r fˆljande.</p>
-    <p>Fˆr distansen skulle nu 200-po‰ngaren bytas ut (eftersom det ‰r hans s‰msta resultat) detta resulterar i 2100p (1000+400+700). </p>
-    <p>Pelle har d‰rfˆr efter t‰vlingen en Distans ranking pÂ 700 (2100/3).</p>-->
-    <br />
+	<br /><br />
     <h3 id="rub-rule-of-126">Har man en fördel att köra 14' istället för 12'6 i distanstävlingar?</h3>
     <p>Nej, vi anser att detta balanseras genom regeln om samma poäng för 12'6.</p>
     <p>Det skulle kunna diskuteras om de som ställer upp med 14' har större chans att ta hem fler topplaceringar och därför fler DISTANS-poäng men samtidigt känns det befogat med tanke på regeln om samma poäng för 12'6. </p>
@@ -94,7 +78,11 @@
     <br /><br />
     <p>Som ni ser i exemplet ovan så kommer Ove på 4e plats och får poäng därefter, inte på 2:a plats i 14'-klassen.</p>
     <br /><br />
+    <h3 id="rub-rules">Fullständiga tävlingsregler</h3>
+    <p>Ladda ner <a href="Tavlingstekniska_regler_SUP.pdf" target="_blank">Tävlingstekniska regler Stand Up Paddling</a> för att läsa det fullständiga regelverket för Stand Up Paddle Racing i Sverige.</p>
+    <br /><br />
     <h3 id="rub-questions">Frågor?</h3>
     <p>Du kan ställa frågor på <a href="https://www.facebook.com/supkommitten" target="_blank">Svenska SUP-kommitténs facebooksida</a>.</p>
 </section>
-    <?php include("footer.php"); ?>
+
+<?php include("footer.php"); ?>
