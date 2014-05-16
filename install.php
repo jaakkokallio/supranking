@@ -1,4 +1,4 @@
 <?php
 	include("functions.php");
-	if (is_logged_in()) { install(); }
+	if ($_GET["password"] && $_GET["password"] == "34GUnRxia3hNipCp") { install(); }
 ?>

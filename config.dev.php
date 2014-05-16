@@ -1,9 +1,9 @@
 <?php
 	error_reporting(E_ALL & ~E_DEPRECATED);
 
-	define("DATABASE_HOST",	"127.0.0.1");
+	define("DATABASE_HOST",	"localhost");
 	define("DATABASE_USERNAME",	"root");
-	define("DATABASE_PASSWORD",	"");
+	define("DATABASE_PASSWORD",	"batman");
 	define("DATABASE_DATABASE",	"supranking");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 3);

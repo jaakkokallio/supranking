@@ -103,6 +103,9 @@
 							<div>
 								<input type="text" name="name" placeholder="Namn" class="span10" />
 							</div>
+							<div>
+								<input type="text" name="urlname" placeholder="Namn i URL" class="span10" />
+							</div>
 							<div class="input-append date" data-date="<?php echo date("Y-m-d"); ?>" data-date-format="yyyy-mm-dd">
 							  <input tabindex="1" class="span10" size="16" type="text" name="start_date" value="<?php echo date("Y-m-d"); ?>" placeholder="Startdatum" />
 							  <span class="add-on"><i class="icon-calendar"></i></span>

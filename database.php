@@ -12,6 +12,8 @@
 		`superadmin` TINYINT(1) NOT NULL default '0',
 		PRIMARY KEY (`id`)
 		);";
+		$result = mysql_query($query);
+		echo $query . "<br />";
 		$query = "CREATE TABLE `competitions` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`start_date` date NOT NULL default '0000-00-00',
