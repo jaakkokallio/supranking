@@ -82,7 +82,7 @@
 				$r->competitor_id = $result->competitor_id;
 				$r->competitor = $result->first_name." ".$result->last_name;
 				if ($result->country != "SWE") { $r->competitor .= " (".$result->country.")"; }
-				if ($result->class) { $r->class = readable_class($result->class); }
+				if ($result->class) { $r->class = $result->class; }
 				$r->time = str_replace("–", "", readable_time($result->time));
 				
 				array_push($results_for_spreadsheet, $r);

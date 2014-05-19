@@ -162,7 +162,7 @@
 	
 	function create_result($competition_id, $competitor_id, $discipline, $class, $placing, $time) {
 		if (isset($competition_id) && isset($competitor_id) && isset($discipline) && isset($placing) && $competition_id != "" && $competitor_id != "" && $discipline != "" && $placing != "") {
-			$query = "INSERT INTO results (competition_id, competitor_id, discipline, class, placing, time) VALUES ($competition_id, $competitor_id, '$discipline', '".class_for_database($class)."', $placing, ".time_for_database($time).");";
+			$query = "INSERT INTO results (competition_id, competitor_id, discipline, class, placing, time) VALUES ($competition_id, $competitor_id, '$discipline', '$class', $placing, ".time_for_database($time).");";
 			mysql_query($query);
 			return mysql_insert_id();
 		}
@@ -171,7 +171,7 @@
 	
 	function update_result($id, $competitor_id, $class, $time) {
 		if (isset($id) && isset($competitor_id) && $id != "" && $competitor_id != "") {
-			$query = "UPDATE results SET competitor_id = $competitor_id, class = '".class_for_database($class)."', time = ".time_for_database($time)." WHERE id = $id;";
+			$query = "UPDATE results SET competitor_id = $competitor_id, class = '$class', time = ".time_for_database($time)." WHERE id = $id;";
 			mysql_query($query);
 			return $id;
 		}

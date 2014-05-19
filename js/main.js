@@ -177,7 +177,7 @@ $(document).ready(function() {
 		var femaleDistanceResults = $.grep($("#female-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
 		var femaleSprintResults = $.grep($("#female-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
 		var maleDistanceResults = $.grep($("#male-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
-		var maleSprintResults = $.grep($("#male-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
+		var maleSprintResults = $.grep($("#male-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });	
 	
 		var results = {
 			female: {distance: femaleDistanceResults, sprint: femaleSprintResults}, 
@@ -226,7 +226,7 @@ $.fn.spreadsheet = function(discipline, gender, results) {
 		var colWidths = [50, 400, 100, 100];
 		var columns = [{data: "competitor_id", readOnly: true},
 					   {data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
-				  	   {data: "class", type: 'dropdown', source: ["12'6\"", "14'"]}, 
+				  	   {data: "class", type: 'dropdown', source: ["126", "14"]}, 
 				       {data: "time", validator: timeValidator}];
 	} else {
 		var data = $.map(results, function(r) { return {competitor_id: r.competitor_id, competitor: r.competitor, time: r.time}; });
@@ -248,7 +248,6 @@ $.fn.spreadsheet = function(discipline, gender, results) {
 		columns: columns,
 		afterChange: function(changes, source) {
 			if (changes && changes.length > 0) {
-				console.log(changes);
 				$.each(changes, function(i, c) {
 					if (table.handsontable('countCols') == 4 && table.handsontable('getDataAtCell', c[0], 1) && table.handsontable('getDataAtCell', c[0], 1).length > 0 && (!table.handsontable('getDataAtCell', c[0], 2) || table.handsontable('getDataAtCell', c[0], 2) == "")) {
 						table.handsontable('setDataAtCell', c[0], 2, "12'6\"");
