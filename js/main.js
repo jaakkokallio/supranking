@@ -248,10 +248,11 @@ $.fn.spreadsheet = function(discipline, gender, results) {
 		columns: columns,
 		afterChange: function(changes, source) {
 			if (changes && changes.length > 0) {
+				console.log(changes);
 				$.each(changes, function(i, c) {
 					if (table.handsontable('countCols') == 4 && table.handsontable('getDataAtCell', c[0], 1) && table.handsontable('getDataAtCell', c[0], 1).length > 0 && (!table.handsontable('getDataAtCell', c[0], 2) || table.handsontable('getDataAtCell', c[0], 2) == "")) {
 						table.handsontable('setDataAtCell', c[0], 2, "12'6\"");
-					} else if (c[1] == "competitor" && !c[3] && c[3].length == 0) {
+					} else if (c[1] == "competitor" && (c[3] == undefined || c[3].length == 0)) {
 						table.handsontable('setDataAtCell', c[0], 0, null);
 					}
 				});
