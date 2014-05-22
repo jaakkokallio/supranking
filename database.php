@@ -22,6 +22,7 @@
 		`urlname` VARCHAR(255) NOT NULL,
 		`description` TEXT NOT NULL,
 		`status` bigint NOT NULL default '0',
+		`distance` float NOT NULL default '0',
 		`admin_id` bigint,
 		PRIMARY KEY (`id`)
 		);";
@@ -78,18 +79,20 @@
 		return mysql_query($query);
 	}
 	
-	function update_competition($id, $name, $urlname, $start_date, $end_date, $status, $description) {
+	function update_competition($id, $name, $urlname, $start_date, $end_date, $distance, $status, $description) {
 		if (isset($id) && isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $id != "" && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
-			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', status = $status, description = '$description' WHERE id = $id;";
+			$distance = ((isset($distance) && $distance != "" && is_numeric($distance)) ? $distance : 0);
+			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', distance = $distance, status = $status, description = '$description' WHERE id = $id;";
 			mysql_query($query);
 			return true;
 		}
 		return false;
 	}
 	
-	function create_competition($name, $urlname, $start_date, $end_date, $status, $description) {
+	function create_competition($name, $urlname, $start_date, $end_date, $distance, $status, $description) {
 		if (isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
-			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $status, '$description');";
+			$distance = ((isset($distance) && $distance != "" && is_numeric($distance)) ? $distance : 0);
+			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, distance, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $distance, $status, '$description');";
 			mysql_query($query);
 			return true;
 		}

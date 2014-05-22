@@ -21,13 +21,16 @@
 		<section id="competition-female-results" class="well">
 			<h2>Resultat: Damer</h2>
 			<?php if ($female_distance_results && mysql_num_rows($female_distance_results) > 0) { ?>
-				<h3>Distans</h3>
+				<h3>Distans <?php if ($competition->distance && $competition->distance != 0) { echo "(".$competition->distance." km)"; } ?></h3>
 				<table class="table table-striped table-hover result-list">
 					<thead>
 						<tr>
 							<th>#</th>
 							<th>Namn</th>
 							<th>Klass</th>
+							<?php if ($competition->distance && $competition->distance != 0) { ?>
+								<th class="align_right">Snitthastighet</th>
+							<?php } ?>
 							<th class="align_right">Tid</th>
 						</tr>
 					</thead>
@@ -37,6 +40,9 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 								<td><?php echo readable_class($r->class); ?></td>
+								<?php if ($competition->distance && $competition->distance != 0) { ?>
+									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance); ?></td>								
+								<?php } ?>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
 							</tr>
 						<? } ?>
@@ -71,13 +77,16 @@
 		<section id="competition-female-results" class="well">
 			<h2>Resultat: Herrar</h2>
 			<?php if ($male_distance_results && mysql_num_rows($male_distance_results) > 0) { ?>
-				<h3>Distans</h3>
+				<h3>Distans <?php if ($competition->distance && $competition->distance != 0) { echo "(".$competition->distance." km)"; } ?></h3>
 				<table class="table table-striped table-hover result-list">
 					<thead>
 						<tr>
 							<th>#</th>
 							<th>Namn</th>
 							<th>Klass</th>
+							<?php if ($competition->distance && $competition->distance != 0) { ?>
+								<th class="align_right">Snitthastighet</th>
+							<?php } ?>
 							<th class="align_right">Tid</th>
 						</tr>
 					</thead>
@@ -87,6 +96,9 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 								<td><?php echo readable_class($r->class); ?></td>
+								<?php if ($competition->distance && $competition->distance != 0) { ?>
+									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance); ?></td>
+								<?php } ?>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
 							</tr>
 						<? } ?>

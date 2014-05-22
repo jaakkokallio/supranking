@@ -70,10 +70,14 @@
 											  <span class="add-on"><i class="icon-calendar"></i></span>
 											</div>
 											<div>
+												<input type="number" name="distance" placeholder="Distans (km)" class="span4" step="any" value="<?php echo $competition->distance; ?>" />
+											</div>
+											<div>
 												<label for="status_1_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_1_<?php echo $competition->id ?>" value="1"<?php if ($competition->status == 1) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i></label>
 												<label for="status_2_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_2_<?php echo $competition->id ?>" value="2"<?php if ($competition->status == 2) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i></label>
 												<label for="status_3_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_3_<?php echo $competition->id ?>" value="3"<?php if ($competition->status == 3) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></label>
 											</div>
+
 											<div>
 												<textarea name="description" rows="10" placeholder="Beskrivning" class="span10"><?php echo $competition->description; ?></textarea>
 											</div>
@@ -113,6 +117,9 @@
 							<div class="input-append date" data-date="<?php echo date("Y-m-d"); ?>" data-date-format="yyyy-mm-dd">
 							  <input tabindex="1" class="span10" size="16" type="text" name="end_date" value="<?php echo date("Y-m-d"); ?>" placeholder="Slutdatum" />
 							  <span class="add-on"><i class="icon-calendar"></i></span>
+							</div>
+							<div>
+								<input type="number" name="distance" placeholder="Distans (km)" class="span4" step="any" />
 							</div>
 							<div>
 								<label for="status_1" class="radio"><input type="radio" name="status" id="status_1" value="1" /> <i class="icon-star"></i></label>

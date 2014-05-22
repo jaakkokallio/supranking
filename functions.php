@@ -232,6 +232,10 @@
 		return ($time > 0 ? gmdate("H:i:s", $time) : "–");
 	}
 	
+	function readable_velocity($time, $distance) {
+		return ($time > 0 ? number_format(round($distance/($time/60/60), 2), 2)." km/h" : "–");
+	}
+	
 	function class_for_database($class) {
 		if ($class == "12'6\"") {
 		    return "126";
