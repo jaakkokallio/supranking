@@ -83,7 +83,7 @@
 				$r->competitor = $result->first_name." ".$result->last_name;
 				if ($result->country != "SWE") { $r->competitor .= " (".$result->country.")"; }
 				if ($result->class) { $r->class = $result->class; }
-				$r->time = str_replace("–", "", readable_time($result->time));
+				$r->time = ($result->time > 0) ? gmdate("H:i:s", $result->time) : "";
 				
 				array_push($results_for_spreadsheet, $r);
 			}
@@ -229,7 +229,17 @@
 	
 	
 	function readable_time($time) {
-		return ($time > 0 ? gmdate("H:i:s", $time) : "–");
+		return ($time > 0 ? (($time >= 3600) ? gmdate("H:i:s", $time) : gmdate("i:s", $time)) : "–");
+	}
+	
+	function readable_diff($winner_time, $time) {
+		if ($time > 0 && ($time-$winner_time) > 0) {
+			if (($time-$winner_time) >= 3600) {
+				return "+".gmdate("H:i:s", ($time-$winner_time));
+			}
+			return "+".gmdate("i:s", ($time-$winner_time));
+		}
+		return "–";
 	}
 	
 	function readable_velocity($time, $distance) {

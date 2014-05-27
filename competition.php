@@ -22,6 +22,8 @@
 			<h2>Resultat: Damer</h2>
 			<?php if ($female_distance_results && mysql_num_rows($female_distance_results) > 0) { ?>
 				<h3>Distans <?php if ($competition->distance && $competition->distance != 0) { echo "(".$competition->distance." km)"; } ?></h3>
+				<?php $winner_time = mysql_fetch_object($female_distance_results)->time; ?>
+				<?php mysql_data_seek($female_distance_results, 0); ?>
 				<table class="table table-striped table-hover result-list">
 					<thead>
 						<tr>
@@ -32,6 +34,9 @@
 								<th class="align_right">Snitthastighet</th>
 							<?php } ?>
 							<th class="align_right">Tid</th>
+							<?php if ($winner_time > 0) { ?>
+								<th class="align_right">Diff</th>
+							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,12 +49,17 @@
 									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance); ?></td>								
 								<?php } ?>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
+								<?php if ($winner_time > 0) { ?>
+									<td class="align_right"><?php echo readable_diff($winner_time, $r->time); ?></td>
+								<?php } ?>
 							</tr>
 						<? } ?>
 					</tbody>
 				</table>
 			<?php } ?>
 			<?php if ($female_sprint_results && mysql_num_rows($female_sprint_results) > 0) { ?>
+				<?php $winner_time = mysql_fetch_object($female_sprint_results)->time; ?>
+				<?php mysql_data_seek($female_sprint_results, 0); ?>
 				<h3>Sprint</h3>
 				<table class="table table-striped table-hover result-list">
 					<thead>
@@ -57,6 +67,9 @@
 							<th>#</th>
 							<th>Namn</th>
 							<th class="align_right">Tid</th>
+							<?php if ($winner_time > 0) { ?>
+								<th class="align_right">Diff</th>
+							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -65,6 +78,9 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
+								<?php if ($winner_time > 0) { ?>
+									<td class="align_right"><?php echo readable_diff($winner_time, $r->time); ?></td>
+								<?php } ?>
 							</tr>
 						<? } ?>
 					</tbody>
@@ -77,6 +93,8 @@
 		<section id="competition-female-results" class="well">
 			<h2>Resultat: Herrar</h2>
 			<?php if ($male_distance_results && mysql_num_rows($male_distance_results) > 0) { ?>
+				<?php $winner_time = mysql_fetch_object($male_distance_results)->time; ?>							
+				<?php mysql_data_seek($male_distance_results, 0); ?>
 				<h3>Distans <?php if ($competition->distance && $competition->distance != 0) { echo "(".$competition->distance." km)"; } ?></h3>
 				<table class="table table-striped table-hover result-list">
 					<thead>
@@ -88,6 +106,9 @@
 								<th class="align_right">Snitthastighet</th>
 							<?php } ?>
 							<th class="align_right">Tid</th>
+							<?php if ($winner_time > 0) { ?>
+								<th class="align_right">Diff</th>
+							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -100,12 +121,17 @@
 									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance); ?></td>
 								<?php } ?>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
+								<?php if ($winner_time > 0) { ?>
+									<td class="align_right"><?php echo readable_diff($winner_time, $r->time); ?></td>
+								<?php } ?>
 							</tr>
 						<? } ?>
 					</tbody>
 				</table>
 			<?php } ?>
 			<?php if ($male_sprint_results && mysql_num_rows($male_sprint_results) > 0) { ?>
+				<?php $winner_time = mysql_fetch_object($male_sprint_results)->time; ?>
+				<?php mysql_data_seek($male_sprint_results, 0); ?>
 				<h3>Sprint</h3>
 				<table class="table table-striped table-hover result-list">
 					<thead>
@@ -113,6 +139,9 @@
 							<th>#</th>
 							<th>Namn</th>
 							<th class="align_right">Tid</th>
+							<?php if ($winner_time > 0) { ?>
+								<th class="align_right">Diff</th>
+							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -121,6 +150,9 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
 								<td class="align_right"><?php echo readable_time($r->time); ?></td>
+								<?php if ($winner_time > 0) { ?>
+									<td class="align_right"><?php echo readable_diff($winner_time, $r->time); ?></td>
+								<?php } ?>
 							</tr>
 						<? } ?>
 					</tbody>
