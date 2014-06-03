@@ -8,7 +8,7 @@
 
 		<h1><?php echo $competition->name; ?> <?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></h1>
 		<p class="lead"><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></p>
-		<p><?php echo nl2br($competition->description); ?></p>
+		<p><?php echo $competition->description; ?></p>
 
 	</section>
 
