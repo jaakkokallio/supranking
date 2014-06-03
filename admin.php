@@ -70,7 +70,10 @@
 											  <span class="add-on"><i class="icon-calendar"></i></span>
 											</div>
 											<div>
-												<input type="number" name="distance" placeholder="Distans (km)" class="span4" step="any" value="<?php echo $competition->distance; ?>" />
+												<input type="number" name="sprint_length" placeholder="Sprint (km)" class="span4" step="any" value="<?php echo $competition->sprint_length; ?>" />
+											</div>
+											<div>
+												<input type="number" name="distance_length" placeholder="Distans (km)" class="span4" step="any" value="<?php echo $competition->distance_length; ?>" />
 											</div>
 											<div>
 												<label for="status_1_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_1_<?php echo $competition->id ?>" value="1"<?php if ($competition->status == 1) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i></label>
@@ -119,7 +122,10 @@
 							  <span class="add-on"><i class="icon-calendar"></i></span>
 							</div>
 							<div>
-								<input type="number" name="distance" placeholder="Distans (km)" class="span4" step="any" />
+								<input type="number" name="sprint_length" placeholder="Sprint (km)" class="span4" step="any" />
+							</div>
+							<div>
+								<input type="number" name="distance_length" placeholder="Distans (km)" class="span4" step="any" />
 							</div>
 							<div>
 								<label for="status_1" class="radio"><input type="radio" name="status" id="status_1" value="1" /> <i class="icon-star"></i></label>

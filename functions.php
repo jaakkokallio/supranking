@@ -242,8 +242,8 @@
 		return "–";
 	}
 	
-	function readable_velocity($time, $distance) {
-		return ($time > 0 ? number_format(round($distance/($time/60/60), 2), 2)." km/h" : "–");
+	function readable_velocity($time, $length) {
+		return ($time > 0 ? number_format(round($length/($time/60/60), 2), 2)." km/h" : "–");
 	}
 	
 	function class_for_database($class) {
