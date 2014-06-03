@@ -20,7 +20,7 @@
 						<tr>
 							<th>Tävling</th>
 							<th>Klass</th>
-							<th class="align_right">Tid</th>
+							<th class="align_right">Snitthastighet</th>
 							<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
 							<th class="align_right">Poäng</th>
 						</tr>
@@ -30,7 +30,7 @@
 							<tr>
 								<td><?php echo $result->name; ?></td>
 								<td><?php echo readable_class($result->class); ?></td>
-								<td class="align_right"><?php echo readable_time($result->time); ?></td>
+								<td class="align_right"><?php echo readable_velocity($result->time, $result->distance_length); ?></td>							
 								<td class="align_right"><?php echo $result->placing; ?> | <?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
 							</tr>
@@ -44,7 +44,7 @@
 					<thead>
 						<tr>
 							<th>Tävling</th>
-							<th class="align_right">Tid</th>
+							<th class="align_right">Snitthastighet</th>
 							<th class="align_right nowrap"><span class="placing" data-toggle="tooltip" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
 							<th class="align_right">Poäng</th>
 						</tr>
@@ -53,7 +53,7 @@
 						<?php foreach ($results->sprint_results as $result) { ?>
 							<tr>
 								<td><?php echo $result->name; ?></td>
-								<td class="align_right"><?php echo readable_time($result->time); ?></td>
+								<td class="align_right"><?php echo readable_velocity($result->time, $result->sprint_length); ?></td>								
 								<td class="align_right"><?php echo $result->placing; ?> | <?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
 							</tr>

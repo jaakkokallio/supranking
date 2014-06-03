@@ -195,7 +195,7 @@
 	}
 	
 	function get_results_by_competitors($competitor_ids) {
-		$query = "SELECT results.*, competitions.status, competitions.name, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
+		$query = "SELECT results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
 		return mysql_query($query);
 	}
 	
