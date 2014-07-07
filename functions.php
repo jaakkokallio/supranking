@@ -138,7 +138,7 @@
 		usort($results->distance_results, function($a, $b) { return $a->points < $b->points; });
 		foreach ($results->distance_results as $i => $r) {
 			$r->points_added_to_sum = true;
-			if ($i >= 2) break;
+			if ($i >= COMPETITIONS_ADDED_TO_SUM-1) break;
 		}
 		usort($results->distance_results, function($a, $b) { return $a->start_date > $b->start_date; });
 
