@@ -6,7 +6,7 @@
 	define("DATABASE_PASSWORD",	"batman");
 	define("DATABASE_DATABASE",	"supranking");
 	
-	define("COMPETITIONS_ADDED_TO_SUM", 3);
+	define("COMPETITIONS_ADDED_TO_SUM", 6);
 	
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',
