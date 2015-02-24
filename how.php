@@ -11,7 +11,6 @@
         <li><a href="#rub-how-much-worth">Hur mycket är en tävling värd?</a></li>
         <li><a href="#rub-how-points-given">Hur fördelas poängen efter en tävling?</a></li>
         <li><a href="#rub-how-points">Hur mycket poäng kan jag egentligen få?</a></li>
-        <li><a href="#rub-rule-of-126">Har man en fördel att köra 14' istället för 12'6 i distanstävlingar?</a></li>
         <li><a href="#rub-rules">Fullständiga tävlingsregler</a></li>
         <li><a href="#rub-questions">Frågor?</a></li>
 
@@ -34,10 +33,10 @@
     <h3 id="rub-how-winner">Hur utses vinnaren av Svenska SUP Race Serien?</h3>
     <p>I finalen av Svenska SUP Race Serien koras en vinnare och det är personen som har mest <strong>TOTALPOÄNG</strong> efter finaltävlingarna. Medaljer delas även ut till andra och tredjepristagaren samt till de som presterat bäst i SPRINT respektive DISTANS.
 
-    <p>Finalen och SM i Marstrand har en högsta kvot (stjärnstatus) på <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>.</p>
+    <p>Finalen har en högsta kvot (stjärnstatus) på <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>.</p>
 
-    <p>Detta betyder att finalen och SM i Marstrand ger mer poäng än andra tävlingar, och därför större chans till en bättre slutplacering för den som deltar.</p>
-    <p>På detta sätt gör vi finalen och SM i Marstrand högst attraktiva trots att folk presterat mycket bra i övriga deltävlingar.</p>
+    <p>Detta betyder att finalen ger mer poäng än andra tävlingar, och därför större chans till en bättre slutplacering för den som deltar.</p>
+    <p>På detta sätt gör vi finalen högst attraktiv trots att folk presterat mycket bra i övriga deltävlingar.</p>
 
     <br />
     <h3 id="rub-how-ranking">Hur fungerar rankingen?</h3>
@@ -46,7 +45,7 @@
     <p>
         <strong>TOTALPOÄNGEN</strong> är en summering av poängen i SPRINT och DISTANS.
     </p>
-    <p>Poängen beräknas utifrån den <strong>sammanlagda poängpotten från dina 6 bästa</strong> resultat i varje disciplin - så det optimala är att delta och prestera på topp i <strong>6 sprinter och 6 distanser.</strong></p>
+    <p>Poängen beräknas utifrån den <strong>sammanlagda poängpotten från dina <?php echo COMPETITIONS_ADDED_TO_SUM; ?> bästa</strong> resultat i varje disciplin - så det optimala är att delta och prestera på topp i <strong><?php echo COMPETITIONS_ADDED_TO_SUM; ?> sprinter och <?php echo COMPETITIONS_ADDED_TO_SUM; ?> distanser.</strong></p>
     <br />
     <h3 id="rub-how-much-worth">Hur mycket är en tävling värd?</h3>
     <p>För varje tävling bestäms en poängpott utifrån dess stjärnstatus.</p>
@@ -63,21 +62,11 @@
     <p>Poängräkningen är således: 2000*0,6 + 2000*0,6 = 2400 för distans, 2000*0,5 + 2000*0,5 = 2000 för sprint, vilket ger en totalpoäng på 2400 + 2000 = 4400.</p>
     <br /><br />
     <h3 id="rub-how-points">Hur mycket poäng kan jag egentligen få?</h3>
-    <p>Din rankingpoäng beräknas utifrån dina 6 bästa prestationer under säsongen för respektive disciplin (sprint och distans).
+    <p>Din rankingpoäng beräknas utifrån dina <?php echo COMPETITIONS_ADDED_TO_SUM; ?> bästa prestationer under säsongen för respektive disciplin (sprint och distans).
     </p>
-    <p>Det optimala är alltså att man deltar på minst 6 deltävlingar och kör både distans och sprint. Skulle man inte prestera på topp på dessa 6 event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
+    <p>Det optimala är alltså att man deltar på minst <?php echo COMPETITIONS_ADDED_TO_SUM; ?> deltävlingar och kör både distans och sprint. Skulle man inte prestera på topp på dessa <?php echo COMPETITIONS_ADDED_TO_SUM; ?> event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
     </p>
 	<br /><br />
-    <h3 id="rub-rule-of-126">Har man en fördel att köra 14' istället för 12'6 i distanstävlingar?</h3>
-    <p>Nej, vi anser att detta balanseras genom regeln om samma poäng för 12'6.</p>
-    <p>Det skulle kunna diskuteras om de som ställer upp med 14' har större chans att ta hem fler topplaceringar och därför fler DISTANS-poäng men samtidigt känns det befogat med tanke på regeln om samma poäng för 12'6. </p>
-    <p><strong>Regel om samma poäng för 12'6:</strong> I poängberäkningen av de tävlande som kör 12'6 exkluderas de tävlande som kör 14' från listan, men inte tvärtom.</p>
-    <p>Detta betyder att om du kör på en 12'6-bräda och hamnar efter n¨ågon som kör 14' får du samma poäng som denne person.
-    <p><em>Exempel:</em> </p>
-    <img src="images/table-rule-of-126.png" alt="table 4 - regel om samma poäng för 12'6" />
-    <br /><br />
-    <p>Som ni ser i exemplet ovan så kommer Ove på 4e plats och får poäng därefter, inte på 2:a plats i 14'-klassen.</p>
-    <br /><br />
     <h3 id="rub-rules">Fullständiga tävlingsregler</h3>
     <p>Ladda ner <a href="<?php echo URL_ROOT; ?>/Tavlingstekniska_regler_SUP.pdf" target="_blank">Tävlingstekniska regler Stand Up Paddling</a> för att läsa det fullständiga regelverket för Stand Up Paddle Racing i Sverige.</p>
     <br /><br />
