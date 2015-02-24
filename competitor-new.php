@@ -7,7 +7,7 @@
 ?>
 
 <div class="modal-dialog">
-	<form action="/competitor-create" method="post" id="create-competitors">
+	<form action="<?php echo URL_ROOT; ?>/competitor-create" method="post" id="create-competitors">
 		<input type="hidden" name="discipline" value="<?php echo $discipline; ?>" />
 		<div class="modal-content new-competitor-modal">
 			<div class="modal-header">

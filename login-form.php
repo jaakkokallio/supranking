@@ -6,7 +6,7 @@
 				Fel e-post eller lösenord!
 			</div>
 		<?php } ?>
-		<form class="form-login" action="/login" method="post">
+		<form class="form-login" action="<?php echo URL_ROOT; ?>/login" method="post">
 	    	<h2 class="form-login-heading">Logga in</h2>		
 	        <input type="email" name="email" class="input-block-level" placeholder="E-post"<?php if (isset($_GET["email"])) { ?> value="<?php echo $_GET["email"]; ?>"<?php } ?> />
 	        <input type="password" name="password" class="input-block-level" placeholder="Lösenord" />

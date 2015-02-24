@@ -79,7 +79,7 @@
     <p>Som ni ser i exemplet ovan så kommer Ove på 4e plats och får poäng därefter, inte på 2:a plats i 14'-klassen.</p>
     <br /><br />
     <h3 id="rub-rules">Fullständiga tävlingsregler</h3>
-    <p>Ladda ner <a href="Tavlingstekniska_regler_SUP.pdf" target="_blank">Tävlingstekniska regler Stand Up Paddling</a> för att läsa det fullständiga regelverket för Stand Up Paddle Racing i Sverige.</p>
+    <p>Ladda ner <a href="<?php echo URL_ROOT; ?>/Tavlingstekniska_regler_SUP.pdf" target="_blank">Tävlingstekniska regler Stand Up Paddling</a> för att läsa det fullständiga regelverket för Stand Up Paddle Racing i Sverige.</p>
     <br /><br />
     <h3 id="rub-questions">Frågor?</h3>
     <p>Du kan ställa frågor på <a href="https://www.facebook.com/supkommitten" target="_blank">Svenska SUP-kommitténs facebooksida</a>.</p>

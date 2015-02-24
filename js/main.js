@@ -127,7 +127,7 @@ $(document).ready(function() {
 	
 	$("body").on("click", ".ranking-list tr td, .result-list tr td", function() {
 		if ($(this).parent("tr").data("competitor-id")) {
-			$.get("/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
+			$.get(window.urlRoot+"/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
 				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal();		
@@ -138,7 +138,7 @@ $(document).ready(function() {
 	$("body").on("click", ".admin-competitors-list .show-results", function(e) {
 		e.preventDefault();
 		if ($(this).data("competitor-id")) {
-			$.get("/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
+			$.get(window.urlRoot+"/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
 				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal(); 		
@@ -154,7 +154,7 @@ $(document).ready(function() {
 
 	$("body").on("click", "form#create-competitors a.submit-form", function(e) {
 		e.preventDefault();
-		$.post("/competitor-create", $("form#create-competitors").serialize(), function(data) {
+		$.post(window.urlRoot+"/competitor-create", $("form#create-competitors").serialize(), function(data) {
 			if (data.competitors.successes.length > 0) {
 				var spreadsheet = $("#"+data.competitors.successes[0].gender+"-"+data.discipline+"-spreadsheet").handsontable('getInstance');
 				$.each(data.competitors.successes, function(i, c) {
@@ -184,7 +184,7 @@ $(document).ready(function() {
 			male: {distance: maleDistanceResults, sprint: maleSprintResults}
 		};
 		
-		$.post("/competition-results-update", {competition_id: $(this).data("competition-id"), results: results}, function(data) {
+		$.post(window.urlRoot+"/competition-results-update", {competition_id: $(this).data("competition-id"), results: results}, function(data) {
 			if (data.errors.length > 0) {
 				$(".results-spreadsheets").append("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.errors.length+" fel uppstod!</div>");
 			} else {
@@ -198,7 +198,7 @@ $(document).ready(function() {
 // Results spreadsheet
 
 var addCompetitors = function(discipline, gender, competitorChanges, options) {
-	$.get("/competitor-new", {discipline: discipline, gender: gender, competitor_changes: competitorChanges, error: options.error}, function(data) {
+	$.get(window.urlRoot+"/competitor-new", {discipline: discipline, gender: gender, competitor_changes: competitorChanges, error: options.error}, function(data) {
 		$("#new-competitor-modal").html(data); 		
 		$("#new-competitor-modal").modal(); 		
 	});
