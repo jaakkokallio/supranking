@@ -29,7 +29,7 @@
 						<tr>
 							<th>#</th>
 							<th>Namn</th>
-							<th>Klass</th>
+							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
 							<?php if ($competition->distance_length && $competition->distance_length != 0) { ?>
 								<th class="align_right">Snitthastighet</th>
 							<?php } ?>
@@ -44,7 +44,7 @@
 							<tr data-competitor-id="<?php echo $r->competitor_id; ?>">
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
-								<td><?php echo readable_class($r->class); ?></td>
+								<?php if (HAS_CLASSES) { ?><td><?php echo readable_class($r->class); ?></td><?php } ?>
 								<?php if ($competition->distance_length && $competition->distance_length != 0) { ?>
 									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance_length); ?></td>								
 								<?php } ?>
@@ -107,7 +107,7 @@
 						<tr>
 							<th>#</th>
 							<th>Namn</th>
-							<th>Klass</th>
+							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
 							<?php if ($competition->distance_length && $competition->distance_length != 0) { ?>
 								<th class="align_right">Snitthastighet</th>
 							<?php } ?>
@@ -122,7 +122,7 @@
 							<tr data-competitor-id="<?php echo $r->competitor_id; ?>">
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?> <?php echo $r->last_name; ?><?php if ($r->country != "SWE") echo " <em>(".$r->country.")</em>"; ?></td>
-								<td><?php echo readable_class($r->class); ?></td>
+								<?php if (HAS_CLASSES) { ?><td><?php echo readable_class($r->class); ?></td><?php } ?>
 								<?php if ($competition->distance_length && $competition->distance_length != 0) { ?>
 									<td class="align_right"><?php echo readable_velocity($r->time, $competition->distance_length); ?></td>
 								<?php } ?>

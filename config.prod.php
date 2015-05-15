@@ -8,6 +8,7 @@
 	define("URL_ROOT", "http://supraceserien.se");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 4);
+	define("HAS_CLASSES", false);
 	
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',

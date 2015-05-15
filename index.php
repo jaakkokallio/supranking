@@ -51,7 +51,7 @@
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
                             <th class="sorting nowrap">Tävlingar</th>
-                            <th class="sorting">Klass</th>
+                            <?php if (HAS_CLASSES) { ?><th class="sorting">Klass</th><?php } ?>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -63,7 +63,7 @@
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
 								<td><?php echo $r->distance_competitions; ?></td>
-								<td><?php echo $r->class; ?></td>
+								<?php if (HAS_CLASSES) { ?><td><?php echo $r->class; ?></td><?php } ?>
 								<td><?php echo $r->points; ?></td>
 							</tr>
 						<? } ?>
@@ -142,6 +142,7 @@
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
                             <th class="sorting">Tävlingar</th>
+                            <?php if (HAS_CLASSES) { ?><th class="sorting">Klass</th><?php } ?>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -153,6 +154,7 @@
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
 								<td><?php echo $r->distance_competitions; ?> | <?php echo $r->sprint_competitions; ?></td>
+								<?php if (HAS_CLASSES) { ?><td><?php echo $r->class; ?></td><?php } ?>
 								<td><?php echo $r->points; ?></td>
 							</tr>
 						<? } ?>

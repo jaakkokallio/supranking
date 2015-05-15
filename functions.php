@@ -303,8 +303,10 @@
 	
 	function adjusted_placing($result, $results) {
 		$placing = $result->placing;
-		foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->class == "14" && $result->class == "126")) {
-			$placing--;
+		if (HAS_CLASSES) {
+			foreach ($results as $r) if ($r->competition_id == $result->competition_id && $r->competitor_id != $result->competitor_id && $r->discipline == $result->discipline && $r->placing < $result->placing && ($r->class == "14" && $result->class == "126")) {
+				$placing--;
+			}
 		}
 		return $placing;
 	}

@@ -19,9 +19,13 @@
 					<thead>
 						<tr>
 							<th>Tävling</th>
-							<th>Klass</th>
+							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
 							<th class="align_right">Snitthastighet</th>
-							<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
+							<?php if (HAS_CLASSES) { ?>
+								<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
+							<?php } else { ?>
+								<th class="align_right">Placering</th>
+							<?php } ?>
 							<th class="align_right">Poäng</th>
 						</tr>
 					</thead>
@@ -29,9 +33,10 @@
 						<?php foreach ($results->distance_results as $result) { ?>
 							<tr>
 								<td><?php echo $result->name; ?></td>
-								<td><?php echo readable_class($result->class); ?></td>
+								<?php if (HAS_CLASSES) { ?><td><?php echo readable_class($result->class); ?></td><?php } ?>
 								<td class="align_right"><?php echo readable_velocity($result->time, $result->distance_length); ?></td>							
-								<td class="align_right"><?php echo $result->placing; ?> | <?php echo $result->adjusted_placing; ?></td>
+								<td class="align_right"><?php if (HAS_CLASSES) { ?>
+<?php echo $result->placing; ?> | <?php } ?><?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
 							</tr>
 						<?php } ?>
@@ -45,7 +50,7 @@
 						<tr>
 							<th>Tävling</th>
 							<th class="align_right">Snitthastighet</th>
-							<th class="align_right nowrap"><span class="placing" data-toggle="tooltip" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
+							<th class="align_right">Placering</th>							
 							<th class="align_right">Poäng</th>
 						</tr>
 					</thead>
@@ -54,7 +59,7 @@
 							<tr>
 								<td><?php echo $result->name; ?></td>
 								<td class="align_right"><?php echo readable_velocity($result->time, $result->sprint_length); ?></td>								
-								<td class="align_right"><?php echo $result->placing; ?> | <?php echo $result->adjusted_placing; ?></td>
+								<td class="align_right"><?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
 							</tr>
 						<?php } ?>
