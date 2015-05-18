@@ -34,7 +34,8 @@
 							<tr>
 								<td><?php echo $result->name; ?></td>
 								<?php if (HAS_CLASSES) { ?><td><?php echo readable_class($result->class); ?></td><?php } ?>
-								<td class="align_right"><?php echo readable_velocity($result->time, $result->distance_length); ?></td>							
+								<?php $length = competition_length($result, $competitor->gender, "distance"); ?>
+								<td class="align_right"><?php echo readable_velocity($result->time, $length); ?></td>							
 								<td class="align_right"><?php if (HAS_CLASSES) { ?>
 <?php echo $result->placing; ?> | <?php } ?><?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
@@ -58,7 +59,8 @@
 						<?php foreach ($results->sprint_results as $result) { ?>
 							<tr>
 								<td><?php echo $result->name; ?></td>
-								<td class="align_right"><?php echo readable_velocity($result->time, $result->sprint_length); ?></td>								
+								<?php $length = competition_length($result, $competitor->gender, "sprint"); ?>
+								<td class="align_right"><?php echo readable_velocity($result->time, $length); ?></td>								
 								<td class="align_right"><?php echo $result->adjusted_placing; ?></td>
 								<td class="align_right<?php if (!$result->points_added_to_sum) echo " points_not_added_to_sum"; ?>"><?php echo $result->points; ?></td>
 							</tr>

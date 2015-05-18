@@ -207,6 +207,45 @@
 		}
 		return $ranking;
 	}
+
+	function competition_length($competition, $gender, $discipline) {
+		if ($discipline == "sprint") {
+			if ($competition->sprint_length && $competition->sprint_length != 0) {
+				if ($gender == "female" && $competition->sprint_length_female && $competition->sprint_length_female != 0) {
+					return $competition->sprint_length_female;
+				} else {
+					return $competition->sprint_length;
+				}
+			} else {
+				return 0;
+			}
+		} else if ($discipline == "distance") {
+			if ($competition->distance_length && $competition->distance_length != 0) {
+				if ($gender == "female" && $competition->distance_length_female && $competition->distance_length_female != 0) {
+					return $competition->distance_length_female;
+				} else {
+					return $competition->distance_length;
+				}
+			} else {
+				return 0;
+			}	
+		} else {
+			return 0;
+		}
+	}
+	
+	function readable_competition_length($competition, $gender, $discipline) {
+		$length = competition_length($competition, $gender, $discipline);
+		if ($length != 0) {
+			if ($discipline == "sprint") {
+				return ($length*1000)." m";
+			} else if ($discipline == "distance") {
+				return $length." km";
+			}
+		} else {
+			return "";
+		}
+	}
 	
 	function readable_discipline($discipline) {
 		if ($discipline == "distance") {

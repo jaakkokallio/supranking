@@ -24,6 +24,8 @@
 		`status` bigint NOT NULL default '0',
 		`distance_length` float NOT NULL default '0',
 		`sprint_length` float NOT NULL default '0',
+		`distance_length_female` float NOT NULL default '0',
+		`sprint_length_female` float NOT NULL default '0',
 		`admin_id` bigint,
 		PRIMARY KEY (`id`)
 		);";
@@ -80,22 +82,26 @@
 		return mysql_query($query);
 	}
 	
-	function update_competition($id, $name, $urlname, $start_date, $end_date, $sprint_length, $distance_length, $status, $description) {
-		if (isset($id) && isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $id != "" && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
+	function update_competition($id, $name, $urlname, $start_date, $end_date, $sprint_length, $distance_length, $sprint_length_female, $distance_length_female, $status, $description) {
+		if (isset($id) && isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && $id != "" && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "") {
 			$sprint_length = ((isset($sprint_length) && $sprint_length != "" && is_numeric($sprint_length)) ? $sprint_length : 0);
 			$distance_length = ((isset($distance_length) && $distance_length != "" && is_numeric($distance_length)) ? $distance_length : 0);
-			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', sprint_length = $sprint_length, distance_length = $distance_length, status = $status, description = '$description' WHERE id = $id;";
+			$sprint_length_female = ((isset($sprint_length_female) && $sprint_length_female != "" && is_numeric($sprint_length_female)) ? $sprint_length_female : 0);
+			$distance_length_female = ((isset($distance_length_female) && $distance_length_female != "" && is_numeric($distance_length_female)) ? $distance_length_female : 0);
+			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', sprint_length = $sprint_length, distance_length = $distance_length, sprint_length_female = $sprint_length_female, distance_length_female = $distance_length_female, status = $status, description = '$description' WHERE id = $id;";
 			mysql_query($query);
 			return true;
 		}
 		return false;
 	}
 	
-	function create_competition($name, $urlname, $start_date, $end_date, $sprint_length, $distance_length, $status, $description) {
-		if (isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && isset($description) && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "" && $description != "") {
+	function create_competition($name, $urlname, $start_date, $end_date, $sprint_length, $distance_length, $sprint_length_female, $distance_length_female, $status, $description) {
+		if (isset($name) && isset($urlname) && isset($start_date) && isset($end_date) && isset($status) && $name != "" && $urlname != "" && $start_date != "" && $end_date != "" && $status != "") {
 			$sprint_length = ((isset($sprint_length) && $sprint_length != "" && is_numeric($sprint_length)) ? $sprint_length : 0);
 			$distance_length = ((isset($distance_length) && $distance_length != "" && is_numeric($distance_length)) ? $distance_length : 0);
-			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, sprint_length, distance_length, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $sprint_length, $distance_length, $status, '$description');";
+			$sprint_length_female = ((isset($sprint_length_female) && $sprint_length_female != "" && is_numeric($sprint_length_female)) ? $sprint_length_female : 0);
+			$distance_length_female = ((isset($distance_length_female) && $distance_length_female != "" && is_numeric($distance_length_female)) ? $distance_length_female : 0);
+			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, sprint_length, distance_length, sprint_length_female, distance_length_female, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $sprint_length, $distance_length, $sprint_length_female, $distance_length_female, $status, '$description');";
 			mysql_query($query);
 			return true;
 		}
@@ -195,7 +201,7 @@
 	}
 	
 	function get_results_by_competitors($competitor_ids) {
-		$query = "SELECT results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
+		$query = "SELECT results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.sprint_length_female, competitions.distance_length_female, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
 		return mysql_query($query);
 	}
 	

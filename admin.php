@@ -76,6 +76,12 @@
 												<input type="number" name="distance_length" placeholder="Distans (km)" class="span4" step="any" value="<?php echo $competition->distance_length; ?>" />
 											</div>
 											<div>
+												<input type="number" name="sprint_length_female" placeholder="Sprint dam (km)" class="span4" step="any" value="<?php echo $competition->sprint_length_female; ?>" />
+											</div>
+											<div>
+												<input type="number" name="distance_length_female" placeholder="Distans dam (km)" class="span4" step="any" value="<?php echo $competition->distance_length_female; ?>" />
+											</div>
+											<div>
 												<label for="status_1_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_1_<?php echo $competition->id ?>" value="1"<?php if ($competition->status == 1) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i></label>
 												<label for="status_2_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_2_<?php echo $competition->id ?>" value="2"<?php if ($competition->status == 2) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i></label>
 												<label for="status_3_<?php echo $competition->id ?>" class="radio"><input type="radio" name="status" id="status_3_<?php echo $competition->id ?>" value="3"<?php if ($competition->status == 3) { ?> checked="checked"<?php } ?> /> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></label>
@@ -126,6 +132,12 @@
 							</div>
 							<div>
 								<input type="number" name="distance_length" placeholder="Distans (km)" class="span4" step="any" />
+							</div>
+							<div>
+								<input type="number" name="sprint_length_female" placeholder="Sprint dam (km)" class="span4" step="any" />
+							</div>
+							<div>
+								<input type="number" name="distance_length_female" placeholder="Distans dam (km)" class="span4" step="any" />
 							</div>
 							<div>
 								<label for="status_1" class="radio"><input type="radio" name="status" id="status_1" value="1" /> <i class="icon-star"></i></label>
