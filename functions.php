@@ -365,6 +365,14 @@
 		foreach ($results as $result) if ($result->competitor_id == $competitor->id && $result->discipline == $discipline) $number_of_competitions++;
 		return $number_of_competitions;
 	}
+  
+	function disciplines() {
+		return unserialize(DISCIPLINES);
+	}
+  
+	function has_discipline($discipline) {
+		return in_array($discipline, disciplines());
+	}
 
 	function countries() {
 		return unserialize(COUNTRIES);

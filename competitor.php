@@ -72,14 +72,18 @@
 		<div class="modal-footer">
 			<div class="clearfix">
 				<h4>Poäng</h4>
-				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_points; ?></span> <em>Sprint</em></p><?php } ?>
-				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_points; ?></span> <em>Distans</em></p><?php } ?>
+        <?php if (count(disciplines()) > 1) { ?>
+  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_points; ?></span> <em>Sprint</em></p><?php } ?>
+  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_points; ?></span> <em>Distans</em></p><?php } ?>
+        <?php } ?>
 		    	<?php if (isset($results->points)) { ?><p><span class="badge"><?php echo $results->points; ?></span> <em>Total</em></p><?php } ?>
 			</div>
 			<div class="clearfix">
 				<h4>Ranking</h4>
-				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_placing; ?></span> <em>Sprint</em></p><?php } ?>
-				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_placing; ?></span> <em>Distans</em></p><?php } ?>
+        <?php if (count(disciplines()) > 1) { ?>
+  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_placing; ?></span> <em>Sprint</em></p><?php } ?>
+  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_placing; ?></span> <em>Distans</em></p><?php } ?>
+        <?php } ?>
 				<?php if (isset($results->placing)) { ?><p><span class="badge"><?php echo $results->placing; ?></span> <em>Total</em></p><?php } ?>
 			</div>
 		</div>

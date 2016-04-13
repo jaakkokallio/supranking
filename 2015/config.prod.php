@@ -7,9 +7,11 @@
 	define("TITLE", "Svenska SUP Race Serien 2015");
 	define("URL_ROOT", "http://supraceserien.se/2015");
 	
-	define("COMPETITIONS_ADDED_TO_SUM", 6);
-	define("HAS_CLASSES", true);
+	define("COMPETITIONS_ADDED_TO_SUM", 4);
+	define("HAS_CLASSES", false);
 	
+  define("DISCIPLINES", serialize(array('distance', 'sprint')));
+  
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',
 		'ALB' => 'Albania',

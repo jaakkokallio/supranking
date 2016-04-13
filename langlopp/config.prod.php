@@ -1,18 +1,16 @@
 <?php
-	error_reporting(E_ALL & ~E_DEPRECATED);
-
-	define("DATABASE_HOST",	"localhost");
+	define("DATABASE_HOST",	"127.0.0.1");
 	define("DATABASE_USERNAME",	"root");
-	define("DATABASE_PASSWORD",	"batman");
-	define("DATABASE_DATABASE",	"supranking");
+	define("DATABASE_PASSWORD",	"piZZakoLLektivet");
+	define("DATABASE_DATABASE",	"supranking_langlopp");
 	
-	define("TITLE", "Svenska SUP Race Serien 2016");
-	define("URL_ROOT", "http://supranking.dev:8888");
+	define("TITLE", "Långloppsserien 2016 SUP");
+	define("URL_ROOT", "http://supraceserien.se/langlopp");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 4);
 	define("HAS_CLASSES", false);
 	
-  define("DISCIPLINES", serialize(array('distance', 'sprint')));
+  define("DISCIPLINES", serialize(array('distance')));
   
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',

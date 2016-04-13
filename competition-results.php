@@ -19,14 +19,22 @@
 		<p class="lead"><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></p>
 			
 		<div class="results-spreadsheets">
-			<h4>Damer Distans</h4>
-			<div class="results-spreadsheet" id="female-distance-spreadsheet"></div>
-			<h4>Damer Sprint</h4>
-			<div class="results-spreadsheet" id="female-sprint-spreadsheet"></div>
-			<h4>Herrar Distans</h4>
-			<div class="results-spreadsheet" id="male-distance-spreadsheet"></div>
-			<h4>Herrar Sprint</h4>
-			<div class="results-spreadsheet" id="male-sprint-spreadsheet"></div>
+      <?php if (has_discipline("distance")) { ?>
+  			<h4>Damer Distans</h4>
+  			<div class="results-spreadsheet" id="female-distance-spreadsheet"></div>
+      <?php } ?>
+      <?php if (has_discipline("sprint")) { ?>
+  			<h4>Damer Sprint</h4>
+  			<div class="results-spreadsheet" id="female-sprint-spreadsheet"></div>
+      <?php } ?>
+      <?php if (has_discipline("distance")) { ?>
+  			<h4>Herrar Distans</h4>
+  			<div class="results-spreadsheet" id="male-distance-spreadsheet"></div>
+      <?php } ?>
+      <?php if (has_discipline("sprint")) { ?>
+  			<h4>Herrar Sprint</h4>
+  			<div class="results-spreadsheet" id="male-sprint-spreadsheet"></div>
+      <?php } ?>
 		</div>
 		
 		<a href="#" role="button" class="btn btn-primary btn-large large save-results" data-competition-id="<?php echo $competition->id; ?>">Spara</a>
@@ -34,10 +42,10 @@
 	
 	<script type="text/javascript">
 		window.competitors = {female: <?php echo json_encode($female_competitor_names); ?>, male: <?php echo json_encode($male_competitor_names); ?>};
-		$("#female-distance-spreadsheet").spreadsheet("distance", "female", <?php echo $female_distance_results; ?>);
-		$("#female-sprint-spreadsheet").spreadsheet("sprint", "female", <?php echo $female_sprint_results; ?>);
-		$("#male-distance-spreadsheet").spreadsheet("distance", "male", <?php echo $male_distance_results; ?>);
-		$("#male-sprint-spreadsheet").spreadsheet("sprint", "male", <?php echo $male_sprint_results; ?>);
+		<?php if (has_discipline("distance")) { ?>$("#female-distance-spreadsheet").spreadsheet("distance", "female", <?php echo $female_distance_results; ?>);<?php } ?>
+		<?php if (has_discipline("sprint")) { ?>$("#female-sprint-spreadsheet").spreadsheet("sprint", "female", <?php echo $female_sprint_results; ?>);<?php } ?>
+		<?php if (has_discipline("distance")) { ?>$("#male-distance-spreadsheet").spreadsheet("distance", "male", <?php echo $male_distance_results; ?>);<?php } ?>
+		<?php if (has_discipline("sprint")) { ?>$("#male-sprint-spreadsheet").spreadsheet("sprint", "male", <?php echo $male_sprint_results; ?>);<?php } ?>
 	</script>
 
 	<!-- New competitor modal -->

@@ -11,11 +11,13 @@
     </header>
     <!-- Start male section -->
     <div id="genderMale" class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#all" data-toggle="tab">Total</a></li>
-            <li><a href="#distans" data-toggle="tab">Distans</a></li>
-            <li><a href="#sprint" data-toggle="tab">Sprint</a></li>
-        </ul>
+        <?php if (count(disciplines()) > 1) { ?>
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#all" data-toggle="tab">Total</a></li>
+              <?php if (has_discipline("distance")) { ?><li><a href="#distans" data-toggle="tab">Distans</a></li><?php } ?>
+              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint" data-toggle="tab">Sprint</a></li><?php } ?>
+          </ul>
+        <?php } ?>
         <div class="tab-content">
             <div class="tab-pane active" id="all">
                 <table id="male-ranking-list" class="table table-striped table-bordered ranking-list table-hover">
@@ -24,7 +26,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar <small>(distans | sprint)</small></th>
+                            <th class="sorting nowrap">Tävlingar <?php if (count(disciplines()) > 1) { ?><small>(distans | sprint)</small><?php } ?></th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -35,7 +37,7 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
-								<td><?php echo $r->distance_competitions; ?> | <?php echo $r->sprint_competitions; ?></td>
+								<td><?php if (has_discipline("distance")) { echo $r->distance_competitions; } ?> <?php if (count(disciplines()) > 1) { echo "|"; } ?> <?php if (has_discipline("sprint")) { echo $r->sprint_competitions; } ?></td>
 								<td><?php echo $r->points; ?></td>
 							</tr>
 						<? } ?>
@@ -102,11 +104,13 @@
     <!-- End male section -->
     <!-- Start female section -->
     <div id="genderFemale" class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#all_2" data-toggle="tab">Total</a></li>
-            <li><a href="#distans_2" data-toggle="tab">Distans</a></li>
-            <li><a href="#sprint_2" data-toggle="tab">Sprint</a></li>
-        </ul>
+        <?php if (count(disciplines()) > 1) { ?>
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#all_2" data-toggle="tab">Total</a></li>
+              <?php if (has_discipline("distance")) { ?><li><a href="#distans_2" data-toggle="tab">Distans</a></li><?php } ?>
+              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint_2" data-toggle="tab">Sprint</a></li><?php } ?>
+          </ul>
+        <?php } ?>
         <div class="tab-content">
             <div class="tab-pane active" id="all_2">
                 <table id="female-ranking-list" class="table table-striped table-bordered ranking-list table-hover">
@@ -115,7 +119,7 @@
                             <th class="sorting">#</th>
                             <th class="sorting">Förnamn</th>
                             <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar <small>(distans | sprint)</small></th>
+                            <th class="sorting nowrap">Tävlingar<?php if (count(disciplines()) > 1) { ?> <small>(distans | sprint)</small><?php } ?></th>
                             <th class="sorting">Poäng</th>
                         </tr>
                     </thead>
@@ -126,7 +130,7 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
-								<td><?php echo $r->distance_competitions; ?> | <?php echo $r->sprint_competitions; ?></td>
+								<td><?php if (has_discipline("distance")) { echo $r->distance_competitions; } ?> <?php if (count(disciplines()) > 1) { echo "|"; } ?> <?php if (has_discipline("sprint")) { echo $r->sprint_competitions; } ?></td>
 								<td><?php echo $r->points; ?></td>
 							</tr>
 						<? } ?>
@@ -153,7 +157,7 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
-								<td><?php echo $r->distance_competitions; ?> | <?php echo $r->sprint_competitions; ?></td>
+								<td><?php echo $r->distance_competitions; ?></td>
 								<?php if (HAS_CLASSES) { ?><td><?php echo $r->class; ?></td><?php } ?>
 								<td><?php echo $r->points; ?></td>
 							</tr>
@@ -180,7 +184,7 @@
 								<td><?php echo $r->placing; ?></td>
 								<td><?php echo $r->first_name; ?></td>
 								<td><?php echo $r->last_name; ?></td>
-								<td><?php echo $r->distance_competitions; ?> | <?php echo $r->sprint_competitions; ?></td>
+								<td><?php echo $r->sprint_competitions; ?></td>
 								<td><?php echo $r->points; ?></td>
 							</tr>
 						<? } ?>

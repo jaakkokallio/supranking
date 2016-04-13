@@ -10,8 +10,10 @@
 	define("URL_ROOT", "http://supranking.dev:8888/2015");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 6);
-	define("HAS_CLASSES", true);
+	define("HAS_CLASSES", false);
 	
+  define("DISCIPLINES", serialize(array('distance', 'sprint')));
+  
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',
 		'ALB' => 'Albania',

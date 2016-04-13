@@ -10,6 +10,8 @@
 	define("COMPETITIONS_ADDED_TO_SUM", 4);
 	define("HAS_CLASSES", false);
 	
+  define("DISCIPLINES", serialize(array('distance', 'sprint')));
+  
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',
 		'ALB' => 'Albania',

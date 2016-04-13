@@ -174,10 +174,10 @@ $(document).ready(function() {
 	
 	$(".save-results").click(function(e) {
 		e.preventDefault();
-		var femaleDistanceResults = $.grep($("#female-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
-		var femaleSprintResults = $.grep($("#female-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
-		var maleDistanceResults = $.grep($("#male-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });
-		var maleSprintResults = $.grep($("#male-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; });	
+		var femaleDistanceResults = $("#female-distance-spreadsheet").length > 0 ? $.grep($("#female-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; }) : [];
+		var femaleSprintResults = $("#female-sprint-spreadsheet").length > 0 ? $.grep($("#female-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; }) : [];
+		var maleDistanceResults = $("#male-distance-spreadsheet").length > 0 ? $.grep($("#male-distance-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; }) : [];
+		var maleSprintResults = $("#male-sprint-spreadsheet").length > 0 ? $.grep($("#male-sprint-spreadsheet").handsontable('getInstance').getData(), function(r) { return r.competitor_id != null; }) : [];
 	
 		var results = {
 			female: {distance: femaleDistanceResults, sprint: femaleSprintResults}, 
