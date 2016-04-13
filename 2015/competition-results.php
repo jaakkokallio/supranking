@@ -1,0 +1,1 @@
+../competition-results.php

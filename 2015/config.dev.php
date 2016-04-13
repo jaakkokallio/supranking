@@ -1,14 +1,16 @@
 <?php
-	define("DATABASE_HOST",	"127.0.0.1");
+	error_reporting(E_ALL & ~E_DEPRECATED);
+
+	define("DATABASE_HOST",	"localhost");
 	define("DATABASE_USERNAME",	"root");
-	define("DATABASE_PASSWORD",	"piZZakoLLektivet");
-	define("DATABASE_DATABASE",	"supranking");
+	define("DATABASE_PASSWORD",	"batman");
+	define("DATABASE_DATABASE",	"supranking_2015");
 	
-	define("TITLE", "Svenska SUP Race Serien 2016");
-	define("URL_ROOT", "http://supraceserien.se");
+	define("TITLE", "Svenska SUP Race Serien 2015");
+	define("URL_ROOT", "http://supranking.dev:8888/2015");
 	
-	define("COMPETITIONS_ADDED_TO_SUM", 4);
-	define("HAS_CLASSES", false);
+	define("COMPETITIONS_ADDED_TO_SUM", 6);
+	define("HAS_CLASSES", true);
 	
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',

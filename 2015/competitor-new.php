@@ -1,0 +1,1 @@
+../competitor-new.php
