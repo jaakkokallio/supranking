@@ -1,1 +1,0 @@
-../competitor-update.php
