@@ -20,24 +20,13 @@ img {
 }
 .container {margin:0 auto; padding-bottom: 25px;}
 .header-wrapper { padding-left:19px;}
-header#top-header {height:200px;}
-#topLogo a {
-    display:block;
-    width:292px;
-    height:177px;
-    background:url(../images/ssrs-logo.png);
-    color:transparent;
 
-}
-
-#topLogo-mini a {
-    display:none;
-    width:200px;
-    height:120px;
-    background:url(../images/ssrs-logo-mini.png);
-    color:transparent;
-    margin:0 auto;
-
+header#top-header a img {
+  margin: 20px;
+  border: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ranking-list-container {
@@ -329,15 +318,9 @@ div.DTFC_LeftFootWrapper table {
     background:none;
 	text-shadow: none;
 }
-@media (max-width: 460px) {
-    header#top-header {height:auto;}
-     #topLogo a {display:none;}
 
-	#topLogo-mini a {display:block;}
-}
 @media (max-width: 767px) {
-    header#top-header {margin-left:-1em;}
-    #topLogo a {margin:0 auto;}
+    header#top-header {margin-left:-1em; text-align: center;}
 
     #ranking-list-container {padding-top:3em;}
     .navbar {

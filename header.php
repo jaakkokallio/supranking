@@ -41,8 +41,7 @@
             <div class="row-fluid">
                 <div class="header-wrapper span12">
                 <header id="top-header" class="span6">
-                    <h1 id="topLogo"><a href="<?php echo URL_ROOT; ?>" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
-                    <h1 id="topLogo-mini"><a href="<?php echo URL_ROOT; ?>" title="Swedish SUP Rankings">Swedish SUP Rankings</a></h1>
+                    <a href="<?php echo URL_ROOT; ?>" title="Swedish SUP Rankings"><img src="<?php echo LOGO_IMAGE; ?>" /></a>
                 </header>
 				<div class="navbar navbar-static-top span5 pull-right">
 				    <ul class="nav pull-right">

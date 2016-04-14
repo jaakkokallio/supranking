@@ -7,6 +7,7 @@
 	define("DATABASE_DATABASE",	"supranking");
 	
 	define("TITLE", "Svenska SUP Race Serien 2016");
+	define("LOGO_IMAGE", "/images/ssrs-logo.png");
 	define("URL_ROOT", "http://supranking.dev:8888");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 4);
