@@ -37,21 +37,42 @@
 		</script>
     </head>
     <body id="index" class="home">
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="span12">
+            <a class="brand" href="<?php echo URL_ROOT; ?>"><?php echo TITLE; ?></a>
+            <ul class="nav">
+              <li class="dropdown <?php if (page() != "admin" && page() != "how") { ?>active<?php } ?>">
+                  <a href="<?php echo URL_ROOT; ?>" class="dropdown-toggle" data-toggle="dropdown">
+                    <?php echo TITLE_SHORT; ?>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="/2014">2014</a></li>
+                    <li><a tabindex="-1" href="/2015">2015</a></li>
+                    <li><a tabindex="-1" href="/">2016</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" href="/langlopp">Långlopp 2016</a></li>
+                  </ul>
+              </li>
+
+        			<?php if (is_logged_in()) { ?>
+        			  <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Administrera</a></li>
+        				<li><a href="<?php echo URL_ROOT; ?>/logout">Logga ut</a></li>
+        			<?php } else { ?>
+        			  <li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/how">Om</a></li>	
+                <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Logga in</a></li>				       
+        			<?php } ?>	
+            </ul>
+          </div>
+        </div>
+      </div>
         <div class="container">
+          
             <div class="row-fluid">
                 <div class="header-wrapper span12">
-                <header id="top-header" class="span6">
+                <header id="top-header" class="span12">
                     <a href="<?php echo URL_ROOT; ?>" title="Swedish SUP Rankings"><img src="<?php echo LOGO_IMAGE; ?>" /></a>
                 </header>
-				<div class="navbar navbar-static-top span5 pull-right">
-				    <ul class="nav pull-right">
-				        <li<?php if (page() == "index") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>">Ranking</a></li>				
-				        <?php if (is_logged_in()) { ?>
-							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Administrera</a></li>
-							<li><a href="<?php echo URL_ROOT; ?>/logout">Logga ut</a></li>
-						<?php } else { ?>
-							<li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/how">Så fungerar det</a></li>				       
-							<li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Logga in</a></li>
-						<?php } ?>	
-				    </ul>
-				</div>
+                
+                

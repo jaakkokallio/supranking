@@ -21,6 +21,10 @@ img {
 .container {margin:0 auto; padding-bottom: 25px;}
 .header-wrapper { padding-left:19px;}
 
+header#top-header {
+  margin-top: 60px;
+}
+
 header#top-header a img {
   margin: 20px;
   border: 0;
@@ -301,51 +305,14 @@ div.DTFC_LeftFootWrapper table {
     border-top: none;
 }
 
-/* Navigation */
-.navbar .nav > li > a {
-    text-shadow:none;
-    color:#f0f0f0;
-    font-weight:normal;
-	text-shadow: 0 2px 2px #000000;
-}
-.navbar .nav > li > a:hover {
-    color:white;
-    text-decoration:underline;
-}
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-    box-shadow:none;
-    color:#252525;
-    background:none;
-	text-shadow: none;
+@media (max-width: 980px) {  
+    header#top-header {margin-top: 0;}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) {  
     header#top-header {margin-left:-1em; text-align: center;}
 
     #ranking-list-container {padding-top:3em;}
-    .navbar {
-        float: none !important;
-        position:relative;
-        top:30px;
-    }
-    .navbar .nav.pull-right {
-        float: none;
-        height: 30px;
-        margin: 0 auto;
-        width: 295px;
-    }
-
-    .navbar .nav > li > a {
-        color:#0088CC;
-		text-shadow: none;
-    }
-    .navbar .nav > li > a:hover {
-        color:#252525;
-    }
-    .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-        color:black;
-    }
-
 }
 
 /* Admin */
