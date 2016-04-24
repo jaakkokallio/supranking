@@ -209,11 +209,19 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background:url(../images/bg.jpg);
+  /*background:url(../images/bg.jpg);
   background-attachment:fixed;
   background-position: center top;
   background-repeat: no-repeat;
-  background-color: #0e68b3;
+  background-color: #0e68b3;*/
+  background-color: #ffffff !important;
+  background-attachment:fixed !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
 }
 a {
   color: #0088cc;

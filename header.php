@@ -36,7 +36,7 @@
 			window.urlRoot = "<?php echo URL_ROOT; ?>";
 		</script>
     </head>
-    <body id="index" class="home">
+    <body id="index" class="home" style="background:url(<?php echo BACKGROUND_IMAGE; ?>)">
       <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
           <div class="span12">

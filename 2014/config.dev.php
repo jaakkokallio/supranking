@@ -9,6 +9,7 @@
 	define("TITLE", "Svenska SUP Race Serien 2014");
 	define("TITLE_SHORT", "2014");
 	define("LOGO_IMAGE", "/images/ssrs-logo.png");
+  define("BACKGROUND_IMAGE", "/images/bg.jpg");
 	define("URL_ROOT", "http://supranking.dev:8888/2014");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 6);

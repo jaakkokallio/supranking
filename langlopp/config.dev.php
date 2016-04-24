@@ -8,7 +8,8 @@
 	
 	define("TITLE", "Långloppsserien 2016 SUP");
 	define("TITLE_SHORT", "Långlopp 2016");
-	define("LOGO_IMAGE", "/images/langlopp_2016.png");
+	define("LOGO_IMAGE", "/images/langlopp_2016.png");	
+  define("BACKGROUND_IMAGE", "/images/bg_langlopp_2016.png");
 	define("URL_ROOT", "http://supranking.dev:8888/langlopp");
 	
 	define("COMPETITIONS_ADDED_TO_SUM", 4);
