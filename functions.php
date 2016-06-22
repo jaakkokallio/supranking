@@ -40,7 +40,7 @@
 		return false;
 	}
 
-	function login($email, $password) {
+	','($email, $password) {
 		$user = get_user_by_email($email);
 		if ($user && $user->password == sha1($password)) {
 			$_SESSION["user_id"] = true;
