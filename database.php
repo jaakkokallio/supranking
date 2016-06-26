@@ -4,7 +4,7 @@
 	mysql_set_charset('utf8');
 	
 	function install() {
-		$query = "CREATE TABLE `users` (
+		$query = "CREATE TABLE `".DATABASE_TABLE_PREFIX."_users` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`name` VARCHAR(255) NOT NULL,
 		`email` VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@
 		);";
 		$result = mysql_query($query);
 		echo $query . "<br />";
-		$query = "CREATE TABLE `competitions` (
+		$query = "CREATE TABLE `".DATABASE_TABLE_PREFIX."_competitions` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`start_date` date NOT NULL default '0000-00-00',
 		`end_date` date NOT NULL default '0000-00-00',
@@ -31,7 +31,7 @@
 		);";
 		$result = mysql_query($query);
 		echo $query . "<br />";
-		$query = "CREATE TABLE `competitors` (
+		$query = "CREATE TABLE `".DATABASE_TABLE_PREFIX."_competitors` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`first_name` VARCHAR(255) NOT NULL,
 		`last_name` VARCHAR(255) NOT NULL,
@@ -41,7 +41,7 @@
 		);";
 		$result = mysql_query($query);
 		echo $query . "<br />";
-		$query = "CREATE TABLE `results` (
+		$query = "CREATE TABLE `".DATABASE_TABLE_PREFIX."_results` (
 		`id` INT NOT NULL AUTO_INCREMENT,
 		`competition_id` bigint NOT NULL default '0',
 		`competitor_id` bigint NOT NULL default '0',
@@ -56,29 +56,29 @@
 	}	
 	
 	function get_user_by_id($id) {
-		$query = "SELECT * FROM users WHERE id = $id LIMIT 1;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_users WHERE id = $id LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_user_by_email($email) {
-		$query = "SELECT * FROM users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_competitions() {
-		$query = "SELECT * FROM competitions ORDER BY start_date ASC;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions ORDER BY start_date ASC;";
 		return mysql_query($query);
 	}
 	
 	function get_upcoming_competitions() {
-		$query = "SELECT * FROM competitions WHERE start_date > NOW() ORDER BY start_date ASC;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions WHERE start_date > NOW() ORDER BY start_date ASC;";
 		return mysql_query($query);
 	}
 	
 	function get_previous_competitions() {
-		$query = "SELECT * FROM competitions WHERE end_date < NOW() ORDER BY start_date ASC;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions WHERE end_date < NOW() ORDER BY start_date ASC;";
 		return mysql_query($query);
 	}
 	
@@ -88,7 +88,7 @@
 			$distance_length = ((isset($distance_length) && $distance_length != "" && is_numeric($distance_length)) ? $distance_length : 0);
 			$sprint_length_female = ((isset($sprint_length_female) && $sprint_length_female != "" && is_numeric($sprint_length_female)) ? $sprint_length_female : 0);
 			$distance_length_female = ((isset($distance_length_female) && $distance_length_female != "" && is_numeric($distance_length_female)) ? $distance_length_female : 0);
-			$query = "UPDATE competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', sprint_length = $sprint_length, distance_length = $distance_length, sprint_length_female = $sprint_length_female, distance_length_female = $distance_length_female, status = $status, description = '$description' WHERE id = $id;";
+			$query = "UPDATE ".DATABASE_TABLE_PREFIX."_competitions SET name = '$name', urlname = '$urlname', start_date = '$start_date', end_date = '$end_date', sprint_length = $sprint_length, distance_length = $distance_length, sprint_length_female = $sprint_length_female, distance_length_female = $distance_length_female, status = $status, description = '$description' WHERE id = $id;";
 			mysql_query($query);
 			return true;
 		}
@@ -101,7 +101,7 @@
 			$distance_length = ((isset($distance_length) && $distance_length != "" && is_numeric($distance_length)) ? $distance_length : 0);
 			$sprint_length_female = ((isset($sprint_length_female) && $sprint_length_female != "" && is_numeric($sprint_length_female)) ? $sprint_length_female : 0);
 			$distance_length_female = ((isset($distance_length_female) && $distance_length_female != "" && is_numeric($distance_length_female)) ? $distance_length_female : 0);
-			$query = "INSERT INTO competitions (name, urlname, start_date, end_date, sprint_length, distance_length, sprint_length_female, distance_length_female, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $sprint_length, $distance_length, $sprint_length_female, $distance_length_female, $status, '$description');";
+			$query = "INSERT INTO ".DATABASE_TABLE_PREFIX."_competitions (name, urlname, start_date, end_date, sprint_length, distance_length, sprint_length_female, distance_length_female, status, description) VALUES ('$name', '$urlname', '$start_date', '$end_date', $sprint_length, $distance_length, $sprint_length_female, $distance_length_female, $status, '$description');";
 			mysql_query($query);
 			return true;
 		}
@@ -109,40 +109,40 @@
 	}
 	
 	function get_competition_by_id($id) {
-		$query = "SELECT * FROM competitions WHERE id = $id LIMIT 1;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions WHERE id = $id LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_competition_by_id_or_urlname($id) {
 		if (is_numeric($id)) {
-			$query = "SELECT * FROM competitions WHERE id = $id LIMIT 1;";
+			$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions WHERE id = $id LIMIT 1;";
 		} else {
-			$query = "SELECT * FROM competitions WHERE urlname = '$id' LIMIT 1;";
+			$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitions WHERE urlname = '$id' LIMIT 1;";
 		}
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_competitor_by_id($id) {
-		$query = "SELECT * FROM competitors WHERE id = $id LIMIT 1;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitors WHERE id = $id LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_competitors() {
-		$query = "SELECT * FROM competitors;";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitors;";
 		return mysql_query($query);
 	}
 	
 	function get_competitors_by_gender($gender) {
-		$query = "SELECT * FROM competitors WHERE gender = '$gender';";
+		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_competitors WHERE gender = '$gender';";
 		return mysql_query($query);
 	}
 	
 	function update_competitor($id, $first_name, $last_name, $gender, $country) {
 		if (isset($id) && isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $id != "" && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
-			$query = "UPDATE competitors SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', country = '$country' WHERE id = $id;";
+			$query = "UPDATE ".DATABASE_TABLE_PREFIX."_competitors SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', country = '$country' WHERE id = $id;";
 			mysql_query($query);
 			return true;
 		}
@@ -165,7 +165,7 @@
 	
 	function create_competitor($first_name, $last_name, $gender, $country) {
 		if (isset($first_name) && isset($last_name) && isset($gender) && isset($country) && $first_name != "" && $last_name != "" && $gender != "" && $country != "") {
-			$query = "INSERT INTO competitors (first_name, last_name, gender, country) VALUES ('$first_name', '$last_name', '$gender', '$country');";
+			$query = "INSERT INTO ".DATABASE_TABLE_PREFIX."_competitors (first_name, last_name, gender, country) VALUES ('$first_name', '$last_name', '$gender', '$country');";
 			mysql_query($query);
 			return mysql_insert_id();
 		}
@@ -174,7 +174,7 @@
 	
 	function create_result($competition_id, $competitor_id, $discipline, $class, $placing, $time) {
 		if (isset($competition_id) && isset($competitor_id) && isset($discipline) && isset($placing) && $competition_id != "" && $competitor_id != "" && $discipline != "" && $placing != "") {
-			$query = "INSERT INTO results (competition_id, competitor_id, discipline, class, placing, time) VALUES ($competition_id, $competitor_id, '$discipline', '$class', $placing, ".time_for_database($time).");";
+			$query = "INSERT INTO ".DATABASE_TABLE_PREFIX."_results (competition_id, competitor_id, discipline, class, placing, time) VALUES ($competition_id, $competitor_id, '$discipline', '$class', $placing, ".time_for_database($time).");";
 			mysql_query($query);
 			return mysql_insert_id();
 		}
@@ -183,7 +183,7 @@
 	
 	function update_result($id, $competitor_id, $class, $time) {
 		if (isset($id) && isset($competitor_id) && $id != "" && $competitor_id != "") {
-			$query = "UPDATE results SET competitor_id = $competitor_id, class = '$class', time = ".time_for_database($time)." WHERE id = $id;";
+			$query = "UPDATE ".DATABASE_TABLE_PREFIX."_results SET competitor_id = $competitor_id, class = '$class', time = ".time_for_database($time)." WHERE id = $id;";
 			mysql_query($query);
 			return $id;
 		}
@@ -191,22 +191,22 @@
 	}
 	
 	function get_all_results_by_competition($competition_id) {
-		$query = "SELECT results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id ORDER BY placing ASC";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	
 	function get_results_by_competition($competition_id, $gender, $discipline) {
-		$query = "SELECT results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	
 	function get_results_by_competitors($competitor_ids) {
-		$query = "SELECT results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.sprint_length_female, competitions.distance_length_female, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.sprint_length_female, competitions.distance_length_female, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
 		return mysql_query($query);
 	}
 	
 	function delete_results($result_ids) {
-		$query = "DELETE FROM results WHERE id IN (".join(",", $result_ids).");";
+		$query = "DELETE FROM ".DATABASE_TABLE_PREFIX."_results WHERE id IN (".join(",", $result_ids).");";
 		mysql_query($query);
 	}
 	

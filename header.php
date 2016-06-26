@@ -1,5 +1,3 @@
-<?php include("functions.php"); ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -19,18 +17,18 @@
         <meta property="og:description"
               content="Svenska SUP Race Serien - Sveriges bästa Stå-upp paddlare."/>
 
-        <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/bootstrap.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/main.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/datepicker.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/jquery.handsontable.full.css" type="text/css" />
+        <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="/css/datepicker.css" type="text/css" />
+        <link rel="stylesheet" href="/css/jquery.handsontable.full.css" type="text/css" />
 
-        <script src="<?php echo URL_ROOT; ?>/js/jquery.js"></script>
-        <script src="<?php echo URL_ROOT; ?>/js/main.js"></script>
-        <script src="<?php echo URL_ROOT; ?>/js/bootstrap.js"></script>
-		<script src="<?php echo URL_ROOT; ?>/js/bootstrap-datepicker.js"></script>
-        <script src="<?php echo URL_ROOT; ?>/js/jquery.dataTables.js"></script>
-        <script src="<?php echo URL_ROOT; ?>/js/DT_bootstrap.js"></script>
-        <script src="<?php echo URL_ROOT; ?>/js/jquery.handsontable.full.js"></script>
+        <script src="/js/jquery.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/bootstrap.js"></script>
+		<script src="/js/bootstrap-datepicker.js"></script>
+        <script src="/js/jquery.dataTables.js"></script>
+        <script src="/js/DT_bootstrap.js"></script>
+        <script src="/js/jquery.handsontable.full.js"></script>
 		
 		<script type="text/javascript">
 			window.urlRoot = "<?php echo URL_ROOT; ?>";

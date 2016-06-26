@@ -8,19 +8,16 @@
 
 	date_default_timezone_set("Europe/Stockholm");
 	setlocale(LC_ALL, 'sv_SE');
-		
-	function environment() {
-		if ($_SERVER["SERVER_NAME"] == "supranking.dev") { return "dev"; }
-		return "prod";
-	}
 
 	function page() {
-		return str_replace(".php", "", basename($_SERVER["PHP_SELF"]));
+    global $page;
+		return $page;
 	}
-
-	include("config.".environment().".php");
-	include("database.php");
-
+  
+	function id() {
+    global $id;
+		return $id;
+	}
 
 	function is_logged_in() {
 		return isset($_SESSION["user_id"]);
@@ -40,7 +37,7 @@
 		return false;
 	}
 
-	','($email, $password) {
+	function login($email, $password) {
 		$user = get_user_by_email($email);
 		if ($user && $user->password == sha1($password)) {
 			$_SESSION["user_id"] = true;

@@ -1,6 +1,4 @@
 <?php
-	include("functions.php"); 
-
 	$competitor = get_competitor_by_id($_GET["competitor_id"]);
 	
 	$results = results_by_competitor($competitor);

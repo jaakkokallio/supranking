@@ -1,6 +1,4 @@
-<?php
-	include("functions.php"); 
-	
+<?php	
 	$discipline = $_GET["discipline"];
 	$gender = $_GET["gender"];
 	$competitor_changes = $_GET["competitor_changes"];

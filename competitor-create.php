@@ -1,5 +1,4 @@
 <?php 
-	include("functions.php");
 	if (is_logged_in()) {
 		echo json_encode(array("discipline" => $_POST["discipline"], "competitors" => create_competitors($_POST["competitor"])));
 	} else {

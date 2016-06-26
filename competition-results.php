@@ -2,7 +2,7 @@
 
 <?php if (is_logged_in()) { ?>
 	<?php 
-		$competition = get_competition_by_id($_GET["id"]); 
+		$competition = get_competition_by_id(id()); 
 		
 		$female_competitor_names = competitor_names("female");
 		$male_competitor_names = competitor_names("male");
