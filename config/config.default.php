@@ -1,4 +1,18 @@
 <?php
+  if ($environment == "dev") { 
+    error_reporting(E_ALL & ~E_DEPRECATED);
+
+    define("DATABASE_HOST",	"localhost");
+    define("DATABASE_USERNAME",	"root");
+    define("DATABASE_PASSWORD",	"batman");
+    define("DATABASE_DATABASE",	"supranking");
+  } else {
+    define("DATABASE_HOST",	"eu-cdbr-west-01.cleardb.com");
+    define("DATABASE_USERNAME",	"bbd8cc0fd7d467");
+    define("DATABASE_PASSWORD",	"e17d5f16");
+    define("DATABASE_DATABASE",	"heroku_5a1dacb1604089d");
+  }
+
 	define("COUNTRIES", serialize(array(
 		'AFG' => 'Afghanistan',
 		'ALB' => 'Albania',
