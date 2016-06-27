@@ -1,5 +1,5 @@
 <?php
-	$competitor = get_competitor_by_id($_GET["competitor_id"]);
+	$competitor = get_competitor_by_id(id());
 	
 	$results = results_by_competitor($competitor);
 ?>

@@ -4,7 +4,7 @@
 	mysql_set_charset('utf8');
 	
 	function install() {
-		$query = "CREATE TABLE `".DATABASE_TABLE_PREFIX."_users` (
+		$query = "CREATE TABLE `users` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`name` VARCHAR(255) NOT NULL,
 		`email` VARCHAR(255) NOT NULL,
@@ -56,13 +56,13 @@
 	}	
 	
 	function get_user_by_id($id) {
-		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_users WHERE id = $id LIMIT 1;";
+		$query = "SELECT * FROM users WHERE id = $id LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
 	
 	function get_user_by_email($email) {
-		$query = "SELECT * FROM ".DATABASE_TABLE_PREFIX."_users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
+		$query = "SELECT * FROM users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
@@ -191,17 +191,17 @@
 	}
 	
 	function get_all_results_by_competition($competition_id) {
-		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id ORDER BY placing ASC";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, ".DATABASE_TABLE_PREFIX."_competitors.first_name, ".DATABASE_TABLE_PREFIX."_competitors.last_name, ".DATABASE_TABLE_PREFIX."_competitors.gender, ".DATABASE_TABLE_PREFIX."_competitors.country FROM ".DATABASE_TABLE_PREFIX."_results LEFT JOIN ".DATABASE_TABLE_PREFIX."_competitors ON ".DATABASE_TABLE_PREFIX."_competitors.id = ".DATABASE_TABLE_PREFIX."_results.competitor_id WHERE ".DATABASE_TABLE_PREFIX."_results.competition_id = $competition_id ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	
 	function get_results_by_competition($competition_id, $gender, $discipline) {
-		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitors.first_name, competitors.last_name, competitors.gender, competitors.country FROM results LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE results.competition_id = $competition_id AND results.discipline = '$discipline' AND competitors.gender = '$gender' ORDER BY placing ASC";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, ".DATABASE_TABLE_PREFIX."_competitors.first_name, ".DATABASE_TABLE_PREFIX."_competitors.last_name, ".DATABASE_TABLE_PREFIX."_competitors.gender, ".DATABASE_TABLE_PREFIX."_competitors.country FROM ".DATABASE_TABLE_PREFIX."_results LEFT JOIN ".DATABASE_TABLE_PREFIX."_competitors ON ".DATABASE_TABLE_PREFIX."_competitors.id = ".DATABASE_TABLE_PREFIX."_results.competitor_id WHERE ".DATABASE_TABLE_PREFIX."_results.competition_id = $competition_id AND ".DATABASE_TABLE_PREFIX."_results.discipline = '$discipline' AND ".DATABASE_TABLE_PREFIX."_competitors.gender = '$gender' ORDER BY placing ASC";
 		return mysql_query($query);
 	}
 	
 	function get_results_by_competitors($competitor_ids) {
-		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, competitions.status, competitions.name, competitions.sprint_length, competitions.distance_length, competitions.sprint_length_female, competitions.distance_length_female, competitions.start_date, competitions.end_date, competitors.country FROM results LEFT JOIN competitions ON competitions.id = results.competition_id LEFT JOIN competitors ON competitors.id = results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
+		$query = "SELECT ".DATABASE_TABLE_PREFIX."_results.*, ".DATABASE_TABLE_PREFIX."_competitions.status, ".DATABASE_TABLE_PREFIX."_competitions.name, ".DATABASE_TABLE_PREFIX."_competitions.sprint_length, ".DATABASE_TABLE_PREFIX."_competitions.distance_length, ".DATABASE_TABLE_PREFIX."_competitions.sprint_length_female, ".DATABASE_TABLE_PREFIX."_competitions.distance_length_female, ".DATABASE_TABLE_PREFIX."_competitions.start_date, ".DATABASE_TABLE_PREFIX."_competitions.end_date, ".DATABASE_TABLE_PREFIX."_competitors.country FROM ".DATABASE_TABLE_PREFIX."_results LEFT JOIN ".DATABASE_TABLE_PREFIX."_competitions ON ".DATABASE_TABLE_PREFIX."_competitions.id = ".DATABASE_TABLE_PREFIX."_results.competition_id LEFT JOIN ".DATABASE_TABLE_PREFIX."_competitors ON ".DATABASE_TABLE_PREFIX."_competitors.id = ".DATABASE_TABLE_PREFIX."_results.competitor_id WHERE competitor_id IN (".join(",", $competitor_ids).");";
 		return mysql_query($query);
 	}
 	

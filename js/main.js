@@ -127,7 +127,7 @@ $(document).ready(function() {
 	
 	$("body").on("click", ".ranking-list tr td, .result-list tr td", function() {
 		if ($(this).parent("tr").data("competitor-id")) {
-			$.get(window.urlRoot+"/competitor?competitor_id="+$(this).parent("tr").data("competitor-id"), function(data) {
+			$.get(window.urlRoot+"/competitor/"+$(this).parent("tr").data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
 				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal();		
@@ -138,7 +138,7 @@ $(document).ready(function() {
 	$("body").on("click", ".admin-competitors-list .show-results", function(e) {
 		e.preventDefault();
 		if ($(this).data("competitor-id")) {
-			$.get(window.urlRoot+"/competitor?competitor_id="+$(this).data("competitor-id"), function(data) {
+			$.get(window.urlRoot+"/competitor/"+$(this).data("competitor-id"), function(data) {
 				$("#competitor-modal").html(data);
 				$(".placing").popover({trigger: "hover", html: true});
 				$("#competitor-modal").modal(); 		
