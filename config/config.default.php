@@ -1,4 +1,7 @@
 <?php
+  date_default_timezone_set("Europe/Stockholm");
+  setlocale(LC_ALL, 'sv_SE');
+
   if ($environment == "dev") { 
     error_reporting(E_ALL & ~E_DEPRECATED);
 

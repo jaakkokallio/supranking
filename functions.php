@@ -1,14 +1,4 @@
 <?php
-	if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
-    	header('Location: http'.(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 's':'').'://' . substr($_SERVER['HTTP_HOST'], 4).$_SERVER['REQUEST_URI']);
-    	exit;
-	}
-
-	session_start();
-
-	date_default_timezone_set("Europe/Stockholm");
-	setlocale(LC_ALL, 'sv_SE');
-
 	function page() {
     global $page;
 		return $page;
