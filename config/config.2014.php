@@ -2,7 +2,7 @@
   if ($environment == "dev") { 
     define("URL_ROOT", "http://supranking.dev:8888/2014");
   } else {
-    define("URL_ROOT", "http://supraceserien.se/2014");
+    define("URL_ROOT", "http://www.supraceserien.se/2014");
   }
   
   define("DATABASE_TABLE_PREFIX",	"2014");

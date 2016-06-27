@@ -2,7 +2,7 @@
   if ($environment == "dev") { 
     define("URL_ROOT", "http://supranking.dev:8888/langlopp");
   } else {
-	  define("URL_ROOT", "http://supraceserien.se/langlopp");
+	  define("URL_ROOT", "http://www.supraceserien.se/langlopp");
   }
 
   define("DATABASE_TABLE_PREFIX",	"langlopp");
