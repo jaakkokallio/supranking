@@ -19,25 +19,25 @@
 
 	<?php if (($female_distance_results && mysql_num_rows($female_distance_results) > 0) || ($female_sprint_results && mysql_num_rows($female_sprint_results) > 0)) { ?>
 		<section id="competition-female-results" class="well">
-			<h2>Resultat: Damer</h2>
+			<h2><?php echo t("result"); ?>: <?php echo t("females"); ?></h2>
 			<?php if ($female_distance_results && mysql_num_rows($female_distance_results) > 0) { ?>
 				<?php $length = competition_length($competition, "female", "distance"); ?>
 				<?php $readable_length = readable_competition_length($competition, "female", "distance"); ?>
-				<h3>Distans <?php if ($readable_length != "") { echo "(".$readable_length.")"; } ?></h3>
+				<h3><?php echo t("distance"); ?> <?php if ($readable_length != "") { echo "(".$readable_length.")"; } ?></h3>
 				<?php $winner_time = mysql_fetch_object($female_distance_results)->time; ?>
 				<?php mysql_data_seek($female_distance_results, 0); ?>
 				<table class="table table-striped table-hover result-list">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Namn</th>
-							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
+							<th><?php echo t("name"); ?></th>
+							<?php if (HAS_CLASSES) { ?><th><?php echo t("class"); ?></th><?php } ?>
 							<?php if ($length != 0) { ?>
-								<th class="align_right">Snitthastighet</th>
+								<th class="align_right"><?php echo t("average_speed"); ?></th>
 							<?php } ?>
-							<th class="align_right">Tid</th>
+							<th class="align_right"><?php echo t("time"); ?></th>
 							<?php if ($winner_time > 0) { ?>
-								<th class="align_right">Diff</th>
+								<th class="align_right"><?php echo t("diff"); ?></th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -69,13 +69,13 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Namn</th>
+							<th><?php echo t("name"); ?></th>
 							<?php if ($length != 0) { ?>
-								<th class="align_right">Snitthastighet</th>
+								<th class="align_right"><?php echo t("average_speed"); ?></th>
 							<?php } ?>
-							<th class="align_right">Tid</th>
+							<th class="align_right"><?php echo t("time"); ?></th>
 							<?php if ($winner_time > 0) { ?>
-								<th class="align_right">Diff</th>
+								<th class="align_right"><?php echo t("diff"); ?></th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -101,7 +101,7 @@
 
 	<?php if (($male_distance_results && mysql_num_rows($male_distance_results) > 0) || ($male_sprint_results && mysql_num_rows($male_sprint_results) > 0)) { ?>
 		<section id="competition-female-results" class="well">
-			<h2>Resultat: Herrar</h2>
+			<h2><?php echo t("result"); ?>: <?php echo t("men"); ?></h2>
 			<?php if ($male_distance_results && mysql_num_rows($male_distance_results) > 0) { ?>
 				<?php $winner_time = mysql_fetch_object($male_distance_results)->time; ?>							
 				<?php mysql_data_seek($male_distance_results, 0); ?>
@@ -112,14 +112,14 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Namn</th>
-							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
+							<th><?php echo t("name"); ?></th>
+							<?php if (HAS_CLASSES) { ?><th><?php echo t("class"); ?></th><?php } ?>
 							<?php if ($length != 0) { ?>
-								<th class="align_right">Snitthastighet</th>
+								<th class="align_right"><?php echo t("average_speed"); ?></th>
 							<?php } ?>
-							<th class="align_right">Tid</th>
+							<th class="align_right"><?php echo t("time"); ?></th>
 							<?php if ($winner_time > 0) { ?>
-								<th class="align_right">Diff</th>
+								<th class="align_right"><?php echo t("diff"); ?></th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -151,13 +151,13 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Namn</th>
+							<th><?php echo t("name"); ?></th>
 							<?php if ($length != 0) { ?>
-								<th class="align_right">Snitthastighet</th>
+								<th class="align_right"><?php echo t("average_speed"); ?></th>
 							<?php } ?>
-							<th class="align_right">Tid</th>
+							<th class="align_right"><?php echo t("time"); ?></th>
 							<?php if ($winner_time > 0) { ?>
-								<th class="align_right">Diff</th>
+								<th class="align_right"><?php echo t("diff"); ?></th>
 							<?php } ?>
 						</tr>
 					</thead>

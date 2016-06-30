@@ -35,12 +35,12 @@ $(document).ready(function() {
             }
         },
         "oLanguage": {
-            "sLengthMenu": "_MENU_ resultat per sida",
-            "sZeroRecords": "Ingen data tillgänglig.",
-            "sInfo": "Visar _START_ - _END_ av _TOTAL_ resultat",
-            "sInfoEmpty": "Visar 0 - 0 av 0 resultat",
-            "sInfoFiltered": "(filtrerar från _MAX_ totala resultat)",
-            "sSearch": "Sök: ",
+            "sLengthMenu": "_MENU_ " + t("results_per_page"),
+            "sZeroRecords": t("no_data_available"),
+            "sInfo": t("showing") + " _START_ - _END_ " + t("of") + " _TOTAL_",
+            "sInfoEmpty": t("showing") + " 0 - 0 " + t("of") + " 0",
+            "sInfoFiltered": "(_MAX_ " + t("total2") + ")",
+            "sSearch": t("search") + ": ",
             "oPaginate": {
                 "sFirst":    "",
                 "sPrevious": "",
@@ -74,12 +74,12 @@ $(document).ready(function() {
             }
         },
         "oLanguage": {
-            "sLengthMenu": "_MENU_ deltagare per sida",
-            "sZeroRecords": "Ingen data tillgänglig.",
-            "sInfo": "Visar _START_ - _END_ av _TOTAL_ deltagare",
-            "sInfoEmpty": "Visar 0 - 0 av 0 deltagare",
-            "sInfoFiltered": "(filtrerar från _MAX_ deltagare)",
-            "sSearch": "Sök: ",
+            "sLengthMenu": "_MENU_ " + t("particiapnts_per_page"),
+            "sZeroRecords": t("no_data_available"),
+            "sInfo": t("showing") + " _START_ - _END_ " + t("of") + " _TOTAL_",
+            "sInfoEmpty": t("showing") + " 0 - 0 " + t("of") + " 0",
+            "sInfoFiltered": "(_MAX_ " + t("total2") + ")",
+            "sSearch": t("search") + ": ",
             "oPaginate": {
                 "sFirst":    "",
                 "sPrevious": "",
@@ -186,14 +186,20 @@ $(document).ready(function() {
 		
 		$.post(window.urlRoot+"/competition-results-update", {competition_id: $(this).data("competition-id"), results: results}, function(data) {
 			if (data.errors.length > 0) {
-				$(".results-spreadsheets").append("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.errors.length+" fel uppstod!</div>");
+				$(".results-spreadsheets").append("<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.errors.length+" "+t("errors_occured")+"</div>");
 			} else {
-				$(".results-spreadsheets").append("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.created_results.length+" resultat sparades!</div>");
+				$(".results-spreadsheets").append("<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button> "+data.created_results.length+" "+t("results_saved")+"</div>");
 			}
 		}, "json");
 	});
 	
 });
+
+// Translations
+
+var t = function(key) {
+  return window.translations[key];
+};
 
 // Results spreadsheet
 
@@ -219,10 +225,10 @@ var autocompleteCompetitors = function(gender, query, process) {
 	process($.grep($.map(window.competitors[gender], function(c) { return c.competitor; }), function(c) { return c.indexOf(query) == 0; }));
 };
 
-$.fn.spreadsheet = function(discipline, gender, results) {
-	if (discipline == "distance") {
+$.fn.spreadsheet = function(discipline, gender, hasClasses, results) {
+	if (discipline == "distance" && hasClasses) {
 		var data = $.map(results, function(r) { return {competitor_id: r.competitor_id, competitor: r.competitor, class: r.class, time: r.time}; });
-		var colHeaders = ["ID", "Deltagare", "Klass", "Tid"];
+		var colHeaders = [t("id"), t("participant"), t("class"), t("time")];
 		var colWidths = [50, 400, 100, 100];
 		var columns = [{data: "competitor_id", readOnly: true},
 					   {data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 
@@ -230,7 +236,7 @@ $.fn.spreadsheet = function(discipline, gender, results) {
 				       {data: "time", validator: timeValidator}];
 	} else {
 		var data = $.map(results, function(r) { return {competitor_id: r.competitor_id, competitor: r.competitor, time: r.time}; });
-		var colHeaders = ["ID", "Deltagare", "Tid"];
+		var colHeaders = [t("id"), t("participant"), t("time")];
 		var colWidths = [50, 400, 100];
 		var columns = [{data: "competitor_id", readOnly: true},
 					   {data: "competitor", type: 'autocomplete', strict: true, source: function (query, process) { autocompleteCompetitors(gender, query, process); }}, 

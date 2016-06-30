@@ -5,17 +5,17 @@
 <section id="ranking-list-container" class="span7 well">
     <header class="rl-menu">
         <div class="btn-group genderChoice" data-toggle="buttons-radio">   
-            <button id="genderMaleBtn" class="btn active" value="Herrar" name="genderChoice">Herrar</button>
-            <button id="genderFemaleBtn" class="btn" value="Damer" name="genderChoice">Damer</button>
+            <button id="genderMaleBtn" class="btn active" value="Herrar" name="genderChoice"><?php echo t("men"); ?></button>
+            <button id="genderFemaleBtn" class="btn" value="Damer" name="genderChoice"><?php echo t("females"); ?></button>
         </div>
     </header>
     <!-- Start male section -->
     <div id="genderMale" class="tabbable"> <!-- Only required for left/right tabs -->
         <?php if (count(disciplines()) > 1) { ?>
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#all" data-toggle="tab">Total</a></li>
-              <?php if (has_discipline("distance")) { ?><li><a href="#distans" data-toggle="tab">Distans</a></li><?php } ?>
-              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint" data-toggle="tab">Sprint</a></li><?php } ?>
+              <li class="active"><a href="#all" data-toggle="tab"><?php echo t("total"); ?></a></li>
+              <?php if (has_discipline("distance")) { ?><li><a href="#distans" data-toggle="tab"><?php echo t("distance"); ?></a></li><?php } ?>
+              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint" data-toggle="tab"><?php echo t("sprint"); ?></a></li><?php } ?>
           </ul>
         <?php } ?>
         <div class="tab-content">
@@ -24,10 +24,10 @@
                     <thead>
                         <tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar <?php if (count(disciplines()) > 1) { ?><small>(distans | sprint)</small><?php } ?></th>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting nowrap"><?php echo t("competitions"); ?> <?php if (count(disciplines()) > 1) { ?><small><?php echo t("distance_sprint"); ?></small><?php } ?></th>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,11 +50,11 @@
                     <thead>
 						<tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar</th>
-                            <?php if (HAS_CLASSES) { ?><th class="sorting">Klass</th><?php } ?>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting nowrap"><?php echo t("competitions"); ?></th>
+                            <?php if (HAS_CLASSES) { ?><th class="sorting"><?php echo t("class"); ?></th><?php } ?>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,10 +78,10 @@
                     <thead>
 						<tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar</th>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting nowrap"><?php echo t("competitions"); ?></th>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,9 +106,9 @@
     <div id="genderFemale" class="tabbable"> <!-- Only required for left/right tabs -->
         <?php if (count(disciplines()) > 1) { ?>
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#all_2" data-toggle="tab">Total</a></li>
-              <?php if (has_discipline("distance")) { ?><li><a href="#distans_2" data-toggle="tab">Distans</a></li><?php } ?>
-              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint_2" data-toggle="tab">Sprint</a></li><?php } ?>
+              <li class="active"><a href="#all_2" data-toggle="tab"><?php echo t("total"); ?></a></li>
+              <?php if (has_discipline("distance")) { ?><li><a href="#distans_2" data-toggle="tab"><?php echo t("distance"); ?></a></li><?php } ?>
+              <?php if (has_discipline("sprint")) { ?><li><a href="#sprint_2" data-toggle="tab"><?php echo t("sprint"); ?></a></li><?php } ?>
           </ul>
         <?php } ?>
         <div class="tab-content">
@@ -117,10 +117,10 @@
                     <thead>
                         <tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting nowrap">Tävlingar<?php if (count(disciplines()) > 1) { ?> <small>(distans | sprint)</small><?php } ?></th>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting nowrap"><?php echo t("competitions"); ?><?php if (count(disciplines()) > 1) { ?> <small><?php echo t("distance_sprint"); ?></small><?php } ?></th>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -143,11 +143,11 @@
                     <thead>
                         <tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting">Tävlingar</th>
-                            <?php if (HAS_CLASSES) { ?><th class="sorting">Klass</th><?php } ?>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting"><?php echo t("competitions"); ?></th>
+                            <?php if (HAS_CLASSES) { ?><th class="sorting"><?php echo t("competitions"); ?></th><?php } ?>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -171,10 +171,10 @@
                     <thead>
                         <tr>
                             <th class="sorting">#</th>
-                            <th class="sorting">Förnamn</th>
-                            <th class="sorting">Efternamn</th>
-                            <th class="sorting">Tävlingar</th>
-                            <th class="sorting">Poäng</th>
+                            <th class="sorting"><?php echo t("first_name"); ?></th>
+                            <th class="sorting"><?php echo t("last_name"); ?></th>
+                            <th class="sorting"><?php echo t("competitions"); ?></th>
+                            <th class="sorting"><?php echo t("points"); ?></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -1,14 +1,10 @@
 <?php  
-  /*if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
-  	header('Location: http'.(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 's':'').'://' .    substr($_SERVER['HTTP_HOST'], 4).$_SERVER['REQUEST_URI']);
-  	exit;
-  }*/
-
   session_start();
  
-  global $environment, $config, $page, $id;
+  global $environment, $lang, $config, $page, $id;
  
-  $environment = ($_SERVER["SERVER_NAME"] == "supranking.dev") ? "dev" : "prod";
+  $environment = (preg_match("/.dev$/", $_SERVER["SERVER_NAME"])) ? "dev" : "prod";
+  $lang = (preg_match("/(.fi|.fi.dev)$/", $_SERVER["SERVER_NAME"])) ? "fi" : "se";  
   $params = array_values(preg_grep("/^[a-z0-9-\/]+$/", explode("/", preg_replace("/\?.*/", "", $_SERVER['REQUEST_URI']))));
   $config = "2016";
   if (sizeof($params) > 0 && in_array($params[0], array("2014","2015","langlopp"))) {
@@ -19,8 +15,9 @@
   $page = sizeof($params) > 0 ? $params[0] : "front";
   $id = sizeof($params) > 1 ? $params[1] : NULL;
     
-  include("config/config.default.php");
-	include("config/config.".$config.".php");
+  include("config/config.php");
+	include("config/config-".$lang.".php");
+	include("config/config-".$lang."-".$config.".php");
   include("functions.php");
 	include("database.php");
   include($page.".php");

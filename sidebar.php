@@ -2,7 +2,7 @@
 	<?php $upcoming_competitions = get_upcoming_competitions(); ?>
 	<?php if ($upcoming_competitions && mysql_num_rows($upcoming_competitions) > 0) { ?>
 		<aside class="upcoming-events well well-large">
-	        <h3>Kommande tävlingar</h3>
+	        <h3><?php echo t("upcoming_competitions"); ?></h3>
 	        <table class="table table-striped">
 	            <tbody>
 					<?php while ($competition = mysql_fetch_object($upcoming_competitions)) { ?>
@@ -19,7 +19,7 @@
 	<?php $previous_competitions = get_previous_competitions(); ?>
 	<?php if ($previous_competitions && mysql_num_rows($previous_competitions) > 0) { ?>
 		<aside class="earlier-events well well-large">
-	        <h3>Tidigare tävlingar</h3>
+	        <h3><?php echo t("past_competitions"); ?></h3>
 	        <table class="table table-striped">
 	            <tbody>
 					<?php while ($competition = mysql_fetch_object($previous_competitions)) { ?>

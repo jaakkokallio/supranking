@@ -14,38 +14,38 @@
 	?>
 	
 	<section class="span12 well">
-		<h1>Administrera resultat</h1>
+		<h1><?php echo t("administer_results"); ?></h1>
 		<h2><?php echo $competition->name; ?> <?php for ($i = 0 ; $i < $competition->status; $i++) { ?><i class="icon-star"></i><?php } ?></h2>
 		<p class="lead"><?php echo readable_date_range(strtotime($competition->start_date), strtotime($competition->end_date)); ?></p>
 			
 		<div class="results-spreadsheets">
       <?php if (has_discipline("distance")) { ?>
-  			<h4>Damer Distans</h4>
+  			<h4><?php echo t("females"); ?> <?php echo t("distance"); ?></h4>
   			<div class="results-spreadsheet" id="female-distance-spreadsheet"></div>
       <?php } ?>
       <?php if (has_discipline("sprint")) { ?>
-  			<h4>Damer Sprint</h4>
+  			<h4><?php echo t("females"); ?> <?php echo t("sprint"); ?></h4>
   			<div class="results-spreadsheet" id="female-sprint-spreadsheet"></div>
       <?php } ?>
       <?php if (has_discipline("distance")) { ?>
-  			<h4>Herrar Distans</h4>
+  			<h4><?php echo t("men"); ?> <?php echo t("distance"); ?></h4>
   			<div class="results-spreadsheet" id="male-distance-spreadsheet"></div>
       <?php } ?>
       <?php if (has_discipline("sprint")) { ?>
-  			<h4>Herrar Sprint</h4>
+  			<h4><?php echo t("men"); ?> <?php echo t("sprint"); ?></h4>
   			<div class="results-spreadsheet" id="male-sprint-spreadsheet"></div>
       <?php } ?>
 		</div>
 		
-		<a href="#" role="button" class="btn btn-primary btn-large large save-results" data-competition-id="<?php echo $competition->id; ?>">Spara</a>
+		<a href="#" role="button" class="btn btn-primary btn-large large save-results" data-competition-id="<?php echo $competition->id; ?>"><?php echo t("save"); ?></a>
 	</section>
 	
 	<script type="text/javascript">
 		window.competitors = {female: <?php echo json_encode($female_competitor_names); ?>, male: <?php echo json_encode($male_competitor_names); ?>};
-		<?php if (has_discipline("distance")) { ?>$("#female-distance-spreadsheet").spreadsheet("distance", "female", <?php echo $female_distance_results; ?>);<?php } ?>
-		<?php if (has_discipline("sprint")) { ?>$("#female-sprint-spreadsheet").spreadsheet("sprint", "female", <?php echo $female_sprint_results; ?>);<?php } ?>
-		<?php if (has_discipline("distance")) { ?>$("#male-distance-spreadsheet").spreadsheet("distance", "male", <?php echo $male_distance_results; ?>);<?php } ?>
-		<?php if (has_discipline("sprint")) { ?>$("#male-sprint-spreadsheet").spreadsheet("sprint", "male", <?php echo $male_sprint_results; ?>);<?php } ?>
+		<?php if (has_discipline("distance")) { ?>$("#female-distance-spreadsheet").spreadsheet("distance", "female", <?php echo (HAS_CLASSES) ? "true" : "false" ?>, <?php echo $female_distance_results; ?>);<?php } ?>
+		<?php if (has_discipline("sprint")) { ?>$("#female-sprint-spreadsheet").spreadsheet("sprint", "female", <?php echo (HAS_CLASSES) ? "true" : "false" ?>, <?php echo $female_sprint_results; ?>);<?php } ?>
+		<?php if (has_discipline("distance")) { ?>$("#male-distance-spreadsheet").spreadsheet("distance", "male", <?php echo (HAS_CLASSES) ? "true" : "false" ?>, <?php echo $male_distance_results; ?>);<?php } ?>
+		<?php if (has_discipline("sprint")) { ?>$("#male-sprint-spreadsheet").spreadsheet("sprint", "male", <?php echo (HAS_CLASSES) ? "true" : "false" ?>, <?php echo $male_sprint_results; ?>);<?php } ?>
 	</script>
 
 	<!-- New competitor modal -->

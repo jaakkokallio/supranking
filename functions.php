@@ -364,5 +364,12 @@
 	function countries() {
 		return unserialize(COUNTRIES);
 	}
-
+  
+  function dropdown_menu_items() {
+    return unserialize(DROPDOWN_MENU_ITEMS);
+  }
+  
+  function t($key) {
+    return unserialize(TRANSLATIONS)[$key];
+  }
 ?>

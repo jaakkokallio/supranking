@@ -10,13 +10,13 @@
 		<div class="modal-content new-competitor-modal">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Lägg till deltagare</h2>
+				<h2 class="modal-title"><?php echo t("add_participant"); ?></h2>
 			</div>
 			<div class="modal-body">
 			<?php if (isset($_GET["error"])) { ?>
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					Följande deltagare kunde inte sparas!
+          <?php echo t("following_participants_could_not_be_saved"); ?>
 				</div>
 			<?php } ?>					
 			<?php foreach ($competitor_changes as $i => $competitor_change) { ?>
@@ -31,10 +31,10 @@
 					<input type="hidden" name="competitor[<?php echo $i; ?>][row]" value="<?php echo $row; ?>" />
 					<input type="hidden" name="competitor[<?php echo $i; ?>][gender]" value="<?php echo $gender; ?>" />
 					<div>
-						<input type="text" name="competitor[<?php echo $i; ?>][first_name]" placeholder="Förnamn" class="span10" value="<?php echo $first_name; ?>" />
+						<input type="text" name="competitor[<?php echo $i; ?>][first_name]" placeholder="<?php echo t("first_name"); ?>" class="span10" value="<?php echo $first_name; ?>" />
 					</div>
 					<div>
-						<input type="text" name="competitor[<?php echo $i; ?>][last_name]" placeholder="Efternamn" class="span10" value="<?php echo $last_name; ?>" />
+						<input type="text" name="competitor[<?php echo $i; ?>][last_name]" placeholder="<?php echo t("last_name"); ?>" class="span10" value="<?php echo $last_name; ?>" />
 					</div>
 					<div>
 						<select name="competitor[<?php echo $i; ?>][country]">
@@ -47,7 +47,7 @@
 			<?php } ?>
 			</div>
 			<div class="modal-footer">
-				<a href="#" role="button" class="btn btn-primary submit-form">Spara</a>
+				<a href="#" role="button" class="btn btn-primary submit-form"><?php echo t("save"); ?></a>
 			</div>
 		</div>
 	</form>

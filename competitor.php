@@ -12,19 +12,19 @@
 		</div>
 		<div class="modal-body">
 			<?php if (sizeof($results->distance_results) > 0) { ?>
-				<h3>Distans</h3>
+				<h3><?php echo t("distance"); ?></h3>
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Tävling</th>
-							<?php if (HAS_CLASSES) { ?><th>Klass</th><?php } ?>
-							<th class="align_right">Snitthastighet</th>
+							<th><?php echo t("competition"); ?></th>
+							<?php if (HAS_CLASSES) { ?><th><?php echo t("class"); ?></th><?php } ?>
+							<th class="align_right"><?php echo t("average_speed"); ?></th>
 							<?php if (HAS_CLASSES) { ?>
-								<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="<b>to:</b> placering totalt<br /><b>ju:</b> placering justerad för klasser">Placering <small>(to | ju)</small></span></th>
+								<th class="align_right nowrap"><span class="placing" data-toggle="popover" data-placement="top" data-content="<?php echo t("to_ju_tooltip"); ?>"><?php echo t("placing"); ?> <small><?php echo t("to_ju"); ?></small></span></th>
 							<?php } else { ?>
-								<th class="align_right">Placering</th>
+								<th class="align_right"><?php echo t("placing"); ?></th>
 							<?php } ?>
-							<th class="align_right">Poäng</th>
+							<th class="align_right"><?php echo t("points"); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,10 +47,10 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Tävling</th>
-							<th class="align_right">Snitthastighet</th>
-							<th class="align_right">Placering</th>							
-							<th class="align_right">Poäng</th>
+							<th><?php echo t("competition"); ?></th>
+							<th class="align_right"><?php echo t("average_speed"); ?></th>
+							<th class="align_right"><?php echo t("placing"); ?></th>							
+							<th class="align_right"><?php echo t("points"); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -69,20 +69,20 @@
 		</div>
 		<div class="modal-footer">
 			<div class="clearfix">
-				<h4>Poäng</h4>
+				<h4><?php echo t("points"); ?></h4>
         <?php if (count(disciplines()) > 1) { ?>
-  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_points; ?></span> <em>Sprint</em></p><?php } ?>
-  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_points; ?></span> <em>Distans</em></p><?php } ?>
+  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_points; ?></span> <em><?php echo t("sprint"); ?></em></p><?php } ?>
+  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_points; ?></span> <em><?php echo t("distance"); ?></em></p><?php } ?>
         <?php } ?>
-		    	<?php if (isset($results->points)) { ?><p><span class="badge"><?php echo $results->points; ?></span> <em>Total</em></p><?php } ?>
+		    	<?php if (isset($results->points)) { ?><p><span class="badge"><?php echo $results->points; ?></span> <em><?php echo t("total"); ?></em></p><?php } ?>
 			</div>
 			<div class="clearfix">
-				<h4>Ranking</h4>
+				<h4><?php echo t("ranking"); ?></h4>
         <?php if (count(disciplines()) > 1) { ?>
-  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_placing; ?></span> <em>Sprint</em></p><?php } ?>
-  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_placing; ?></span> <em>Distans</em></p><?php } ?>
+  				<?php if (sizeof($results->sprint_results) > 0) { ?><p><span class="badge"><?php echo $results->sprint_placing; ?></span> <em><?php echo t("sprint"); ?></em></p><?php } ?>
+  				<?php if (sizeof($results->distance_results) > 0) { ?><p><span class="badge"><?php echo $results->distance_placing; ?></span> <em><?php echo t("distance"); ?></em></p><?php } ?>
         <?php } ?>
-				<?php if (isset($results->placing)) { ?><p><span class="badge"><?php echo $results->placing; ?></span> <em>Total</em></p><?php } ?>
+				<?php if (isset($results->placing)) { ?><p><span class="badge"><?php echo $results->placing; ?></span> <em><?php echo t("total"); ?></em></p><?php } ?>
 			</div>
 		</div>
 	</div>

@@ -22,6 +22,11 @@
         <link rel="stylesheet" href="/css/datepicker.css" type="text/css" />
         <link rel="stylesheet" href="/css/jquery.handsontable.full.css" type="text/css" />
 
+		    <script type="text/javascript">
+          window.translations = <?php echo json_encode(unserialize(TRANSLATIONS)); ?>;
+			    window.urlRoot = "<?php echo URL_ROOT; ?>";
+		    </script>
+
         <script src="/js/jquery.js"></script>
         <script src="/js/main.js"></script>
         <script src="/js/bootstrap.js"></script>
@@ -29,10 +34,7 @@
         <script src="/js/jquery.dataTables.js"></script>
         <script src="/js/DT_bootstrap.js"></script>
         <script src="/js/jquery.handsontable.full.js"></script>
-		
-		<script type="text/javascript">
-			window.urlRoot = "<?php echo URL_ROOT; ?>";
-		</script>
+	
     </head>
     <body id="index" class="home" style="background:url(<?php echo BACKGROUND_IMAGE; ?>)">
       <div class="navbar navbar-fixed-top navbar-inverse">
@@ -46,20 +48,22 @@
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="/2014">2014</a></li>
-                    <li><a tabindex="-1" href="/2015">2015</a></li>
-                    <li><a tabindex="-1" href="/">2016</a></li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" href="/langlopp">Långlopp 2016</a></li>
+                    <?php foreach (dropdown_menu_items() as $href => $text) { ?>
+                      <?php if ($text == "divider") { ?>
+                        <li class="divider"></li>
+                      <?php } else { ?>
+                        <li><a tabindex="-1" href="<?php echo $href; ?>"><?php echo $text; ?></a></li>
+                      <?php } ?>
+                    <?php } ?>
                   </ul>
               </li>
 
         			<?php if (is_logged_in()) { ?>
-        			  <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Administrera</a></li>
-        				<li><a href="<?php echo URL_ROOT; ?>/logout">Logga ut</a></li>
+        			  <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin"><?php echo t("administer"); ?></a></li>
+        				<li><a href="<?php echo URL_ROOT; ?>/logout"><?php echo t("logout"); ?></a></li>
         			<?php } else { ?>
-        			  <li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/how">Om</a></li>	
-                <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin">Logga in</a></li>				       
+        			  <li<?php if (page() == "how") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/how"><?php echo t("about"); ?></a></li>	
+                <li<?php if (page() == "admin") { ?> class="active"<?php } ?>><a href="<?php echo URL_ROOT; ?>/admin"><?php echo t("login"); ?></a></li>				       
         			<?php } ?>	
             </ul>
           </div>
@@ -70,7 +74,7 @@
             <div class="row-fluid">
                 <div class="header-wrapper span12">
                 <header id="top-header" class="span12">
-                    <a href="<?php echo URL_ROOT; ?>" title="Swedish SUP Rankings"><img src="<?php echo LOGO_IMAGE; ?>" /></a>
+                    <a href="<?php echo URL_ROOT; ?>"><img src="<?php echo LOGO_IMAGE; ?>" /></a>
                 </header>
                 
                 
