@@ -161,11 +161,11 @@
 								<label for="status_3" class="radio"><input type="radio" name="status" id="status_3" value="3" /> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></label>
 							</div>
 							<div>
-								<textarea name="description" rows="10" placeholder="<?php echo t("Description"); ?>" class="span10"></textarea>
+								<textarea name="description" rows="10" placeholder="<?php echo t("description"); ?>" class="span10"></textarea>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary"><?php echo t("Save"); ?></button>
+							<button type="submit" class="btn btn-primary"><?php echo t("save"); ?></button>
 						</div>
 					</div>
 				</form>

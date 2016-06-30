@@ -10,12 +10,14 @@
 	}
 
 	function is_logged_in() {
-		return isset($_SESSION["user_id"]);
+    global $lang;
+		return isset($_SESSION[$lang."_user_id"]);
 	}
 	
 	function current_user() {
+    global $lang;
 		if (is_logged_in()) {
-			return get_user_by_id($_SESSION["user_id"]);
+			return get_user_by_id($_SESSION[$lang."_user_id"]);
 		}
 		return false;
 	}
@@ -28,9 +30,10 @@
 	}
 
 	function login($email, $password) {
-		$user = get_user_by_email($email);
+    global $lang;
+		$user = get_user_by_email_and_lang($email, $lang);
 		if ($user && $user->password == sha1($password)) {
-			$_SESSION["user_id"] = true;
+			$_SESSION[$lang."_user_id"] = true;
 			return true;		
 		} else {
 			return false;
@@ -38,7 +41,8 @@
 	}
 
 	function logout() {
-		if (isset($_SESSION["user_id"])) { unset($_SESSION["user_id"]); }
+    global $lang;
+		if (isset($_SESSION[$lang."_user_id"])) { unset($_SESSION[$lang."_user_id"]); }
 	}
 	
 	function competitors($gender) {

@@ -10,6 +10,7 @@
 		`email` VARCHAR(255) NOT NULL,
 		`password` TEXT NOT NULL,
 		`superadmin` TINYINT(1) NOT NULL default '0',
+		`lang` VARCHAR(255) NOT NULL,
 		PRIMARY KEY (`id`)
 		);";
 		$result = mysql_query($query);
@@ -63,6 +64,12 @@
 	
 	function get_user_by_email($email) {
 		$query = "SELECT * FROM users WHERE LOWER(email) = LOWER('".trim($email)."') LIMIT 1;";
+		$result = mysql_query($query);
+		return mysql_fetch_object($result);
+	}
+  
+	function get_user_by_email_and_lang($email, $lang) {
+		$query = "SELECT * FROM users WHERE LOWER(email) = LOWER('".trim($email)."') AND (lang = '".$lang."' OR superadmin = 1) LIMIT 1;";
 		$result = mysql_query($query);
 		return mysql_fetch_object($result);
 	}
