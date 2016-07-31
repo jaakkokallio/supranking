@@ -1,71 +1,64 @@
     <br />
     <ul>
-        <li><a href="#rub-intro">Introduktion</a></li>
-        <li><a href="#rub-why-license">Varför behöver jag tävlingslicens?</a></li>
-        <li><a href="#rub-how-license">Hur skaffar jag tävlingslicens?</a></li>
-        <li><a href="#rub-how-winner">Hur utses vinnaren av Svenska SUP Race Serien?</a></li>
-        <li><a href="#rub-how-ranking">Hur fungerar rankingen?</a></li>
-        <li><a href="#rub-how-much-worth">Hur mycket är en tävling värd?</a></li>
-        <li><a href="#rub-how-points-given">Hur fördelas poängen efter en tävling?</a></li>
-        <li><a href="#rub-how-points">Hur mycket poäng kan jag egentligen få?</a></li>
-        <li><a href="#rub-rules">Fullständiga tävlingsregler</a></li>
-        <li><a href="#rub-questions">Frågor?</a></li>
+        <li><a href="#rub-intro">Johdanto</a></li>
+        <li><a href="#rub-why-license">Miksi tarvitsen kilpailulisenssin?</a></li>
+        <li><a href="#rub-how-license">Miten saan kilpailulisenssin?</a></li>
+        <li><a href="#rub-how-winner">Miten Suomen SUP Rankingin voittaja valitaan?</a></li>
+        <li><a href="#rub-how-ranking">Miten ranking toimii?</a></li>
+        <li><a href="#rub-how-much-worth">Minkä arvoinen yksi ranking-kilpailu on?</a></li>
+        <li><a href="#rub-how-points-given">Miten kilpailun pisteet jaetaan?</a></li>
+        <li><a href="#rub-rules">Kilpailusäännöt</a></li>
+        <li><a href="#rub-questions">Kysymyksiä?</a></li>
 
     </ul>
     <br /> <br />
-    <h3 id="rub-intro">Introduktion</h3>
-    <p>Svenska SUP Race Serien är framtagen som ett initiativ för att driva Stand up paddle racing framåt i Sverige och motivera fler till att börja tävla.</p>
+    <h3 id="rub-intro">Johdanto</h3>
+    <p>Suomen SUP Ranking -kilpailusarjassa maamme parhaat SUP-melojat kisaavat toisiaan vastaan ja sarjan kruunaa SM-kisa, jossa pisteiden lisäksi jaetaan mestaruudet. Kilpailusarja on avoin kaikentasoisille kilpailijoille ja järjestäjät toivottavat tervetulleeksi myös vähemmän meloneet harrastajat tutustumaan rentoon ja hyvään kisatunnelmaan.</p>
 
-    <p>Tävlande (som innehar tävlingslicens) kommer att tjäna poäng genom att delta i tävlingar kopplade till Svenska SUP Race Serien och rankas därefter på ett liknande sätt som världscupen i längdskidor - dvs i sprint, distans och totalt.</p>
-
-    <p>Vinnaren av Svenska SUP Race Serien utses baserat på flest antal totalpoäng vid säsongens slut (efter finalen).</p>
+    <p>SUP-kilpailijat, joilla on voimassa oleva kilpailulisenssi saavat sijoituksensa mukaan ranking-pisteitä eri osalajeista, joita kilpailuissa järjestetään. Sijoitus määräytyy pisteiden mukaan sekä lajikohtaisesti (pitkä ja lyhyt rata) että kokonaismääräisenä. Kauden lopussa eniten pisteitä kerännyt kilpailija julistetaan voittajaksi.</p>
     <br />
-    <h3 id="rub-why-license">Varför behöver jag tävlingslicens?</h3>
-    <p>Enligt Svenska Kanotförbundets tävlingsbestämmelser ska alla kanotister och Stå-upp paddlare inneha licens från och med 1 januari det kalenderår man fyller 17 år.</p>
-    <p>Varje licenstagare är genom licensen olycksfallsförsäkrad i Folksam. Licensförsäkringen gäller under tävlingar och träningar samt vid resa till och från dessa.</p>
+    <h3 id="rub-why-license">Miksi tarvitsen kilpailulisenssin?</h3>
+    <p>Kilpailijakohtainen lisenssi mahdollistaa koko kilpailutoiminnan perusteiden toteuttamisen suunnitellun laajuden mukaisesti vuosittain. Liiton jäsenyys sisältää kilpailulisenssin, vakuutuksen ja osallistumisoikeuden ranking-sarjan kilpailuihin sekä SM-kilpailuihin 2016.</p>
+<br />
+    <h3 id="rub-how-license">Miten saan kilpailulisenssin?</h3>
+    <p>Lisenssin saa liittymällä Suomen SUP-liittoon. Liittymisen voi suorittaa täällä: <a href="https://holvi.com/shop/FSSFry/product/7c38ca42f2546dd8573321bf539a6706/" target="_blank">holvi.com</a></p>
     <br />
-    <h3 id="rub-how-license">Hur skaffar jag tävlingslicens?</h3>
-    <p>Lyssna med din klubb så fixar de en åt dig. Klubben måste vara kopplad till Svenska kanotförbundet.</p>
-    <br />
-    <h3 id="rub-how-winner">Hur utses vinnaren av Svenska SUP Race Serien?</h3>
-    <p>I finalen av Svenska SUP Race Serien koras en vinnare och det är personen som har mest <strong>TOTALPOÄNG</strong> efter finaltävlingarna. Medaljer delas även ut till andra och tredjepristagaren samt till de som presterat bäst i SPRINT respektive DISTANS.
-
-    <p>Finalen har en högsta kvot (stjärnstatus) på <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>.</p>
-
-    <p>Detta betyder att finalen ger mer poäng än andra tävlingar, och därför större chans till en bättre slutplacering för den som deltar.</p>
-    <p>På detta sätt gör vi finalen högst attraktiv trots att folk presterat mycket bra i övriga deltävlingar.</p>
-
-    <br />
-    <h3 id="rub-how-ranking">Hur fungerar rankingen?</h3>
-    <p>Rankinglistan visar alla tävlande som deltagit i något tävlingsevent under säsongen.</p>
-    <p>Det finns tre stycken discipliner, <strong>TOTAL</strong>, <strong>SPRINT</strong> och <strong>DISTANS</strong>, och deltagarna får poäng i samtliga (förutsatt att de deltar och genomför tävlingen). </p>
-    <p>
-        <strong>TOTALPOÄNGEN</strong> är en summering av poängen i SPRINT och DISTANS.
+    <h3 id="rub-how-winner">Miten Suomen SUP Rankingin voittaja valitaan?</h3>
+<p>Kauden päättyessä Suomen SUP Ranking -sarjan voittaa henkilö, jolla on eniten yhteispisteitä kerättynä eri kilpailuista. Palkinnot jaetaan kolmelle parhaalle yhdistetyn kilpailijalle, sekä myös parhaille sprintin ja matkakisan kilpailijoille.    
+    <p>SM-kisalla on suurin painoarvo  (tähteytys) pisteissä. Suuremman painoarvon kisoista on mahdollista saada enemmän ranking-pisteitä.</p>
+<br />
+    <h3 id="rub-how-ranking">Miten ranking toimii?</h3>
+    <p>Ranking-listalla on kaikki kauden aikana kilpailuista pisteitä saaneet kilpailijat. Listalla on eriteltynä kokonaispisteet ja lajikohtaiset pisteet (sprint ja matkakisa). Kilpailijoiden paremmuusjärjestys listalla muodostuu kauden kisoista saavutetulla yhteispistemäärästä.</p>
+<br />
+    <h3 id="rub-how-much-worth">Minkä arvoinen yksi ranking-kilpailu on?</h3>
+    <p>Kilpailuilla voi olla eri painoarvoja suhteessa muihin kilpailuihin. Kerroin vaihtelee yhdestä kolmeen ja kerroin määrittelee kilpailusta jaettavan pistesaldon. Pistesaldot ovat 100, 2000 ja 3000 pistettä.</p>
+<br />
+    <h3 id="rub-how-points-given">Miten kilpailun pisteet jaetaan?</h3>
+    <p>SM-kilpailujen jälkeen palkitaan Suomenmestari (kolme parasta) sekä kauden päätöstilaisuudessa lajiliitto palkitsee ranking-sarjojen voittajat.    </p>
+    <p>Ranking-pisteet kustakin ranking-osakilpailusta jaetaan seuraavasti    </p>
+  
+      <ol>
+        <li>sija = 1000 pistettä</li>
+        <li>sija = 750 pistettä</li>
+        <li>sija = 550 pistettä</li>
+        <li>sija = 400 pistettä</li>
+        <li>sija = 325 pistettä</li>
+        <li>sija = 250 pistettä</li>
+        <li>sija = 200 pistettä</li>
+        <li>sija = 150 pistettä</li>
+        <li>sija = 125 pistettä</li>
+        <li>sija = 100 pistettä</li>
+        <li>sija = 99, 12. Sija = 98, 13. Sija = 97 jne.</li>
+</ol>
+      <p>(osakilpailun pistelasku = lyhyt rata+ pitkärata, tasatilanteessa ratkaisee pitkän radan sijoitus,</p>
+<p><strong>Esimerkki<br>
+        </strong>Kilpailija 1 = Sprint 1. pitkärata 2. =2000<br>
+        Kilpailija 2 = Sprint 2. pitkärata 1. =2000<br>
+        Osakilpailupisteet : Kilpailija 1. =750 pistettä, kilpailija 2. = 1000 pistettä</p>
+<p>SM-kilpailusta jaetaan tuplapisteet.<br>
+</p>
+<h3 id="rub-rules">Kilpailusäännöt</h3>
+    <p>Kulloinkin voimassa oleva sääntökirja löytyy päivitettynä www-sivuilta osoitteesta: <a href="http://www.finssf.fi/sup-kilpailusaannot/" target="_blank">www.finssf.fi/sup-kilpailusaannot</a><br />
     </p>
-    <p>Poängen beräknas utifrån den <strong>sammanlagda poängpotten från dina <?php echo COMPETITIONS_ADDED_TO_SUM; ?> bästa</strong> resultat i varje disciplin - så det optimala är att delta och prestera på topp i <strong><?php echo COMPETITIONS_ADDED_TO_SUM; ?> sprinter och <?php echo COMPETITIONS_ADDED_TO_SUM; ?> distanser.</strong></p>
-    <br />
-    <h3 id="rub-how-much-worth">Hur mycket är en tävling värd?</h3>
-    <p>För varje tävling bestäms en poängpott utifrån dess stjärnstatus.</p>
-    <p>Det finns tre olika "stjärnstatusar" på ett tävlingsevent,<i class="icon-star"></i> (x1), <i class="icon-star"></i><i class="icon-star"></i> (x2) eller <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> (x3). </p>
-    <p>Dessa utgör en kvot som används i beräkningen av poängpotten för en tävling. SUP-kommittén beslutar om vilken stjärnstatus en tävling får ha.</p>
-    <p>Stjärnstatusen multipliceras med 1000 och ger poängpotten. Tävlingar med <i class="icon-star"></i><i class="icon-star"></i> har alltså 2000 poäng i poängpotten och tävlingar med <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> har 3000 poäng i poängpotten.</p>
-	<br />
-    <h3 id="rub-how-points-given">Hur fördelas poängen efter en tävling?</h3>
-    <p>Varje placering motsvarar en procentandel av poängpotten enligt följande tabell:</p>
-    <img src="images/table1-resultat-poang-vinnare.png" alt="table 1 - poäng resultat vinnare procentsats" />
-    <br /><br />
-    <p><strong>Exempel:</strong></p>
-    <p>Pelle har deltagit i två Stand up paddle-tävlingar med stjärnstatus <i class="icon-star"></i><i class="icon-star"></i> och har två 5:e platser i distans och två 6:e platser i sprint.</p>
-    <p>Poängräkningen är således: 2000*0,6 + 2000*0,6 = 2400 för distans, 2000*0,5 + 2000*0,5 = 2000 för sprint, vilket ger en totalpoäng på 2400 + 2000 = 4400.</p>
-    <br /><br />
-    <h3 id="rub-how-points">Hur mycket poäng kan jag egentligen få?</h3>
-    <p>Din rankingpoäng beräknas utifrån dina <?php echo COMPETITIONS_ADDED_TO_SUM; ?> bästa prestationer under säsongen för respektive disciplin (sprint och distans).
-    </p>
-    <p>Det optimala är alltså att man deltar på minst <?php echo COMPETITIONS_ADDED_TO_SUM; ?> deltävlingar och kör både distans och sprint. Skulle man inte prestera på topp på dessa <?php echo COMPETITIONS_ADDED_TO_SUM; ?> event kan man köra ytterligare tävlingar i chans om att få en bättre placering och förbättra sin ranking.
-    </p>
-	<br /><br />
-    <h3 id="rub-rules">Fullständiga tävlingsregler</h3>
-    <p>Ladda ner <a href="<?php echo URL_ROOT; ?>/Tavlingstekniska_regler_SUP.pdf" target="_blank">Tävlingstekniska regler Stand Up Paddling</a> för att läsa det fullständiga regelverket för Stand Up Paddle Racing i Sverige.</p>
-    <br /><br />
-    <h3 id="rub-questions">Frågor?</h3>
-    <p>Du kan ställa frågor på <a href="https://www.facebook.com/supkommitten" target="_blank">Svenska SUP-kommitténs facebooksida</a>.</p>
+    <h3 id="rub-questions">Kysymyksiä?</h3>
+    <p>Kysymyksiä ja keskustelua liiton Facebook-sivulla osoitteessa: <a href="https://www.facebook.com/finssf/" target="_blank">www.facebook.com/finssf</a></p>
